@@ -44,7 +44,6 @@ namespace MarkHeath.Nibbles
             this.labelLevel = new System.Windows.Forms.Label();
             this.labelRecord = new System.Windows.Forms.Label();
             this.labelSammy = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
             this.labelJake = new System.Windows.Forms.Label();
             this.buttonOnePlayer = new System.Windows.Forms.Button();
             this.buttonTwoPlayer = new System.Windows.Forms.Button();
@@ -163,20 +162,11 @@ namespace MarkHeath.Nibbles
             // labelSammy
             // 
             this.labelSammy.AutoSize = true;
-            this.labelSammy.Location = new System.Drawing.Point(16, 45);
+            this.labelSammy.Location = new System.Drawing.Point(13, 45);
             this.labelSammy.Name = "labelSammy";
             this.labelSammy.Size = new System.Drawing.Size(124, 13);
             this.labelSammy.TabIndex = 2;
             this.labelSammy.Text = "Sammy: Lives 5: Score 0";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(13, 45);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(124, 13);
-            this.label2.TabIndex = 2;
-            this.label2.Text = "Sammy: Lives 5: Score 0";
             // 
             // labelJake
             // 
@@ -235,7 +225,6 @@ namespace MarkHeath.Nibbles
             this.Controls.Add(this.buttonTwoPlayer);
             this.Controls.Add(this.buttonOnePlayer);
             this.Controls.Add(this.labelJake);
-            this.Controls.Add(this.label2);
             this.Controls.Add(this.labelSammy);
             this.Controls.Add(this.labelRecord);
             this.Controls.Add(this.labelLevel);
@@ -245,6 +234,7 @@ namespace MarkHeath.Nibbles
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "MainForm";
             this.Text = "Nibbles .NET";
+            this.Deactivate += new System.EventHandler(this.MainForm_Deactivate);
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainForm_FormClosing);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.MainForm_KeyDown);
             this.menuStrip1.ResumeLayout(false);
@@ -270,7 +260,6 @@ namespace MarkHeath.Nibbles
         private System.Windows.Forms.Label labelLevel;
         private System.Windows.Forms.Label labelRecord;
         private System.Windows.Forms.Label labelSammy;
-        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label labelJake;
         private System.Windows.Forms.Button buttonOnePlayer;
         private System.Windows.Forms.Button buttonTwoPlayer;
