@@ -304,7 +304,7 @@ namespace MarkHeath.Nibbles
                 for (int y = 0; y < Rows; y++)
                 {
                     Rectangle r = new Rectangle(x * BlockSize, y * BlockSize, BlockSize, BlockSize);
-                    switch (arena[x,y])
+                    switch (arena[x, y])
                     {
                         case CellType.Wall:
                             e.Graphics.FillRectangle(wallBrush, r);

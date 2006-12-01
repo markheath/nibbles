@@ -29,8 +29,8 @@ using System.Runtime.InteropServices;
 //      Build Number
 //      Revision
 //
-[assembly: AssemblyVersion("0.3.0.10")]
-[assembly: AssemblyFileVersion("0.3.0.10")]
+[assembly: AssemblyVersion("0.3.0.11")]
+[assembly: AssemblyFileVersion("0.3.0.11")]
 
 // 29 Nov 2006 v0.3 build 10
 // Conversion to Visual Studio 2005
@@ -55,5 +55,7 @@ using System.Runtime.InteropServices;
 // cooler drawing (rounded edges)
 // fairer winner for head-on collision
 // installer
+// custom level design
+// get rid of the surplus area at the top of snake arena
 
 // WPF conversion!

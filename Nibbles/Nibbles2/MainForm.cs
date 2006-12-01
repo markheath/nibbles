@@ -46,13 +46,32 @@ namespace MarkHeath.Nibbles
 
         private void OnFilePause(object sender, EventArgs e)
         {
+            if (snakeArenaControl.Paused)
+                Resume();
+            else
+                Pause();
+        }
+
+        private void Pause()
+        {
             // check that a game is running
             if (buttonOnePlayer.Enabled == false)
             {
-                snakeArenaControl.Paused = !snakeArenaControl.Paused;
-                timer1.Enabled = !snakeArenaControl.Paused;
+                snakeArenaControl.Paused = true;
+                timer1.Enabled = false;
             }
         }
+
+        private void Resume()
+        {
+            // check that a game is running
+            if (buttonOnePlayer.Enabled == false)
+            {
+                snakeArenaControl.Paused = false;
+                timer1.Enabled = true;
+            }
+        }
+
 
         private void OnFileOptions(object sender, EventArgs e)
         {
@@ -78,6 +97,7 @@ namespace MarkHeath.Nibbles
         // start a new game
         private void NewGame()
         {
+            snakeArenaControl.Paused = false;
             snake[0] = new Snake("Sammy", labelSammy.ForeColor);
             snake[1] = new Snake("Jake", labelJake.ForeColor);
             buttonOnePlayer.Enabled = false;
@@ -370,33 +390,60 @@ namespace MarkHeath.Nibbles
             //TODO: pause
             //Sammy - arrow keys
             //Jake - ASDW
-            switch (e.KeyCode)
+            if (!buttonOnePlayer.Enabled)
             {
-                case Keys.Up:
-                    snake[0].DesiredDirection.Enqueue(SnakeDirection.Up);
-                    break;
-                case Keys.Down:
-                    snake[0].DesiredDirection.Enqueue(SnakeDirection.Down);
-                    break;
-                case Keys.Left:
-                    snake[0].DesiredDirection.Enqueue(SnakeDirection.Left);
-                    break;
-                case Keys.Right:
-                    snake[0].DesiredDirection.Enqueue(SnakeDirection.Right);
-                    break;
-                case Keys.W:
-                    snake[1].DesiredDirection.Enqueue(SnakeDirection.Up);
-                    break;
-                case Keys.S:
-                    snake[1].DesiredDirection.Enqueue(SnakeDirection.Down);
-                    break;
-                case Keys.A:
-                    snake[1].DesiredDirection.Enqueue(SnakeDirection.Left);
-                    break;
-                case Keys.D:
-                    snake[1].DesiredDirection.Enqueue(SnakeDirection.Right);
-                    break;
+                if (snakeArenaControl.Paused)
+                {
+                    switch (e.KeyCode)
+                    {
+                        case Keys.Up:
+                        case Keys.Down:
+                        case Keys.Left:
+                        case Keys.Right:
+                        case Keys.W:
+                        case Keys.S:
+                        case Keys.A:
+                        case Keys.D:
+                            Resume();
+                            // and go on to do that direction keypress as well
+                            break;
+                    }
+                }
+                switch (e.KeyCode)
+                {
+                    case Keys.Up:
+                        snake[0].DesiredDirection.Enqueue(SnakeDirection.Up);
+                        break;
+                    case Keys.Down:
+                        snake[0].DesiredDirection.Enqueue(SnakeDirection.Down);
+                        break;
+                    case Keys.Left:
+                        snake[0].DesiredDirection.Enqueue(SnakeDirection.Left);
+                        break;
+                    case Keys.Right:
+                        snake[0].DesiredDirection.Enqueue(SnakeDirection.Right);
+                        break;
+                    case Keys.W:
+                        snake[1].DesiredDirection.Enqueue(SnakeDirection.Up);
+                        break;
+                    case Keys.S:
+                        snake[1].DesiredDirection.Enqueue(SnakeDirection.Down);
+                        break;
+                    case Keys.A:
+                        snake[1].DesiredDirection.Enqueue(SnakeDirection.Left);
+                        break;
+                    case Keys.D:
+                        snake[1].DesiredDirection.Enqueue(SnakeDirection.Right);
+                        break;
+                }
             }
+            
+
+        }
+
+        private void MainForm_Deactivate(object sender, EventArgs e)
+        {
+            Pause();
         }
 
     }
