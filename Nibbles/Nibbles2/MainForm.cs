@@ -85,14 +85,15 @@ namespace MarkHeath.Nibbles
 
         private void OnHelpAbout(object sender, EventArgs e)
         {
-            // TODO: about screen
+            Pause();
+            AboutForm aboutForm = new AboutForm();
+            aboutForm.ShowDialog();
         }
 
         private void OnHelpContents(object sender, EventArgs e)
         {
-            // TODO: launch help
+            System.Diagnostics.Process.Start("http://www.codeplex.com/nibbles/Wiki/View.aspx?title=Help%20Page");
         }
-
 
         // start a new game
         private void NewGame()
