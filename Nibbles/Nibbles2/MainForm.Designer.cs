@@ -78,7 +78,7 @@ namespace MarkHeath.Nibbles
             // 
             this.playerToolStripMenuItem.Name = "playerToolStripMenuItem";
             this.playerToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F2;
-            this.playerToolStripMenuItem.Size = new System.Drawing.Size(143, 22);
+            this.playerToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.playerToolStripMenuItem.Text = "&1 Player";
             this.playerToolStripMenuItem.Click += new System.EventHandler(this.OnOnePlayer);
             // 
@@ -86,7 +86,7 @@ namespace MarkHeath.Nibbles
             // 
             this.playerToolStripMenuItem1.Name = "playerToolStripMenuItem1";
             this.playerToolStripMenuItem1.ShortcutKeys = System.Windows.Forms.Keys.F3;
-            this.playerToolStripMenuItem1.Size = new System.Drawing.Size(143, 22);
+            this.playerToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
             this.playerToolStripMenuItem1.Text = "&2 Player";
             this.playerToolStripMenuItem1.Click += new System.EventHandler(this.OnTwoPlayer);
             // 
@@ -94,21 +94,22 @@ namespace MarkHeath.Nibbles
             // 
             this.pauseToolStripMenuItem.Name = "pauseToolStripMenuItem";
             this.pauseToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F4;
-            this.pauseToolStripMenuItem.Size = new System.Drawing.Size(143, 22);
+            this.pauseToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.pauseToolStripMenuItem.Text = "&Pause";
             this.pauseToolStripMenuItem.Click += new System.EventHandler(this.OnFilePause);
             // 
             // optionsToolStripMenuItem
             // 
             this.optionsToolStripMenuItem.Name = "optionsToolStripMenuItem";
-            this.optionsToolStripMenuItem.Size = new System.Drawing.Size(143, 22);
+            this.optionsToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.optionsToolStripMenuItem.Text = "&Options...";
+            this.optionsToolStripMenuItem.Visible = false;
             this.optionsToolStripMenuItem.Click += new System.EventHandler(this.OnFileOptions);
             // 
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(143, 22);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.exitToolStripMenuItem.Text = "E&xit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.OnFileExit);
             // 
@@ -125,14 +126,14 @@ namespace MarkHeath.Nibbles
             // 
             this.contentsToolStripMenuItem.Name = "contentsToolStripMenuItem";
             this.contentsToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F1;
-            this.contentsToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
+            this.contentsToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.contentsToolStripMenuItem.Text = "&Contents";
             this.contentsToolStripMenuItem.Click += new System.EventHandler(this.OnHelpContents);
             // 
             // aboutToolStripMenuItem
             // 
             this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
-            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
+            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.aboutToolStripMenuItem.Text = "&About";
             this.aboutToolStripMenuItem.Click += new System.EventHandler(this.OnHelpAbout);
             // 

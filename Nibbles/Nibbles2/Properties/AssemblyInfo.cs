@@ -29,9 +29,11 @@ using System.Runtime.InteropServices;
 //      Build Number
 //      Revision
 //
-[assembly: AssemblyVersion("0.3.0.11")]
-[assembly: AssemblyFileVersion("0.3.0.11")]
+[assembly: AssemblyVersion("0.4.0.12")]
+[assembly: AssemblyFileVersion("0.4.0.12")]
 
+// 31 Jan 2007 v0.4 build 11
+// some minor cleanup ready for first release
 // 29 Nov 2006 v0.3 build 10
 // Conversion to Visual Studio 2005
 // UserControl for snake arena
