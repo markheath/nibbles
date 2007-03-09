@@ -55,7 +55,7 @@ namespace MarkHeath.Nibbles
         private void Pause()
         {
             // check that a game is running
-            if (buttonOnePlayer.Enabled == false)
+            if (timer1.Enabled)
             {
                 snakeArenaControl.Paused = true;
                 timer1.Enabled = false;
