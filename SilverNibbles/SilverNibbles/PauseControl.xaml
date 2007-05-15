@@ -1,0 +1,10 @@
+﻿<Canvas xmlns="http://schemas.microsoft.com/client/2007" 
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+        Width="320"
+        Height="140"
+        >
+  <Rectangle x:Name="rectBorder" Width="320" Height="140" Stroke="Black" StrokeThickness="4" RadiusX="5" RadiusY="5" Fill="#FFC1C1C1" />
+             
+	<TextBlock x:Name="textBlockMessage" Width="304" Height="124" Canvas.Left="8" Canvas.Top="8" Text="Welcome To SilverNibbles" TextWrapping="Wrap"/>
+             
+</Canvas>
