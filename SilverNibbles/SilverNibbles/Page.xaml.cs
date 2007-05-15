@@ -441,7 +441,7 @@ namespace SilverNibbles
             {
                 // this is OK - will be not found first time in
             }
-            catch (Exception e)
+            catch (Exception)
             {
                 // first run on Vista seems to have a problem,
                 // that doesn't result in a FileNotFoundException
