@@ -16,9 +16,10 @@ namespace SilverNibbles
 
         Cell[,] arena;
         const int DefaultBlockSize = 8;
-
+        private bool noNumber;
+        private int currentNumber;
         const int Columns = 80;
-        const int Rows = 50;
+        const int Rows = 48;
         PauseControl pauseControl;
         TextBlock numberTextBlock;
 
@@ -32,10 +33,10 @@ namespace SilverNibbles
     "Sammy Keys: J=Left, K=Down, L=Right, I=Up\r\n" +
     "Jake Keys: A=Left, S=Down, D=Right, W=Up";
 
-        public Position NumberPosition
+        /*public Position NumberPosition
         { 
             get { return numberPosition; } 
-        }
+        }*/
 
         public SnakeArena()
         {
@@ -110,14 +111,16 @@ namespace SilverNibbles
 
         public void FindNumberLocation()
         {
+
+
             do
             {
-                numberPosition.X = rand.Next(1, 79);
-                numberPosition.Y = rand.Next(3, 49);
+                numberPosition.X = rand.Next(1, Columns - 1);
+                numberPosition.Y = rand.Next(1, Rows - 1);
             } while ((arena[numberPosition.X, numberPosition.Y].CellType != CellType.Blank) ||
                 (arena[numberPosition.X, numberPosition.Y + 1].CellType != CellType.Blank));
-            //arena[numberPosition.X, numberPosition.Y].CellType = CellType.TargetNumber;
-            //arena[numberPosition.X, numberPosition.Y + 1].CellType = CellType.TargetNumber;
+            arena[numberPosition.X, numberPosition.Y].CellType = CellType.TargetNumber;
+            arena[numberPosition.X, numberPosition.Y + 1].CellType = CellType.TargetNumber;
 
             numberTextBlock.SetValue<double>(Canvas.LeftProperty, numberPosition.X * DefaultBlockSize);
             // slightly adjust y value to make number sit nicely over the two squares
@@ -126,8 +129,24 @@ namespace SilverNibbles
             NoNumber = false;
         }
 
-        public int CurrentNumber { get; set; }
-        private bool noNumber;
+        public int CurrentNumber 
+        {
+            get
+            {
+                return currentNumber;
+            }
+            set
+            {
+                currentNumber = value;
+                if(currentNumber > 1)
+                {
+                    // clean up the position of the old number
+                    arena[numberPosition.X, numberPosition.Y].CellType = CellType.Blank;
+                    arena[numberPosition.X, numberPosition.Y + 1].CellType = CellType.Blank;
+                }
+            }
+        }
+
         public bool NoNumber 
         {
             get
@@ -156,11 +175,11 @@ namespace SilverNibbles
         public void DrawLevel(int level)
         {
             // 1. blank the grid
-            for (int x = 0; x < 80; x++)
+            for (int x = 0; x < Columns; x++)
             {
-                for (int y = 2; y < 50; y++)
+                for (int y = 0; y < Rows; y++)
                 {
-                    if (x == 0 || x == 79 || y == 2 || y == 49)
+                    if (x == 0 || x == Columns - 1 || y == 0 || y == Rows - 1)
                     {
                         arena[x, y].CellType = CellType.Wall;
                     }
@@ -179,12 +198,12 @@ namespace SilverNibbles
                 case 2:
                     for (int i = 19; i < 60; i++)
                     {
-                        arena[i, 25].CellType = CellType.Wall;
+                        arena[i, 23].CellType = CellType.Wall;
                     }
                     break;
 
                 case 3:
-                    for (int i = 9; i < 40; i++)
+                    for (int i = 7; i < 38; i++)
                     {
                         arena[19, i].CellType = CellType.Wall;
                         arena[59, i].CellType = CellType.Wall;
@@ -192,35 +211,35 @@ namespace SilverNibbles
                     break;
 
                 case 4:
-                    for (int i = 3; i < 30; i++)
+                    for (int i = 1; i < 28; i++)
                     {
                         arena[19, i].CellType = CellType.Wall;
-                        arena[59, 51 - i].CellType = CellType.Wall;
+                        arena[59, 47 - i].CellType = CellType.Wall;
                     }
                     for (int i = 1; i < 40; i++)
                     {
-                        arena[i, 37].CellType = CellType.Wall;
-                        arena[79 - i, 14].CellType = CellType.Wall;
+                        arena[i, 35].CellType = CellType.Wall;
+                        arena[79 - i, 12].CellType = CellType.Wall;
                     }
                     break;
 
                 case 5:
-                    for (int i = 12; i < 39; i++)
+                    for (int i = 10; i < 37; i++)
                     {
                         arena[20, i].CellType = CellType.Wall;
                         arena[58, i].CellType = CellType.Wall;
                     }
                     for (int i = 22; i < 57; i++)
                     {
-                        arena[i, 10].CellType = CellType.Wall;
-                        arena[i, 40].CellType = CellType.Wall;
+                        arena[i, 8].CellType = CellType.Wall;
+                        arena[i, 38].CellType = CellType.Wall;
                     }
                     break;
 
                 case 6:
-                    for (int i = 3; i < 49; i++)
+                    for (int i = 1; i < 47; i++)
                     {
-                        if ((i > 29) || (i < 22))
+                        if ((i > 27) || (i < 20))
                         {
                             arena[9, i].CellType = CellType.Wall;
                             arena[19, i].CellType = CellType.Wall;
@@ -234,21 +253,21 @@ namespace SilverNibbles
                     break;
 
                 case 7:
-                    for (int i = 3; i < 49; i += 2)
+                    for (int i = 1; i < 47; i += 2)
                     {
                         arena[39, i].CellType = CellType.Wall;
                     }
                     break;
 
                 case 8:
-                    for (int i = 3; i < 40; i++)
+                    for (int i = 1; i < 38; i++)
                     {
                         arena[9, i].CellType = CellType.Wall;
-                        arena[19, 51 - i].CellType = CellType.Wall;
+                        arena[19, 47 - i].CellType = CellType.Wall;
                         arena[29, i].CellType = CellType.Wall;
-                        arena[39, 51 - i].CellType = CellType.Wall;
+                        arena[39, 47 - i].CellType = CellType.Wall;
                         arena[49, i].CellType = CellType.Wall;
-                        arena[59, 51 - i].CellType = CellType.Wall;
+                        arena[59, 47 - i].CellType = CellType.Wall;
                         arena[69, i].CellType = CellType.Wall;
                     }
                     break;
@@ -256,13 +275,13 @@ namespace SilverNibbles
                 case 9:
                     for (int i = 5; i < 47; i++)
                     {
-                        arena[i, i].CellType = CellType.Wall;
-                        arena[i + 28, i].CellType = CellType.Wall;
+                        arena[i, i-2].CellType = CellType.Wall;
+                        arena[i + 28, i-2].CellType = CellType.Wall;
                     }
                     break;
 
                 default:
-                    for (int i = 3; i < 49; i += 2)
+                    for (int i = 1; i < 47; i += 2)
                     {
                         arena[9, i].CellType = CellType.Wall;
                         arena[19, i + 1].CellType = CellType.Wall;

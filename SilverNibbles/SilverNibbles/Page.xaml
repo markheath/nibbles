@@ -4,12 +4,12 @@
         Loaded="Page_Loaded" 
         x:Class="SilverNibbles.Page;assembly=ClientBin/SilverNibbles.dll"
         Width="640"
-        Height="400"
+        Height="440"
         Background="White"
         >
 	<Canvas.Resources>
 	  <Storyboard x:Name="timer">
-	    <DoubleAnimation Duration="00:00:0.1" />
+	    <DoubleAnimation Duration="00:00:0.08" />
 	  </Storyboard>
 	</Canvas.Resources>
 </Canvas>

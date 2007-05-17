@@ -10,15 +10,7 @@ using System.Windows.Media.Animation;
 using System.Windows.Shapes;
 using System.Xml;
 
-// Tasks:
-// Improve on colours
-// Create a separate SnakeArena
-// Level number label
 
-// ideas for enhanced drawing performance
-// Don't need rectangles for background, just collapse cells without snake or wall
-// Snake as a path
-// backgrounds drawn separately - get rid altogether of grid of rectangles
 
 namespace SilverNibbles
 {
@@ -46,6 +38,7 @@ namespace SilverNibbles
             InitializeComponent();
 
             arena = new SnakeArena();
+            arena.SetValue<double>(Canvas.TopProperty, 20);
             this.Children.Add(arena);
 
             sammyScoreTextBlock = new TextBlock();
@@ -122,82 +115,82 @@ namespace SilverNibbles
             switch (currentLevel)
             {
                 case 1:
-                    snake[0].CurrentPosition = new Position(49, 24);
+                    snake[0].CurrentPosition = new Position(49, 22);
                     snake[0].Direction = SnakeDirection.Right;
 
-                    snake[1].CurrentPosition = new Position(29, 24);
+                    snake[1].CurrentPosition = new Position(29, 22);
                     snake[1].Direction = SnakeDirection.Left;
                     break;
 
                 case 2:
-                    snake[0].CurrentPosition = new Position(59, 6);
+                    snake[0].CurrentPosition = new Position(59, 4);
                     snake[0].Direction = SnakeDirection.Left;
 
-                    snake[1].CurrentPosition = new Position(19, 42);
+                    snake[1].CurrentPosition = new Position(19, 40);
                     snake[1].Direction = SnakeDirection.Right;
                     break;
 
                 case 3:
-                    snake[0].CurrentPosition = new Position(49, 24);
+                    snake[0].CurrentPosition = new Position(49, 22);
                     snake[0].Direction = SnakeDirection.Up;
 
-                    snake[1].CurrentPosition = new Position(29, 24);
+                    snake[1].CurrentPosition = new Position(29, 22);
                     snake[1].Direction = SnakeDirection.Down;
                     break;
 
                 case 4:
-                    snake[0].CurrentPosition = new Position(59, 6);
+                    snake[0].CurrentPosition = new Position(59, 4);
                     snake[0].Direction = SnakeDirection.Left;
 
-                    snake[1].CurrentPosition = new Position(19, 42);
+                    snake[1].CurrentPosition = new Position(19, 40);
                     snake[1].Direction = SnakeDirection.Right;
                     break;
 
                 case 5:
-                    snake[0].CurrentPosition = new Position(49, 24);
+                    snake[0].CurrentPosition = new Position(49, 22);
                     snake[0].Direction = SnakeDirection.Up;
 
-                    snake[1].CurrentPosition = new Position(29, 24);
+                    snake[1].CurrentPosition = new Position(29, 22);
                     snake[1].Direction = SnakeDirection.Down;
                     break;
 
                 case 6:
-                    snake[0].CurrentPosition = new Position(64, 6);
+                    snake[0].CurrentPosition = new Position(64, 4);
                     snake[0].Direction = SnakeDirection.Down;
 
-                    snake[1].CurrentPosition = new Position(14, 42);
+                    snake[1].CurrentPosition = new Position(14, 40);
                     snake[1].Direction = SnakeDirection.Up;
                     break;
 
                 case 7:
-                    snake[0].CurrentPosition = new Position(64, 6);
+                    snake[0].CurrentPosition = new Position(64, 4);
                     snake[0].Direction = SnakeDirection.Down;
 
-                    snake[1].CurrentPosition = new Position(14, 42);
+                    snake[1].CurrentPosition = new Position(14, 40);
                     snake[1].Direction = SnakeDirection.Up;
                     break;
 
                 case 8:
-                    snake[0].CurrentPosition = new Position(64, 6);
+                    snake[0].CurrentPosition = new Position(64, 4);
                     snake[0].Direction = SnakeDirection.Down;
 
-                    snake[1].CurrentPosition = new Position(14, 42);
+                    snake[1].CurrentPosition = new Position(14, 40);
                     snake[1].Direction = SnakeDirection.Up;
                     break;
 
                 case 9:
-                    snake[0].CurrentPosition = new Position(74, 39);
+                    snake[0].CurrentPosition = new Position(74, 37);
                     snake[0].Direction = SnakeDirection.Up;
 
-                    snake[1].CurrentPosition = new Position(4, 14);
+                    snake[1].CurrentPosition = new Position(4, 12);
                     snake[1].Direction = SnakeDirection.Down;
                     break;
 
                 default:
-                    snake[0].CurrentPosition = new Position(64, 6);
+                    snake[0].CurrentPosition = new Position(64, 4);
                     snake[0].Direction = SnakeDirection.Down;
 
-                    snake[1].CurrentPosition = new Position(14, 42);
+                    snake[1].CurrentPosition = new Position(14, 40);
                     snake[1].Direction = SnakeDirection.Up;
                     break;
             }
@@ -312,18 +305,10 @@ namespace SilverNibbles
                 snake[n].Move();
 
                 // see if we collided with the number
-                if ((arena.NumberPosition.X == snake[n].CurrentPosition.X) &&
-                   ((arena.NumberPosition.Y == snake[n].CurrentPosition.Y) ||
-                    (arena.NumberPosition.Y + 1 == snake[n].CurrentPosition.Y)))
+                if (arena.GetCell(snake[n].CurrentPosition) == CellType.TargetNumber)
                 {
                     //numberTextBlock.Visibility = Visibility.Collapsed;
                     snake[n].Length += (arena.CurrentNumber * 4);
-
-                    // clear up the other half number
-                    arena.SetCell(arena.NumberPosition.X, 
-                        (arena.NumberPosition.Y == snake[n].CurrentPosition.Y) ? 
-                        arena.NumberPosition.Y + 1 : arena.NumberPosition.Y, CellType.Blank);
-
                     snake[n].Score += arena.CurrentNumber;
                     UpdateScores();
 
@@ -346,8 +331,9 @@ namespace SilverNibbles
 
             for (int n = 0; n < players; n++)
             {
+                CellType targetCellType = arena.GetCell(snake[n].CurrentPosition);
                 //If player runs into any point, or the head of the other snake, it dies.
-                if ((arena.GetCell(snake[n].CurrentPosition) != CellType.Blank) ||
+                if (((targetCellType != CellType.Blank) && (targetCellType != CellType.TargetNumber)) ||
                     (snake[0].CurrentPosition.Equals(snake[1].CurrentPosition)))
                 {
                     
