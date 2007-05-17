@@ -31,5 +31,29 @@ using System.Runtime.InteropServices;
 //
 // You can specify all the values or you can default the Revision and Build Numbers 
 // by using the '*' as shown below:
-[assembly: AssemblyVersion("1.1.0.0")]
-[assembly: AssemblyFileVersion("1.1.0.0")]
+[assembly: AssemblyVersion("1.2.0.0")]
+[assembly: AssemblyFileVersion("1.2.0.0")]
+
+// v1.02 17 May 2007
+// made snake arena 48 * 80 rather than 50 * 80 with two blank rows
+// made snake slightly faster
+// use CellType to govern target number collision
+// blank cells are now invisible, allowing potential gradient backgrounds
+
+
+// TODO:
+// - check all levels draw correctly
+// - experiment with rounded rectangles / circles? for snake cells
+// 2. fair outcome of head-on collisions
+// 3. animate the pause control in and out
+// 4. experiment drawing snake as a path
+
+// Tasks:
+// Improve on colours
+// Create a separate SnakeArena
+// Level number label
+
+// ideas for enhanced drawing performance
+// Don't need rectangles for background, just collapse cells without snake or wall
+// Snake as a path
+// backgrounds drawn separately - get rid altogether of grid of rectangles

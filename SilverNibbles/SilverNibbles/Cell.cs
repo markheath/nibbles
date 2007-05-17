@@ -98,18 +98,22 @@ namespace SilverNibbles
                     switch (this.cellType)
                     {
                         case CellType.Blank:
-                            rectangle.Fill = BlankBrush;
+                        case CellType.TargetNumber:
+                            //rectangle.Fill = BlankBrush;
+                            rectangle.Visibility = Visibility.Collapsed;
                             break;
                         case CellType.Wall:
+                            rectangle.Visibility = Visibility.Visible;
                             rectangle.Fill = WallBrush;
                             break;
                         case CellType.Sammy:
+                            rectangle.Visibility = Visibility.Visible;
                             rectangle.Fill = SammyBrush;
                             break;
-                        case CellType.TargetNumber:
-                            rectangle.Fill = NumberBrush;
+                            //rectangle.Fill = NumberBrush;
                             break;
                         case CellType.Jake:
+                            rectangle.Visibility = Visibility.Visible;
                             rectangle.Fill = JakeBrush;
                             break;
                     }
