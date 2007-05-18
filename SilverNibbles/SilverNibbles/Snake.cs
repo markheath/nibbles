@@ -40,10 +40,10 @@ namespace SilverNibbles
             polyline.StrokeLineJoin = PenLineJoin.Round;
             polyline.StrokeEndLineCap = PenLineCap.Round;
             polyline.StrokeStartLineCap = PenLineCap.Round;
-            ScaleTransform transform = new ScaleTransform();
-            transform.ScaleX = 8;
-            transform.ScaleY = 8;
-            polyline.RenderTransform = transform;
+            //ScaleTransform transform = new ScaleTransform();
+            //transform.ScaleX = 8;
+            //transform.ScaleY = 8;
+            //polyline.RenderTransform = transform;
             
         }
 

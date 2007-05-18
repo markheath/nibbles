@@ -41,19 +41,20 @@ using System.Runtime.InteropServices;
 // blank cells are now invisible, allowing potential gradient backgrounds
 // v1.03 18 May 2007
 // snake now uses a polyline - much nicer appearance, with rounded ends and corners
+// snakes drawn onto a snake canvas
 
 // TODO:
-// make a snake and wall canvas
-// draw the levels separately
+// make level control which draws levels separately
+// get rid of the rectangle array
 // experiment with gradients
-// 2. fair outcome of head-on collisions
-// 3. animate the pause control in and out
-// 4. experiment drawing snake as a path
+// fair outcome of head-on collisions
+// animate the pause control in and out
 
 // Tasks:
 // Improve on colours
 // Create a separate SnakeArena
 // Level number label
+// integrate with the DOM to allow tweaking the features
 
 // ideas for enhanced drawing performance
 // Don't need rectangles for background, just collapse cells without snake or wall
