@@ -105,10 +105,10 @@ namespace SilverNibbles
             //Initialize Snakes;
             snake[0].Length = 2;
             snake[0].Alive = true;
-            snake[0].Body.Clear();
+            snake[0].Clear();
             snake[1].Length = 2;
             snake[1].Alive = true;
-            snake[1].Body.Clear();
+            snake[1].Clear();
             //InitColors
 
             // Set snake positions
@@ -214,6 +214,7 @@ namespace SilverNibbles
             this.players = players;
             snake[0] = new Snake("Sammy", Color.FromRgb(255,128,0));
             snake[1] = new Snake("Jake", Color.FromRgb(255, 0, 255));
+            arena.SetSnakes(snake);
             currentLevel = 0;
             NewLevel();
             UpdateScores();
@@ -350,13 +351,13 @@ namespace SilverNibbles
                 }
                 else
                 {
-                    snake[n].Body.Enqueue(snake[n].CurrentPosition);
+                    snake[n].Enqueue(snake[n].CurrentPosition);
                     arena.SetCell(snake[n].CurrentPosition.X, 
                         snake[n].CurrentPosition.Y, 
                         (n == 0) ? CellType.Sammy : CellType.Jake);
-                    if (snake[n].Body.Count > snake[n].Length)
+                    if (snake[n].Count > snake[n].Length)
                     {
-                        Position erase = (Position)snake[n].Body.Dequeue();
+                        Position erase = (Position)snake[n].Dequeue();
                         arena.SetCell(erase.X, erase.Y, CellType.Blank);
                     }
                 }

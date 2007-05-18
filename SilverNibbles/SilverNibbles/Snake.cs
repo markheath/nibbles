@@ -16,29 +16,74 @@ namespace SilverNibbles
         string name;
         SnakeDirection direction;
         Queue<SnakeDirection> desiredDirection;
-        Queue<Position> body;
+        Queue<Point> body;
         int length;
         bool alive;
         int lives;
         int score;
         Color color;
         Position currentPos;
+        Polyline polyline;        
         
         public Snake(string name, Color color)
         {
-            body = new Queue<Position>();
+            body = new Queue<Point>();
             desiredDirection = new Queue<SnakeDirection>();
             length = 2;
             score = 0;
             lives = 5;
             this.color = color;
             this.name = name;
+            polyline = new Polyline();
+            polyline.Stroke = new SolidColorBrush(color);
+            polyline.StrokeThickness = 0.8;
+            polyline.StrokeLineJoin = PenLineJoin.Round;
+            polyline.StrokeEndLineCap = PenLineCap.Round;
+            polyline.StrokeStartLineCap = PenLineCap.Round;
+            ScaleTransform transform = new ScaleTransform();
+            transform.ScaleX = 8;
+            transform.ScaleY = 8;
+            polyline.RenderTransform = transform;
+            
         }
 
-        public Queue<Position> Body
+        public FrameworkElement Graphics
+        {
+            get { return polyline; }
+        }
+
+        public void Clear()
+        {
+            body.Clear();
+            polyline.Points = body.ToArray();
+        }
+
+        public void Enqueue(Position position)
+        {
+            body.Enqueue(new Point(position.X + 0.5, position.Y + 0.5));
+            polyline.Points = body.ToArray();
+        }
+
+        public Position Dequeue()
+        {
+            Point point = body.Dequeue();
+            polyline.Points = body.ToArray();
+            // will truncate the 0.5
+            return new Position((int)point.X,(int)point.Y);
+        }
+
+        public int Count
+        {
+            get 
+            { 
+                return body.Count; 
+            }
+        }
+
+        /*public Queue<Position> Body
         {
             get { return body; }
-        }
+        }*/
 
         public Queue<SnakeDirection> DesiredDirection
         {
