@@ -23,6 +23,7 @@ namespace SilverNibbles
         const int Rows = 48;
         PauseControl pauseControl;
         TextBlock numberTextBlock;
+        Canvas snakeCanvas;
 
         Random rand;
         Position numberPosition;
@@ -71,6 +72,16 @@ namespace SilverNibbles
             numberTextBlock = new TextBlock();
             rootElement.Children.Add(numberTextBlock);
 
+            snakeCanvas = new Canvas();
+            snakeCanvas.Width = this.Width;
+            snakeCanvas.Height = this.Height;
+            // snake canvas has no fill - it is transparent
+            ScaleTransform transform = new ScaleTransform();
+            transform.ScaleX = DefaultBlockSize;
+            transform.ScaleY = DefaultBlockSize;
+            snakeCanvas.RenderTransform = transform;
+            rootElement.Children.Add(snakeCanvas);
+
             NoNumber = true;
 
             pauseControl = new PauseControl();
@@ -88,14 +99,11 @@ namespace SilverNibbles
 
         public void SetSnakes(IEnumerable<Snake> newSnakes)
         {
-            foreach(Snake snake in snakes)
-            {
-                rootElement.Children.Remove(snake.Graphics);
-            }
+            snakeCanvas.Children.Clear();
             snakes.Clear();
             foreach (Snake snake in newSnakes)
             {
-                rootElement.Children.Add(snake.Graphics);
+                snakeCanvas.Children.Add(snake.Graphics);
                 snakes.Add(snake);
             }
         }
