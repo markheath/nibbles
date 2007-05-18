@@ -4,8 +4,8 @@
         Loaded="Page_Loaded" 
         x:Class="SilverNibbles.Page;assembly=ClientBin/SilverNibbles.dll"
         Width="640"
-        Height="440"
-        Background="White"
+        Height="460"
+        Background="LightYellow"
         >
 	<Canvas.Resources>
 	  <Storyboard x:Name="timer">

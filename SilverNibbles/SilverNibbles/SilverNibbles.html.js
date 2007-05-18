@@ -9,7 +9,7 @@ function createSilverlight()
 		id: "SilverlightControl",
 		properties: {
 			width: "640",
-			height: "400",
+			height: "440",
 			version: "0.95",
 			enableHtmlAccess: true
 		},

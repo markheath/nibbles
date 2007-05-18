@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Documents;
@@ -26,6 +27,7 @@ namespace SilverNibbles
         Random rand;
         Position numberPosition;
         GameStatus gameStatus;
+        List<Snake> snakes;
 
         public const string Instructions =
     "Press 1 to start a new one player game\r\n" +
@@ -45,7 +47,7 @@ namespace SilverNibbles
             this.Width = Columns * DefaultBlockSize;
             this.Height = Rows * DefaultBlockSize;
             CurrentNumber = -1;
-
+            this.snakes = new List<Snake>();
 
             numberPosition = new Position();
             rand = new Random();
@@ -77,10 +79,25 @@ namespace SilverNibbles
             pauseControl.SetValue<double>(Canvas.LeftProperty, (this.Width - pauseControl.Width) / 2);
             pauseControl.SetValue<double>(Canvas.TopProperty, (this.Height - pauseControl.Height) / 2);
             rootElement.Children.Add(pauseControl);
+            
             pauseControl.Text =
-                "SilverNibbles 1.01 by Mark Heath\r\n" +
-                Instructions;
+                String.Format("SilverNibbles 1.03 by Mark Heath\r\n{0}",
+                Instructions);
+            
+        }
 
+        public void SetSnakes(IEnumerable<Snake> newSnakes)
+        {
+            foreach(Snake snake in snakes)
+            {
+                rootElement.Children.Remove(snake.Graphics);
+            }
+            snakes.Clear();
+            foreach (Snake snake in newSnakes)
+            {
+                rootElement.Children.Add(snake.Graphics);
+                snakes.Add(snake);
+            }
         }
 
         public GameStatus GameStatus

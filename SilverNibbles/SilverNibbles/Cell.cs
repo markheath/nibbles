@@ -107,10 +107,8 @@ namespace SilverNibbles
                             rectangle.Fill = WallBrush;
                             break;
                         case CellType.Sammy:
-                            rectangle.Visibility = Visibility.Visible;
-                            rectangle.Fill = SammyBrush;
-                            break;
-                            //rectangle.Fill = NumberBrush;
+                            //rectangle.Visibility = Visibility.Visible;
+                            //rectangle.Fill = SammyBrush;
                             break;
                         case CellType.Jake:
                             rectangle.Visibility = Visibility.Visible;
