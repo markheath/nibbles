@@ -16,6 +16,7 @@ namespace SilverNibbles
         Return = 13,
         Escape = 27,
         Space = ' ',
+        N0 = '0',
         N1 = '1',
         N2 = '2',
         A = 'A', // 65
