@@ -31,8 +31,8 @@ using System.Runtime.InteropServices;
 //
 // You can specify all the values or you can default the Revision and Build Numbers 
 // by using the '*' as shown below:
-[assembly: AssemblyVersion("1.3.0.0")]
-[assembly: AssemblyFileVersion("1.3.0.0")]
+[assembly: AssemblyVersion("1.4.0.0")]
+[assembly: AssemblyFileVersion("1.4.0.0")]
 
 // v1.02 17 May 2007
 // made snake arena 48 * 80 rather than 50 * 80 with two blank rows
@@ -42,10 +42,11 @@ using System.Runtime.InteropServices;
 // v1.03 18 May 2007
 // snake now uses a polyline - much nicer appearance, with rounded ends and corners
 // snakes drawn onto a snake canvas
+// v1.04 20 May 2007
+// finally all walls drawn individually using LevelControl - no more rectangle array
+// level number label
 
 // TODO:
-// make level control which draws levels separately
-// get rid of the rectangle array
 // experiment with gradients
 // fair outcome of head-on collisions
 // animate the pause control in and out
@@ -53,10 +54,4 @@ using System.Runtime.InteropServices;
 // Tasks:
 // Improve on colours
 // Create a separate SnakeArena
-// Level number label
 // integrate with the DOM to allow tweaking the features
-
-// ideas for enhanced drawing performance
-// Don't need rectangles for background, just collapse cells without snake or wall
-// Snake as a path
-// backgrounds drawn separately - get rid altogether of grid of rectangles

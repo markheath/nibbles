@@ -24,6 +24,7 @@ namespace SilverNibbles
         TextBlock sammyScoreTextBlock;
         TextBlock jakeScoreTextBlock;
         TextBlock recordTextBlock;
+        TextBlock levelTextBlock;
         SnakeArena arena;
 
 
@@ -38,19 +39,26 @@ namespace SilverNibbles
             InitializeComponent();
 
             arena = new SnakeArena();
-            arena.SetValue<double>(Canvas.TopProperty, 20);
+            arena.SetValue<double>(Canvas.TopProperty, 40);
             this.Children.Add(arena);
 
             sammyScoreTextBlock = new TextBlock();
+            sammyScoreTextBlock.SetValue<double>(Canvas.TopProperty, 20);
             this.Children.Add(sammyScoreTextBlock);
+            
             jakeScoreTextBlock = new TextBlock();
             jakeScoreTextBlock.SetValue<double>(Canvas.LeftProperty, 450);
+            jakeScoreTextBlock.SetValue<double>(Canvas.TopProperty, 20);
             this.Children.Add(jakeScoreTextBlock);
 
             recordTextBlock = new TextBlock();
-            recordTextBlock.SetValue<double>(Canvas.LeftProperty, 200);
             this.Children.Add(recordTextBlock);
-            
+
+            levelTextBlock = new TextBlock();
+            levelTextBlock.SetValue<double>(Canvas.LeftProperty, 450);
+            this.Children.Add(levelTextBlock);
+
+
             LoadRecord();
             ShowRecord();
             // just to redraw screen
@@ -70,11 +78,6 @@ namespace SilverNibbles
             }
         }
 
-
-
-
-
-
         void timer_Completed(object sender, EventArgs e)
         {
             // ... do per tick stuff here...
@@ -86,20 +89,14 @@ namespace SilverNibbles
             timer.Begin();
         }
 
-
-
-
-
-
-
         // reset variables ready for the next level
         private void NewLevel()
         {
             arena.NoNumber = true;
             arena.CurrentNumber = 1;
             currentLevel = currentLevel + 1;
-            //labelLevel.Text = String.Format("Level {0}", currentLevel);
-
+            
+            levelTextBlock.Text = String.Format("Level: {0}", currentLevel);
             arena.DrawLevel(currentLevel);
 
             //Initialize Snakes;
@@ -458,7 +455,7 @@ namespace SilverNibbles
         void  rootElement_KeyDown(object sender, KeyboardEventArgs args)
         {
             Keys key = (Keys)args.PlatformKeyCode;
-
+            
             switch (arena.GameStatus)
             {
                 case GameStatus.Paused:
@@ -501,6 +498,10 @@ namespace SilverNibbles
                         case Keys.Escape:
                             arena.Pause("Paused - Press Space to continue");
                             break;
+                        case Keys.N0:
+                            NewLevel();
+                            break;
+
                     }
                     break;
                 case GameStatus.Stopped:
