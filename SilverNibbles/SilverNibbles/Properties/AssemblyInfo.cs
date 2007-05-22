@@ -48,6 +48,8 @@ using System.Runtime.InteropServices;
 // v1.05 22 May 2007
 // Made NewGame Scriptable (remember to also do the class), 
 // allowing HTML buttons to start new game
+// Also added some animation to fade and zoom the pause control in and out
+// Added a scale property to LevelControl
 
 // TODO:
 // experiment with gradients
