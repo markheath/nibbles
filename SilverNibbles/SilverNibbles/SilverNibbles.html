@@ -5,6 +5,15 @@
     
     <script type="text/javascript" src="Silverlight.js"></script>
     <script type="text/javascript" src="SilverNibbles.html.js"></script>
+    
+    <script type="text/javascript">
+    function onOnePlayerClick() {
+       var silverlight = document.getElementById('SilverlightControl');
+       silverlight.focus();
+       silverlight.Content.basic.NewGame(1);
+    }
+    </script>
+    
 </head>
 
 <!-- Give the keyboard focus to the Silverlight control by default -->
@@ -15,6 +24,10 @@
             createSilverlight();
         </script></div>
         
-<p>Source code available at <a href="http://www.codeplex.com/nibbles">http://www.codeplex.com/nibbles</a></p>        
+<p>Source code available at <a href="http://www.codeplex.com/nibbles">http://www.codeplex.com/nibbles</a></p>
+<p>Demonstrating calling methods from Javascript:
+</p>
+<p><input type="button" onclick="onOnePlayerClick()" value="New Game: One Player" /></p>
+
 </body>
 </html>

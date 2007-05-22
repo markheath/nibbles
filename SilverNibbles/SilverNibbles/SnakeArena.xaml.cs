@@ -86,7 +86,7 @@ namespace SilverNibbles
             rootElement.Children.Add(pauseControl);
             
             pauseControl.Text =
-                String.Format("SilverNibbles 1.04 by Mark Heath\r\n{0}",
+                String.Format("SilverNibbles 1.05 by Mark Heath\r\n{0}",
                 Instructions);
             
         }
@@ -110,14 +110,14 @@ namespace SilverNibbles
         public void Pause(string message)
         {
             gameStatus = GameStatus.Paused;
-            pauseControl.Visibility = Visibility.Visible;
+            pauseControl.Appear(); // Visibility = Visibility.Visible;
             pauseControl.Text = message;
         }
 
         public void Stop(string message)
         {
             gameStatus = GameStatus.Stopped;
-            pauseControl.Visibility = Visibility.Visible;
+            pauseControl.Appear(); // Visibility = Visibility.Visible;
             pauseControl.Text = message;
         }
 
@@ -125,7 +125,7 @@ namespace SilverNibbles
         public void Resume()
         {
             gameStatus = GameStatus.Running;
-            pauseControl.Visibility = Visibility.Collapsed;
+            pauseControl.Disappear(); //.Visibility = Visibility.Collapsed;
         }
 
         public void FindNumberLocation()
