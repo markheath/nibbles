@@ -56,11 +56,12 @@ namespace SilverNibbles
             arena = new CellType[Columns, Rows];
 
             levelControl = new LevelControl();
-            ScaleTransform levelTransform = new ScaleTransform();
+            levelControl.Scale = DefaultBlockSize;
+            /*ScaleTransform levelTransform = new ScaleTransform();
             levelTransform.ScaleX = DefaultBlockSize;
             levelTransform.ScaleY = DefaultBlockSize;
 
-            levelControl.RenderTransform = levelTransform;
+            levelControl.RenderTransform = levelTransform;*/
             rootElement.Children.Add(levelControl);
 
             numberTextBlock = new TextBlock();

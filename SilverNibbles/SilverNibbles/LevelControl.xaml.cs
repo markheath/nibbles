@@ -18,7 +18,7 @@ namespace SilverNibbles
         Color backgroundColor = Color.FromRgb(173, 216, 230); // light blue
         const int Columns = 80;
         const int Rows = 48;
-
+        ScaleTransform scale;
         
         public LevelControl()
         {
@@ -36,6 +36,8 @@ namespace SilverNibbles
             rectangle.Fill = new SolidColorBrush(backgroundColor);
             rootElement.Children.Add(rectangle);
 
+            scale = (ScaleTransform)rootElement.FindName("ScaleTransform");
+
             TranslateTransform translate = new TranslateTransform();
             translate.X = 0.5;
             translate.Y = 0.5;
@@ -43,7 +45,20 @@ namespace SilverNibbles
             rootElement.Children.Add(wallCanvas);
         }
 
-        public void AddLine(int X1, int Y1, int X2, int Y2, CellType[,] arena)
+        public double Scale
+        {
+            get 
+            { 
+                return scale.ScaleX; 
+            }
+            set
+            {
+                scale.ScaleX = value;
+                scale.ScaleY = value;
+            }
+        }
+
+        private void AddLine(int X1, int Y1, int X2, int Y2, CellType[,] arena)
         {
             Line line = new Line();
             line.X1 = X1;

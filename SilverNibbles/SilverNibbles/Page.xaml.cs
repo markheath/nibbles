@@ -73,9 +73,9 @@ namespace SilverNibbles
 
             try
             {
-                WebApplication.Current.RegisterScriptableObject("basic", this);
+                WebApplication.Current.RegisterScriptableObject("SilverNibbles", this);
             }
-            catch (Exception exc)
+            catch (Exception)
             {
             }
         }

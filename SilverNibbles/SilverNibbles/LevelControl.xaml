@@ -3,5 +3,7 @@
         Width="80"
         Height="48"
         >
-
+  <Canvas.RenderTransform>
+    <ScaleTransform ScaleX="1" ScaleY="1" x:Name="ScaleTransform" />
+  </Canvas.RenderTransform>
 </Canvas>

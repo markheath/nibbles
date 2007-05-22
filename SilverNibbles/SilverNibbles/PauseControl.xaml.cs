@@ -16,6 +16,8 @@ namespace SilverNibbles
         Rectangle rectBorder;
         Storyboard appear;
         Storyboard disappear;
+        ScaleTransform scale;
+
         public PauseControl()
         {
             System.IO.Stream s = this.GetType().Assembly.GetManifestResourceStream("SilverNibbles.PauseControl.xaml");
@@ -24,7 +26,7 @@ namespace SilverNibbles
             rectBorder = (Rectangle)rootElement.FindName("rectBorder");
             appear = (Storyboard)rootElement.FindName("Appear");
             disappear = (Storyboard)rootElement.FindName("Disappear");
-            //this.Opacity = 0;
+            scale = (ScaleTransform)rootElement.FindName("Scale");           
             
         }
 
@@ -74,7 +76,8 @@ namespace SilverNibbles
             rectBorder.Height = Height;
             textBlockMessage.Width = Width - 8 * 2;
             textBlockMessage.Height = Height - 8 * 2;
-            
+            scale.CenterX = Width / 2;
+            scale.CenterY = Height / 2;
         }
 
     }

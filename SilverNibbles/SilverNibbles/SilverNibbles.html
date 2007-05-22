@@ -7,10 +7,10 @@
     <script type="text/javascript" src="SilverNibbles.html.js"></script>
     
     <script type="text/javascript">
-    function onOnePlayerClick() {
+    function onNewGameClick(players) {
        var silverlight = document.getElementById('SilverlightControl');
        silverlight.focus();
-       silverlight.Content.basic.NewGame(1);
+       silverlight.Content.SilverNibbles.NewGame(players);
     }
     </script>
     
@@ -24,10 +24,10 @@
             createSilverlight();
         </script></div>
         
+<p>New game: <input type="button" onclick="onNewGameClick(1)" value="One Player" />
+<input type="button" onclick="onNewGameClick(2)" value="Two Players" /></p>
+
 <p>Source code available at <a href="http://www.codeplex.com/nibbles">http://www.codeplex.com/nibbles</a></p>
-<p>Demonstrating calling methods from Javascript:
-</p>
-<p><input type="button" onclick="onOnePlayerClick()" value="New Game: One Player" /></p>
 
 </body>
 </html>
