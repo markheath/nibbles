@@ -14,13 +14,30 @@ namespace SilverNibbles
     {
         TextBlock textBlockMessage;
         Rectangle rectBorder;
+        Storyboard appear;
+        Storyboard disappear;
         public PauseControl()
         {
             System.IO.Stream s = this.GetType().Assembly.GetManifestResourceStream("SilverNibbles.PauseControl.xaml");
             FrameworkElement rootElement = this.InitializeFromXaml(new System.IO.StreamReader(s).ReadToEnd());
             textBlockMessage = (TextBlock) rootElement.FindName("textBlockMessage");
             rectBorder = (Rectangle)rootElement.FindName("rectBorder");
+            appear = (Storyboard)rootElement.FindName("Appear");
+            disappear = (Storyboard)rootElement.FindName("Disappear");
+            //this.Opacity = 0;
             
+        }
+
+        public void Appear()
+        {
+            //this.Visibility = Visibility.Visible;
+            appear.Begin();
+        }
+
+        public void Disappear()
+        {
+            //this.Visibility = Visibility.Collapsed;
+            disappear.Begin();
         }
 
         public string Text

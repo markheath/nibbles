@@ -31,8 +31,8 @@ using System.Runtime.InteropServices;
 //
 // You can specify all the values or you can default the Revision and Build Numbers 
 // by using the '*' as shown below:
-[assembly: AssemblyVersion("1.4.0.0")]
-[assembly: AssemblyFileVersion("1.4.0.0")]
+[assembly: AssemblyVersion("1.5.0.0")]
+[assembly: AssemblyFileVersion("1.5.0.0")]
 
 // v1.02 17 May 2007
 // made snake arena 48 * 80 rather than 50 * 80 with two blank rows
@@ -45,6 +45,9 @@ using System.Runtime.InteropServices;
 // v1.04 20 May 2007
 // finally all walls drawn individually using LevelControl - no more rectangle array
 // level number label
+// v1.05 22 May 2007
+// Made NewGame Scriptable (remember to also do the class), 
+// allowing HTML buttons to start new game
 
 // TODO:
 // experiment with gradients

@@ -2,7 +2,23 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
         Width="320"
         Height="140"
+        x:Name="PauseCanvas"
         >
+  <Canvas.Resources>
+    <Storyboard x:Name="Appear">
+      <DoubleAnimation Storyboard.TargetName="PauseCanvas" Storyboard.TargetProperty="Opacity" From="0" To="1" Duration="0:0:0.5" />
+      <!--<DoubleAnimation Storyboard.TargetName="Scale" Storyboard.TargetProperty="ScaleX" From="0" To="1" Duration="0:0:1" />
+      <DoubleAnimation Storyboard.TargetName="Scale" Storyboard.TargetProperty="ScaleY" From="0" To="1" Duration="0:0:1" />-->
+    </Storyboard>
+    <Storyboard x:Name="Disappear">
+      <DoubleAnimation Storyboard.TargetName="PauseCanvas" Storyboard.TargetProperty="Opacity" From="1" To="0" Duration="0:0:0.5" />
+      <!--<DoubleAnimation Storyboard.TargetName="Scale" Storyboard.TargetProperty="ScaleX" From="1" To="0" Duration="0:0:1" />
+      <DoubleAnimation Storyboard.TargetName="Scale" Storyboard.TargetProperty="ScaleY" From="1" To="0" Duration="0:0:1" />-->
+    </Storyboard>    
+  </Canvas.Resources>
+  <Canvas.RenderTransform>
+    <ScaleTransform ScaleX="1" ScaleY="1" x:Name="Scale"/>
+  </Canvas.RenderTransform>
   <Rectangle x:Name="rectBorder" Width="320" Height="140" Stroke="Black" StrokeThickness="4" RadiusX="5" RadiusY="5" Fill="#FFC1C1C1" />
              
 	<TextBlock x:Name="textBlockMessage" Width="304" Height="124" Canvas.Left="8" Canvas.Top="8" Text="Welcome To SilverNibbles" TextWrapping="Wrap"/>

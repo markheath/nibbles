@@ -9,11 +9,13 @@ using System.Windows.Media;
 using System.Windows.Media.Animation;
 using System.Windows.Shapes;
 using System.Xml;
+using System.Windows.Browser;
 
 
 
 namespace SilverNibbles
 {
+    [Scriptable]
     public partial class Page : Canvas
     {
         private int currentLevel;
@@ -68,6 +70,14 @@ namespace SilverNibbles
             this.KeyDown += new System.Windows.Input.KeyboardEventHandler(rootElement_KeyDown);
             timer.Completed += new EventHandler(timer_Completed);
             timer.Begin();
+
+            try
+            {
+                WebApplication.Current.RegisterScriptableObject("basic", this);
+            }
+            catch (Exception exc)
+            {
+            }
         }
 
         void Page_LostFocus(object sender, EventArgs e)
@@ -206,7 +216,8 @@ namespace SilverNibbles
 
 
         // start a new game
-        private void NewGame(int players)
+        [Scriptable]
+        public void NewGame(int players)
         {
             this.players = players;
             snake[0] = new Snake("Sammy", Color.FromRgb(255,128,0));
