@@ -31,8 +31,8 @@ using System.Runtime.InteropServices;
 //
 // You can specify all the values or you can default the Revision and Build Numbers 
 // by using the '*' as shown below:
-[assembly: AssemblyVersion("1.5.0.0")]
-[assembly: AssemblyFileVersion("1.5.0.0")]
+[assembly: AssemblyVersion("1.6.0.0")]
+[assembly: AssemblyFileVersion("1.6.0.0")]
 
 // v1.02 17 May 2007
 // made snake arena 48 * 80 rather than 50 * 80 with two blank rows
@@ -50,6 +50,8 @@ using System.Runtime.InteropServices;
 // allowing HTML buttons to start new game
 // Also added some animation to fade and zoom the pause control in and out
 // Added a scale property to LevelControl
+// v1.06 23 May 2007
+// Fixes to keyboard handling for people who hold down the keys and fill the buffer
 
 // TODO:
 // experiment with gradients

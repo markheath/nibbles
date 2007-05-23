@@ -483,28 +483,28 @@ namespace SilverNibbles
                     switch (key)
                     {
                         case Keys.I:
-                            snake[0].DesiredDirection.Enqueue(SnakeDirection.Up);
+                            snake[0].EnqueueDirection(SnakeDirection.Up);
                             break;
                         case Keys.K:
-                            snake[0].DesiredDirection.Enqueue(SnakeDirection.Down);
+                            snake[0].EnqueueDirection(SnakeDirection.Down);
                             break;
                         case Keys.J:
-                            snake[0].DesiredDirection.Enqueue(SnakeDirection.Left);
+                            snake[0].EnqueueDirection(SnakeDirection.Left);
                             break;
                         case Keys.L:
-                            snake[0].DesiredDirection.Enqueue(SnakeDirection.Right);
+                            snake[0].EnqueueDirection(SnakeDirection.Right);
                             break;
                         case Keys.W:
-                            snake[1].DesiredDirection.Enqueue(SnakeDirection.Up);
+                            snake[1].EnqueueDirection(SnakeDirection.Up);
                             break;
                         case Keys.S:
-                            snake[1].DesiredDirection.Enqueue(SnakeDirection.Down);
+                            snake[1].EnqueueDirection(SnakeDirection.Down);
                             break;
                         case Keys.A:
-                            snake[1].DesiredDirection.Enqueue(SnakeDirection.Left);
+                            snake[1].EnqueueDirection(SnakeDirection.Left);
                             break;
                         case Keys.D:
-                            snake[1].DesiredDirection.Enqueue(SnakeDirection.Right);
+                            snake[1].EnqueueDirection(SnakeDirection.Right);
                             break;
                         case Keys.Escape:
                             arena.Pause("Paused - Press Space to continue");
