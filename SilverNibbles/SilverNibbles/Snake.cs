@@ -15,6 +15,7 @@ namespace SilverNibbles
     {
         string name;
         SnakeDirection direction;
+        SnakeDirection lastQueuedDirection = (SnakeDirection) (-1);
         Queue<SnakeDirection> desiredDirection;
         Queue<Point> body;
         int length;
@@ -88,6 +89,20 @@ namespace SilverNibbles
         public Queue<SnakeDirection> DesiredDirection
         {
             get { return desiredDirection; }
+        }
+
+        /// <summary>
+        /// Helper function ensures that we don't fill up the desired
+        /// direction queue with the same direction multiple times
+        /// when a user holds a key down
+        /// </summary>
+        public void EnqueueDirection(SnakeDirection newDirection)
+        {
+            if (newDirection != lastQueuedDirection)
+            {
+                desiredDirection.Enqueue(newDirection);
+                lastQueuedDirection = newDirection;
+            }
         }
 
         public string Name
