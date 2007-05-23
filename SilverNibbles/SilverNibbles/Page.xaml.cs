@@ -28,10 +28,80 @@ namespace SilverNibbles
         TextBlock recordTextBlock;
         TextBlock levelTextBlock;
         SnakeArena arena;
+        const int defaultSpeed = 5; //6;
+        private int startingSpeed = defaultSpeed;
+        private int speed = defaultSpeed;
 
 
         public Page()
         {
+        }
+
+        [Scriptable]
+        public int StartingSpeed
+        {
+            get
+            {
+                return startingSpeed;
+            }
+            set
+            {
+                if (value < 1)
+                    value = 1;
+                if (value > 10)
+                    value = 10;
+                startingSpeed = value;
+            }
+        }
+
+        public int Speed
+        {
+            get
+            {
+                return speed;
+            }
+            set
+            {
+                if (value < 1)
+                    value = 1;
+                if (value > 10)
+                    value = 10;
+                speed = value;
+                switch (speed)
+                {
+                    case 1:
+                        timer.Duration = new Duration(TimeSpan.FromMilliseconds(250));
+                        break;
+                    case 2:
+                        timer.Duration = new Duration(TimeSpan.FromMilliseconds(150));
+                        break;
+                    case 3:
+                        timer.Duration = new Duration(TimeSpan.FromMilliseconds(100));
+                        break;
+                    case 4:
+                        timer.Duration = new Duration(TimeSpan.FromMilliseconds(80));
+                        break;
+                    case 5:
+                        timer.Duration = new Duration(TimeSpan.FromMilliseconds(60));
+                        break;
+                    case 6:
+                        timer.Duration = new Duration(TimeSpan.FromMilliseconds(50));
+                        break;
+                    case 7:
+                        timer.Duration = new Duration(TimeSpan.FromMilliseconds(40));
+                        break;
+                    case 8:
+                        timer.Duration = new Duration(TimeSpan.FromMilliseconds(30));
+                        break;
+                    case 9:
+                        timer.Duration = new Duration(TimeSpan.FromMilliseconds(20));
+                        break;
+                    case 100:
+                        timer.Duration = new Duration(TimeSpan.FromMilliseconds(10));
+                        break;
+                }
+
+            }
         }
 
 
@@ -226,6 +296,7 @@ namespace SilverNibbles
             currentLevel = 0;
             NewLevel();
             UpdateScores();
+            Speed = StartingSpeed;
             arena.Resume();
             //snakeArenaControl.Focus();
         }
@@ -318,7 +389,7 @@ namespace SilverNibbles
                 {
                     //numberTextBlock.Visibility = Visibility.Collapsed;
                     snake[n].Length += (arena.CurrentNumber * 4);
-                    snake[n].Score += arena.CurrentNumber;
+                    snake[n].Score += GetScore(arena.CurrentNumber);
                     UpdateScores();
 
                     arena.NoNumber = true;
@@ -394,6 +465,10 @@ namespace SilverNibbles
 
         }
 
+        private int GetScore(int number)
+        {
+            return (10 + (currentLevel * 2) + Speed) * number;
+        }
 
         /// <summary>
         /// Show the current record score
@@ -509,8 +584,15 @@ namespace SilverNibbles
                         case Keys.Escape:
                             arena.Pause("Paused - Press Space to continue");
                             break;
+                        // debug keys
                         case Keys.N0:
                             NewLevel();
+                            break;
+                        case Keys.N8:
+                            Speed--;
+                            break;
+                        case Keys.N9:
+                            Speed++;
                             break;
 
                     }

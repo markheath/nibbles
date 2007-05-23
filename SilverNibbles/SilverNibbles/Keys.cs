@@ -19,6 +19,8 @@ namespace SilverNibbles
         N0 = '0',
         N1 = '1',
         N2 = '2',
+        N8 = '8',
+        N9 = '9',
         A = 'A', // 65
         D = 'D', // 68
         I = 'I',
