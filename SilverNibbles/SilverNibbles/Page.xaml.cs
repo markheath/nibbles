@@ -28,7 +28,7 @@ namespace SilverNibbles
         TextBlock recordTextBlock;
         TextBlock levelTextBlock;
         SnakeArena arena;
-        const int defaultSpeed = 5; //6;
+        const int defaultSpeed = 5;
         private int startingSpeed = defaultSpeed;
         private int speed = defaultSpeed;
 
@@ -76,22 +76,22 @@ namespace SilverNibbles
                         timer.Duration = new Duration(TimeSpan.FromMilliseconds(150));
                         break;
                     case 3:
-                        timer.Duration = new Duration(TimeSpan.FromMilliseconds(100));
+                        timer.Duration = new Duration(TimeSpan.FromMilliseconds(120));
                         break;
                     case 4:
-                        timer.Duration = new Duration(TimeSpan.FromMilliseconds(80));
+                        timer.Duration = new Duration(TimeSpan.FromMilliseconds(100));
                         break;
                     case 5:
-                        timer.Duration = new Duration(TimeSpan.FromMilliseconds(65));
+                        timer.Duration = new Duration(TimeSpan.FromMilliseconds(80));
                         break;
                     case 6:
-                        timer.Duration = new Duration(TimeSpan.FromMilliseconds(50));
+                        timer.Duration = new Duration(TimeSpan.FromMilliseconds(65));
                         break;
                     case 7:
-                        timer.Duration = new Duration(TimeSpan.FromMilliseconds(40));
+                        timer.Duration = new Duration(TimeSpan.FromMilliseconds(50));
                         break;
                     case 8:
-                        timer.Duration = new Duration(TimeSpan.FromMilliseconds(30));
+                        timer.Duration = new Duration(TimeSpan.FromMilliseconds(35));
                         break;
                     case 9:
                         timer.Duration = new Duration(TimeSpan.FromMilliseconds(20));
@@ -100,10 +100,28 @@ namespace SilverNibbles
                         timer.Duration = new Duration(TimeSpan.FromMilliseconds(10));
                         break;
                 }
+                SetLevelTextBlock();
 
             }
         }
 
+        public int CurrentLevel
+        {
+            get
+            {
+                return currentLevel;
+            }
+            set
+            {
+                currentLevel = value;
+                SetLevelTextBlock();
+            }
+        }
+
+        private void SetLevelTextBlock()
+        {
+            levelTextBlock.Text = String.Format("Level: {0} Speed: {1}", CurrentLevel, Speed);
+        }   
 
         public void Page_Loaded(object o, EventArgs e)
         {
@@ -170,26 +188,34 @@ namespace SilverNibbles
         }
 
         // reset variables ready for the next level
-        private void NewLevel()
+        private void NewLevel(int levelNumber)
         {
             arena.NoNumber = true;
             arena.CurrentNumber = 1;
-            currentLevel = currentLevel + 1;
-            
-            levelTextBlock.Text = String.Format("Level: {0}", currentLevel);
-            arena.DrawLevel(currentLevel);
+            CurrentLevel = levelNumber;
+
+            // Speedup
+            if (CurrentLevel > 5 && Speed < 5)
+                Speed++;
+            else if (CurrentLevel > 10 && Speed < 7)
+                Speed++;
+            else if (CurrentLevel > 15 && Speed < 9)
+                Speed++;
+
+            arena.DrawLevel(CurrentLevel);
 
             //Initialize Snakes;
-            snake[0].Length = 2;
+            int initialLength = CurrentLevel > 10 ? CurrentLevel * 2 : 2;
+            snake[0].Length = initialLength;
             snake[0].Alive = true;
             snake[0].Clear();
-            snake[1].Length = 2;
+            snake[1].Length = initialLength;
             snake[1].Alive = true;
             snake[1].Clear();
             //InitColors
 
             // Set snake positions
-            switch (currentLevel)
+            switch (CurrentLevel % 10)
             {
                 case 1:
                     snake[0].CurrentPosition = new Position(49, 22);
@@ -292,11 +318,10 @@ namespace SilverNibbles
             this.players = players;
             snake[0] = new Snake("Sammy", Color.FromRgb(255,128,0));
             snake[1] = new Snake("Jake", Color.FromRgb(255, 0, 255));
-            arena.SetSnakes(snake);
-            currentLevel = 0;
-            NewLevel();
-            UpdateScores();
+            arena.SetSnakes(snake);            
             Speed = StartingSpeed;
+            NewLevel(1);
+            UpdateScores();
             arena.Resume();
             //snakeArenaControl.Focus();
         }
@@ -388,7 +413,7 @@ namespace SilverNibbles
                 if (arena.GetCell(snake[n].CurrentPosition) == CellType.TargetNumber)
                 {
                     //numberTextBlock.Visibility = Visibility.Collapsed;
-                    snake[n].Length += (arena.CurrentNumber * 4);
+                    snake[n].Length += (arena.CurrentNumber * ((CurrentLevel > 10) ? 8 : 4));
                     snake[n].Score += GetScore(arena.CurrentNumber);
                     UpdateScores();
 
@@ -398,10 +423,11 @@ namespace SilverNibbles
                     arena.CurrentNumber++;
                     if (arena.CurrentNumber == 10)
                     {
-                        NewLevel();
-                        arena.Pause("Get Ready!\r\nPress SPACE to continue");
+                        CurrentLevel++;
 
-                        // TODO: speedup
+
+                        NewLevel(CurrentLevel);
+                        arena.Pause("Get Ready!\r\nPress SPACE to continue");
                     }
                 }
             }
@@ -458,8 +484,7 @@ namespace SilverNibbles
             }
             else if (playerDied)
             {
-                currentLevel--;
-                NewLevel();
+                NewLevel(CurrentLevel);
 
             }
 
@@ -467,7 +492,7 @@ namespace SilverNibbles
 
         private int GetScore(int number)
         {
-            return (10 + (currentLevel * 2) + Speed) * number;
+            return (10 + (CurrentLevel * 2) + Speed) * number;
         }
 
         /// <summary>
@@ -478,6 +503,10 @@ namespace SilverNibbles
             if (recordScore > 0)
             {
                 recordTextBlock.Text = String.Format("High Score: {0} on {1}", recordScore, recordDate.ToShortDateString());
+            }
+            else
+            {
+                recordTextBlock.Text = String.Format("High Score: 0");
             }
         }
 
@@ -586,7 +615,7 @@ namespace SilverNibbles
                             break;
                         // debug keys
                         case Keys.N0:
-                            NewLevel();
+                            NewLevel(++CurrentLevel);
                             break;
                         case Keys.N8:
                             Speed--;

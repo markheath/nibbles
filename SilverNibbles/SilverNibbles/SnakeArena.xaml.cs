@@ -87,7 +87,7 @@ namespace SilverNibbles
             rootElement.Children.Add(pauseControl);
             
             pauseControl.Text =
-                String.Format("SilverNibbles 1.06 by Mark Heath\r\n{0}",
+                String.Format("SilverNibbles 1.08 by Mark Heath\r\n{0}",
                 Instructions);
             
         }

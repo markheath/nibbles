@@ -19,6 +19,7 @@ namespace SilverNibbles
         const int Columns = 80;
         const int Rows = 48;
         ScaleTransform scale;
+        Rectangle backgroundRect;
         
         public LevelControl()
         {
@@ -27,14 +28,14 @@ namespace SilverNibbles
             wallCanvas = new Canvas();
 
             // outer border on all levels
-            Rectangle rectangle = new Rectangle();
-            rectangle.StrokeThickness = 1;
-            rectangle.Stroke = new SolidColorBrush(wallColor);
-            rectangle.StrokeLineJoin = PenLineJoin.Round;
-            rectangle.Height = Rows;
-            rectangle.Width = Columns;
-            rectangle.Fill = new SolidColorBrush(backgroundColor);
-            rootElement.Children.Add(rectangle);
+            backgroundRect = new Rectangle();
+            backgroundRect.StrokeThickness = 1;
+            backgroundRect.Stroke = new SolidColorBrush(wallColor);
+            backgroundRect.StrokeLineJoin = PenLineJoin.Round;
+            backgroundRect.Height = Rows;
+            backgroundRect.Width = Columns;
+            backgroundRect.Fill = new SolidColorBrush(backgroundColor);
+            rootElement.Children.Add(backgroundRect);
 
             scale = (ScaleTransform)rootElement.FindName("ScaleTransform");
 
@@ -107,8 +108,17 @@ namespace SilverNibbles
                     }
                 }
             }
+            if (level == 1)
+            {
+                backgroundRect.Fill = new SolidColorBrush(backgroundColor);
+            }
+            else if (level == 11)
+            {
+                // Reward the player with a new colour background (how exciting!)
+                backgroundRect.Fill = new SolidColorBrush(Color.FromRgb(238,221,130));
+            }
 
-            switch (level)
+            switch (level % 10)
             {
                 case 1:
                     break;
