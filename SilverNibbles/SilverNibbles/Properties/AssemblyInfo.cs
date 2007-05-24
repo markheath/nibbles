@@ -52,17 +52,12 @@ using System.Runtime.InteropServices;
 // Added a scale property to LevelControl
 // v1.06 23 May 2007
 // Fixes to keyboard handling for people who hold down the keys and fill the buffer
-// v1.07 
-// Beginnings of customizable speed support
+// v1.07 24 May 2007
+// Scriptable Initial speed and Speed properties
 // Score now tied to speed and level
+// Combo box on form to choose a starting speed
 
 
 // TODO:
 // experiment with gradients
 // fair outcome of head-on collisions
-// animate the pause control in and out
-
-// Tasks:
-// Improve on colours
-// Create a separate SnakeArena
-// integrate with the DOM to allow tweaking the features

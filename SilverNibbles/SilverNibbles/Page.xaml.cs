@@ -82,7 +82,7 @@ namespace SilverNibbles
                         timer.Duration = new Duration(TimeSpan.FromMilliseconds(80));
                         break;
                     case 5:
-                        timer.Duration = new Duration(TimeSpan.FromMilliseconds(60));
+                        timer.Duration = new Duration(TimeSpan.FromMilliseconds(65));
                         break;
                     case 6:
                         timer.Duration = new Duration(TimeSpan.FromMilliseconds(50));
@@ -96,7 +96,7 @@ namespace SilverNibbles
                     case 9:
                         timer.Duration = new Duration(TimeSpan.FromMilliseconds(20));
                         break;
-                    case 100:
+                    case 10:
                         timer.Duration = new Duration(TimeSpan.FromMilliseconds(10));
                         break;
                 }
