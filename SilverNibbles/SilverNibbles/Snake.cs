@@ -97,8 +97,8 @@ namespace SilverNibbles
         /// when a user holds a key down
         /// </summary>
         public void EnqueueDirection(SnakeDirection newDirection)
-        {
-            if (newDirection != lastQueuedDirection)
+        {            
+            if (newDirection != lastQueuedDirection || desiredDirection.Count == 0)
             {
                 desiredDirection.Enqueue(newDirection);
                 lastQueuedDirection = newDirection;

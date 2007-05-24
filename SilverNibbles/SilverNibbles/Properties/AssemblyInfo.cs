@@ -56,7 +56,12 @@ using System.Runtime.InteropServices;
 // Scriptable Initial speed and Speed properties
 // Score now tied to speed and level
 // Combo box on form to choose a starting speed
-
+// v1.08 24 May 2007
+// Another bugfix to keyboard handling
+// More fine-tuning of level speeds
+// Speedup code implemented
+// Current Speed displayed
+// Improved game behavour past level 10 (faster, longer snakes, different background)
 
 // TODO:
 // experiment with gradients
