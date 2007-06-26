@@ -12,6 +12,28 @@ namespace SilverNibbles
 {
     enum Keys
     {
+        Return = 3,
+        Escape = 8,
+        Space = 9,
+        Left = 14,
+        Up = 15,
+        Right = 16,
+        Down = 17,
+        N0 = 20,
+        N1 = 21,
+        N2 = 22,
+        N8 = 28,
+        N9 = 29,
+        A = 30,
+        D = 33,
+        I = 38,
+        J = 39,
+        K = 40,
+        L = 41,
+        S = 48,
+        W = 52,
+
+        /* These are platform key values
         // can't seem to get the cursor keys
         Return = 13,
         Escape = 27,
@@ -28,7 +50,7 @@ namespace SilverNibbles
         K = 'K',
         L = 'L',
         S = 'S',
-        W = 'W', // 87
+        W = 'W', // 87*/
 
     }
 }

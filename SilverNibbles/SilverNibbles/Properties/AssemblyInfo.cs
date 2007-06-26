@@ -62,6 +62,10 @@ using System.Runtime.InteropServices;
 // Speedup code implemented
 // Current Speed displayed
 // Improved game behavour past level 10 (faster, longer snakes, different background)
+// v1.09 26 Jun 2007
+// Changed to use Key rather than PlatformKeyCode
+// Support for cursor keys on key-up only (not great, as it also will scroll the page up and down)
+
 
 // TODO:
 // experiment with gradients
