@@ -156,6 +156,7 @@ namespace SilverNibbles
 
             this.LostFocus += new EventHandler(Page_LostFocus);
             this.KeyDown += new System.Windows.Input.KeyboardEventHandler(rootElement_KeyDown);
+            this.KeyUp += new KeyboardEventHandler(Page_KeyUp);
             timer.Completed += new EventHandler(timer_Completed);
             timer.Begin();
 
@@ -166,6 +167,19 @@ namespace SilverNibbles
             catch (Exception)
             {
             }
+        }
+
+        void Page_KeyUp(object sender, KeyboardEventArgs args)
+        {
+            // for some reason, cursor keys are only available on key_up,
+            Keys key = (Keys)args.Key;
+            if (key == Keys.Up || key == Keys.Down ||
+                key == Keys.Left || key == Keys.Right)
+            {
+                HandleKey(key);
+            }
+            
+            System.Diagnostics.Debug.WriteLine(String.Format("KeyUp: {0}", args.Key));
         }
 
         void Page_LostFocus(object sender, EventArgs e)
@@ -569,8 +583,12 @@ namespace SilverNibbles
 
         void  rootElement_KeyDown(object sender, KeyboardEventArgs args)
         {
-            Keys key = (Keys)args.PlatformKeyCode;
-            
+            Keys key = (Keys)args.Key;
+            HandleKey(key);
+        }
+
+        void HandleKey(Keys key)
+        {
             switch (arena.GameStatus)
             {
                 case GameStatus.Paused:
@@ -587,15 +605,19 @@ namespace SilverNibbles
                     switch (key)
                     {
                         case Keys.I:
+                        case Keys.Up:
                             snake[0].EnqueueDirection(SnakeDirection.Up);
                             break;
                         case Keys.K:
+                        case Keys.Down: 
                             snake[0].EnqueueDirection(SnakeDirection.Down);
                             break;
                         case Keys.J:
+                        case Keys.Left:
                             snake[0].EnqueueDirection(SnakeDirection.Left);
                             break;
                         case Keys.L:
+                        case Keys.Right:
                             snake[0].EnqueueDirection(SnakeDirection.Right);
                             break;
                         case Keys.W:
@@ -637,6 +659,7 @@ namespace SilverNibbles
                     }
                     break;
             }
+
         }
     }
 
