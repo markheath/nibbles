@@ -9,7 +9,8 @@
         >
 	<Canvas.Resources>
 	  <Storyboard x:Name="timer">
-	    <DoubleAnimation Duration="00:00:0.08" />
+	    <DoubleAnimation x:Name="animation" Duration="00:00:0.08" Storyboard.TargetName="InvisibleRect" Storyboard.TargetProperty="Width" />
 	  </Storyboard>
 	</Canvas.Resources>
+  <Rectangle Visibility="Collapsed" x:Name="InvisibleRect" />
 </Canvas>

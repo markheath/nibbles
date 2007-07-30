@@ -158,15 +158,19 @@ namespace SilverNibbles
             this.KeyDown += new System.Windows.Input.KeyboardEventHandler(rootElement_KeyDown);
             this.KeyUp += new KeyboardEventHandler(Page_KeyUp);
             timer.Completed += new EventHandler(timer_Completed);
-            timer.Begin();
-
             try
             {
-                WebApplication.Current.RegisterScriptableObject("SilverNibbles", this);
+                // was causing a "catastrophic error" due to
+                // the animation not having a target
+                timer.Begin();
             }
-            catch (Exception)
+            catch (Exception ex)
             {
+                Console.WriteLine(ex.ToString());
             }
+
+            WebApplication.Current.RegisterScriptableObject("SilverNibbles", this);
+
         }
 
         void Page_KeyUp(object sender, KeyboardEventArgs args)
