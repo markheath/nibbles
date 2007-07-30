@@ -26,4 +26,21 @@ function createSilverlight()
 
 }
 
+function onNewGameClick(players) {
+   var silverlightControl = document.getElementById('SilverlightControl');
+   if(silverlightControl)
+   {
+       silverlightControl.focus();
+       silverlightControl.Content.SilverNibbles.NewGame(players);
+   }
+}
+
+function onInitialSpeedChanged() {
+   var silverlightControl = document.getElementById('SilverlightControl');
+   var speedCombo = document.getElementById('InitialSpeedCombo');
+   var index = speedCombo.selectedIndex;
+   silverlightControl.Content.SilverNibbles.StartingSpeed = parseInt(speedCombo.options[index].value,10);
+   silverlightControl.focus();
+}
+
 
