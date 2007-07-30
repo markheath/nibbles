@@ -3,16 +3,27 @@
 //contains calls to silverlight.js, example below loads Page.xaml
 function createSilverlight()
 {
-	Sys.Silverlight.createObjectEx({
+
+	Silverlight.createObjectEx({
 		source: "Page.xaml",
 		parentElement: document.getElementById("SilverlightControlHost"),
 		id: "SilverlightControl",
 		properties: {
-			width: "640",
-			height: "440",
-			version: "0.95",
-			enableHtmlAccess: true
+			width: "100%",
+			height: "100%",
+			version: "1.1",
+			enableHtmlAccess: "true"
 		},
 		events: {}
 	});
+	   
+	// Give the keyboard focus to the Silverlight control by default
+    document.body.onload = function() {
+      var silverlightControl = document.getElementById('SilverlightControl');
+      if (silverlightControl)
+      silverlightControl.focus();
+    }
+
 }
+
+

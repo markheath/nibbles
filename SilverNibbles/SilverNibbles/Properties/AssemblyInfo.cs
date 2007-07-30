@@ -31,8 +31,8 @@ using System.Runtime.InteropServices;
 //
 // You can specify all the values or you can default the Revision and Build Numbers 
 // by using the '*' as shown below:
-[assembly: AssemblyVersion("1.7.0.0")]
-[assembly: AssemblyFileVersion("1.7.0.0")]
+[assembly: AssemblyVersion("1.10.0.0")]
+[assembly: AssemblyFileVersion("1.10.0.0")]
 
 // v1.02 17 May 2007
 // made snake arena 48 * 80 rather than 50 * 80 with two blank rows
@@ -65,7 +65,8 @@ using System.Runtime.InteropServices;
 // v1.09 26 Jun 2007
 // Changed to use Key rather than PlatformKeyCode
 // Support for cursor keys on key-up only (not great, as it also will scroll the page up and down)
-
+// v1.10 30 Jul 2007
+// Updated to work with the new July Silverlight Alpha refresh
 
 // TODO:
 // experiment with gradients

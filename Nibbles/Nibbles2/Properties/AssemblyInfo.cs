@@ -29,9 +29,12 @@ using System.Runtime.InteropServices;
 //      Build Number
 //      Revision
 //
-[assembly: AssemblyVersion("0.4.0.12")]
-[assembly: AssemblyFileVersion("0.4.0.12")]
+[assembly: AssemblyVersion("0.5.0.13")]
+[assembly: AssemblyFileVersion("0.5.0.13")]
 
+// 15 May 2007 v0.5 build 13
+// new release to coincide with SilverNibbles release 
+// fixed a redraw issue
 // 31 Jan 2007 v0.4 build 11
 // some minor cleanup ready for first release
 // 29 Nov 2006 v0.3 build 10
