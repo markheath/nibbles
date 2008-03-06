@@ -89,8 +89,7 @@
     <None Include="Properties\AppManifest.xml" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Default.html">
-    </None>
+    <Content Include="Default.htm" />
   </ItemGroup>
   <ItemGroup>
     <SilverlightPage Include="PauseControl.xaml">

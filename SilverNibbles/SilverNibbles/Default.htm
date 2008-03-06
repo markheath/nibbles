@@ -4,6 +4,7 @@
     <meta name="keywords" content="SilverNibbles, Microsoft, Silverlight, Game, Snake, Nibbles, .NET, Open Source" />
     <meta name="description" content="SilverNibbles is an open source snake game in Silverlight based on Microsoft QBASIC Nibbles." />
     <style type="text/css">
+        body { font-family: Tahoma,Arial,Sans-Serif; }
         #SilverlightControlHost { width: 640px; height: 440px; }
     </style>
     
@@ -38,7 +39,9 @@ function bodyOnLoad() {
 </head>
 
 <body onload="bodyOnLoad()">
-		
+	<h3>SilverNibbles - A Silverlight Snake Game</h3>
+<p>By Mark Heath. Source code available at <a href="http://www.codeplex.com/nibbles">http://www.codeplex.com/nibbles</a></p>
+
     <div id="SilverlightControlHost">
 		<object data="data:application/x-silverlight," type="application/x-silverlight-2-b1" id="SilverlightControl" Name="SilverlightControl" width="100%" height="100%">
 			<param name="source" value="ClientBin/SilverNibbles.xap"/>
@@ -51,7 +54,8 @@ function bodyOnLoad() {
 		</object>
 		<iframe style='visibility:hidden;height:0;width:0;border:0px'></iframe>
     </div>
-    
+    <p>n.b. If you are using FireFox, you may need to click on the game above for it to
+    accept keyboard input.</p>
         
 <p>New game: <input type="button" onclick="onNewGameClick(1)" value="One Player" />
 <input type="button" onclick="onNewGameClick(2)" value="Two Players" /></p>
@@ -72,7 +76,6 @@ function bodyOnLoad() {
 Jake Keys: A=Left, S=Down, D=Right, W=Up<br />
 Press Escape to Pause.</p>
 
-<p>Source code available at <a href="http://www.codeplex.com/nibbles">http://www.codeplex.com/nibbles</a></p>
 
 <script type="text/javascript"><!--
 google_ad_client = "pub-4583197049167294";
