@@ -8,15 +8,13 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Animation;
 using System.Windows.Shapes;
-using System.Xml;
 using System.Windows.Browser;
-
-
+using System.Xml;
 
 namespace SilverNibbles
 {
-    [Scriptable]
-    public partial class Page : Canvas
+    [ScriptableType]
+    public partial class Page : UserControl
     {
         private int currentLevel;
         private int recordScore;
@@ -32,12 +30,12 @@ namespace SilverNibbles
         private int startingSpeed = defaultSpeed;
         private int speed = defaultSpeed;
 
-
         public Page()
         {
+            InitializeComponent();
         }
 
-        [Scriptable]
+        [ScriptableMember]
         public int StartingSpeed
         {
             get
@@ -121,32 +119,29 @@ namespace SilverNibbles
         private void SetLevelTextBlock()
         {
             levelTextBlock.Text = String.Format("Level: {0} Speed: {1}", CurrentLevel, Speed);
-        }   
+        }
 
-        public void Page_Loaded(object o, EventArgs e)
+        private void Page_Loaded(object sender, RoutedEventArgs e)
         {
-            // Required to initialize variables
-            InitializeComponent();
-
             arena = new SnakeArena();
-            arena.SetValue<double>(Canvas.TopProperty, 40);
-            this.Children.Add(arena);
+            arena.SetValue(Canvas.TopProperty, 40);
+            parentCanvas.Children.Add(arena);
 
             sammyScoreTextBlock = new TextBlock();
-            sammyScoreTextBlock.SetValue<double>(Canvas.TopProperty, 20);
-            this.Children.Add(sammyScoreTextBlock);
+            sammyScoreTextBlock.SetValue(Canvas.TopProperty, 20);
+            parentCanvas.Children.Add(sammyScoreTextBlock);
             
             jakeScoreTextBlock = new TextBlock();
-            jakeScoreTextBlock.SetValue<double>(Canvas.LeftProperty, 450);
-            jakeScoreTextBlock.SetValue<double>(Canvas.TopProperty, 20);
-            this.Children.Add(jakeScoreTextBlock);
+            jakeScoreTextBlock.SetValue(Canvas.LeftProperty, 450);
+            jakeScoreTextBlock.SetValue(Canvas.TopProperty, 20);
+            parentCanvas.Children.Add(jakeScoreTextBlock);
 
             recordTextBlock = new TextBlock();
-            this.Children.Add(recordTextBlock);
+            parentCanvas.Children.Add(recordTextBlock);
 
             levelTextBlock = new TextBlock();
-            levelTextBlock.SetValue<double>(Canvas.LeftProperty, 450);
-            this.Children.Add(levelTextBlock);
+            levelTextBlock.SetValue(Canvas.LeftProperty, 450);
+            parentCanvas.Children.Add(levelTextBlock);
 
 
             LoadRecord();
@@ -154,9 +149,9 @@ namespace SilverNibbles
             // just to redraw screen
             arena.DrawLevel(1);
 
-            this.LostFocus += new EventHandler(Page_LostFocus);
-            this.KeyDown += new System.Windows.Input.KeyboardEventHandler(rootElement_KeyDown);
-            this.KeyUp += new KeyboardEventHandler(Page_KeyUp);
+            this.LostFocus += new RoutedEventHandler(Page_LostFocus);
+            this.KeyDown += new System.Windows.Input.KeyEventHandler(rootElement_KeyDown);
+            this.KeyUp += new KeyEventHandler(Page_KeyUp);
             timer.Completed += new EventHandler(timer_Completed);
             try
             {
@@ -169,11 +164,11 @@ namespace SilverNibbles
                 Console.WriteLine(ex.ToString());
             }
 
-            WebApplication.Current.RegisterScriptableObject("SilverNibbles", this);
+            HtmlPage.RegisterScriptableObject("SilverNibbles", this);
 
         }
 
-        void Page_KeyUp(object sender, KeyboardEventArgs args)
+        void Page_KeyUp(object sender, KeyEventArgs args)
         {
             // for some reason, cursor keys are only available on key_up,
             Keys key = (Keys)args.Key;
@@ -186,7 +181,7 @@ namespace SilverNibbles
             System.Diagnostics.Debug.WriteLine(String.Format("KeyUp: {0}", args.Key));
         }
 
-        void Page_LostFocus(object sender, EventArgs e)
+        void Page_LostFocus(object sender, RoutedEventArgs e)
         {
             if (arena.GameStatus == GameStatus.Running)
             {
@@ -330,12 +325,12 @@ namespace SilverNibbles
 
 
         // start a new game
-        [Scriptable]
+        [ScriptableMember]
         public void NewGame(int players)
         {
             this.players = players;
-            snake[0] = new Snake("Sammy", Color.FromRgb(255,128,0));
-            snake[1] = new Snake("Jake", Color.FromRgb(255, 0, 255));
+            snake[0] = new Snake("Sammy", Color.FromArgb(255,255,128,0));
+            snake[1] = new Snake("Jake", Color.FromArgb(255,255, 0, 255));
             arena.SetSnakes(snake);            
             Speed = StartingSpeed;
             NewLevel(1);
@@ -585,7 +580,7 @@ namespace SilverNibbles
             }
         }
 
-        void  rootElement_KeyDown(object sender, KeyboardEventArgs args)
+        void  rootElement_KeyDown(object sender, KeyEventArgs args)
         {
             Keys key = (Keys)args.Key;
             HandleKey(key);
@@ -665,6 +660,7 @@ namespace SilverNibbles
             }
 
         }
+
     }
 
 

@@ -1,9 +1,10 @@
-﻿<Canvas xmlns="http://schemas.microsoft.com/client/2007" 
-        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
-        Width="80"
-        Height="48"
-        >
-  <Canvas.RenderTransform>
-    <ScaleTransform ScaleX="1" ScaleY="1" x:Name="ScaleTransform" />
-  </Canvas.RenderTransform>
-</Canvas>
+﻿<UserControl x:Class="SilverNibbles.LevelControl"
+    xmlns="http://schemas.microsoft.com/client/2007" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+    Width="80" Height="48">
+    <Canvas x:Name="rootElement">
+        <Canvas.RenderTransform>
+            <ScaleTransform ScaleX="1" ScaleY="1" x:Name="ScaleTransform" />
+        </Canvas.RenderTransform>
+    </Canvas>
+</UserControl>

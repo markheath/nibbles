@@ -11,9 +11,9 @@ using System.Windows.Shapes;
 
 namespace SilverNibbles
 {
-    public class SnakeArena : Control
+    public partial class SnakeArena : UserControl
     {
-        Canvas rootElement;
+        //Canvas rootElement;
 
         CellType[,] arena;
         const int DefaultBlockSize = 8;
@@ -44,8 +44,9 @@ namespace SilverNibbles
 
         public SnakeArena()
         {
-            System.IO.Stream s = this.GetType().Assembly.GetManifestResourceStream("SilverNibbles.SnakeArena.xaml");
-            rootElement = (Canvas)this.InitializeFromXaml(new System.IO.StreamReader(s).ReadToEnd());
+            InitializeComponent();
+            //System.IO.Stream s = this.GetType().Assembly.GetManifestResourceStream("SilverNibbles.SnakeArena.xaml");
+            //rootElement = (Canvas)this.InitializeFromXaml(new System.IO.StreamReader(s).ReadToEnd());
             this.Width = Columns * DefaultBlockSize;
             this.Height = Rows * DefaultBlockSize;
             CurrentNumber = -1;
@@ -82,14 +83,12 @@ namespace SilverNibbles
             pauseControl = new PauseControl();
             pauseControl.Width = 380;
             pauseControl.Height = 140;
-            pauseControl.SetValue<double>(Canvas.LeftProperty, (this.Width - pauseControl.Width) / 2);
-            pauseControl.SetValue<double>(Canvas.TopProperty, (this.Height - pauseControl.Height) / 2);
-            rootElement.Children.Add(pauseControl);
-            
+            pauseControl.SetValue(Canvas.LeftProperty, (this.Width - pauseControl.Width) / 2);
+            pauseControl.SetValue(Canvas.TopProperty, (this.Height - pauseControl.Height) / 2);
+            rootElement.Children.Add(pauseControl);            
             pauseControl.Text =
-                String.Format("SilverNibbles 1.10 by Mark Heath\r\n{0}",                
-                Instructions);
-            
+                String.Format("SilverNibbles 1.11 by Mark Heath\r\n{0}",                
+                Instructions);            
         }
 
         public void SetSnakes(IEnumerable<Snake> newSnakes)
@@ -142,9 +141,9 @@ namespace SilverNibbles
             arena[numberPosition.X, numberPosition.Y] = CellType.TargetNumber;
             arena[numberPosition.X, numberPosition.Y + 1] = CellType.TargetNumber;
 
-            numberTextBlock.SetValue<double>(Canvas.LeftProperty, numberPosition.X * DefaultBlockSize);
+            numberTextBlock.SetValue(Canvas.LeftProperty, numberPosition.X * DefaultBlockSize);
             // slightly adjust y value to make number sit nicely over the two squares
-            numberTextBlock.SetValue<double>(Canvas.TopProperty, (numberPosition.Y * DefaultBlockSize) - 3);
+            numberTextBlock.SetValue(Canvas.TopProperty, (numberPosition.Y * DefaultBlockSize) - 3);
             numberTextBlock.Text = CurrentNumber.ToString();
             NoNumber = false;
         }

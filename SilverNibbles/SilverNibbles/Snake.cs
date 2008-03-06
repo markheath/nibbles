@@ -17,7 +17,6 @@ namespace SilverNibbles
         SnakeDirection direction;
         SnakeDirection lastQueuedDirection = (SnakeDirection) (-1);
         Queue<SnakeDirection> desiredDirection;
-        Queue<Point> body;
         int length;
         bool alive;
         int lives;
@@ -28,7 +27,6 @@ namespace SilverNibbles
         
         public Snake(string name, Color color)
         {
-            body = new Queue<Point>();
             desiredDirection = new Queue<SnakeDirection>();
             length = 2;
             score = 0;
@@ -55,20 +53,22 @@ namespace SilverNibbles
 
         public void Clear()
         {
-            body.Clear();
-            polyline.Points = body.ToArray();
+            polyline.Points.Clear();
         }
 
         public void Enqueue(Position position)
         {
-            body.Enqueue(new Point(position.X + 0.5, position.Y + 0.5));
-            polyline.Points = body.ToArray();
+            polyline.Points.Add(new Point(position.X + 0.5, position.Y + 0.5));
+            // yuck! need to do this to make the polyline redraw!
+            polyline.Points = polyline.Points;
         }
 
         public Position Dequeue()
         {
-            Point point = body.Dequeue();
-            polyline.Points = body.ToArray();
+            Point point = polyline.Points[0];
+            polyline.Points.RemoveAt(0);
+            // yuck! need to do this to make the polyline redraw!
+            polyline.Points = polyline.Points;
             // will truncate the 0.5
             return new Position((int)point.X,(int)point.Y);
         }
@@ -76,8 +76,8 @@ namespace SilverNibbles
         public int Count
         {
             get 
-            { 
-                return body.Count; 
+            {
+                return polyline.Points.Count; 
             }
         }
 
