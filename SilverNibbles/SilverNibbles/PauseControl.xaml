@@ -1,26 +1,24 @@
-﻿<Canvas xmlns="http://schemas.microsoft.com/client/2007" 
-        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
-        Width="320"
-        Height="140"
-        x:Name="PauseCanvas"
-        >
-  <Canvas.Resources>
-    <Storyboard x:Name="Appear">
-      <DoubleAnimation Storyboard.TargetName="PauseCanvas" Storyboard.TargetProperty="Opacity" From="0" To="1" Duration="0:0:0.3" />
-      <DoubleAnimation Storyboard.TargetName="Scale" Storyboard.TargetProperty="ScaleX" From="0.25" To="1" Duration="0:0:0.3" />
-      <DoubleAnimation Storyboard.TargetName="Scale" Storyboard.TargetProperty="ScaleY" From="0.25" To="1" Duration="0:0:0.3" />
-    </Storyboard>
-    <Storyboard x:Name="Disappear">
-      <DoubleAnimation Storyboard.TargetName="PauseCanvas" Storyboard.TargetProperty="Opacity" From="1" To="0" Duration="0:0:0.3" />
-      <DoubleAnimation Storyboard.TargetName="Scale" Storyboard.TargetProperty="ScaleX" From="1" To="0.25" Duration="0:0:0.3" />
-      <DoubleAnimation Storyboard.TargetName="Scale" Storyboard.TargetProperty="ScaleY" From="1" To="0.25" Duration="0:0:0.3" />
-    </Storyboard>    
-  </Canvas.Resources>
-  <Canvas.RenderTransform>
-    <ScaleTransform ScaleX="1" ScaleY="1" CenterX="160" CenterY="70" x:Name="Scale"/>
-  </Canvas.RenderTransform>
-  <Rectangle x:Name="rectBorder" Width="320" Height="140" Stroke="Black" StrokeThickness="4" RadiusX="5" RadiusY="5" Fill="#FFC1C1C1" />
-             
-	<TextBlock x:Name="textBlockMessage" Width="304" Height="124" Canvas.Left="8" Canvas.Top="8" Text="Welcome To SilverNibbles" TextWrapping="Wrap"/>
-             
-</Canvas>
+﻿<UserControl x:Class="SilverNibbles.PauseControl"
+    xmlns="http://schemas.microsoft.com/client/2007" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+    Width="320" Height="140">
+    <Border Width="320" Height="140" BorderBrush="Black" BorderThickness="4" CornerRadius="5" Background="#FFC1C1C1" x:Name="pauseBorder">
+        <Border.Resources>
+            <Storyboard x:Name="appearStoryboard">
+                <DoubleAnimation Storyboard.TargetName="pauseBorder" Storyboard.TargetProperty="Opacity" From="0" To="1" Duration="0:0:0.3" />
+                <DoubleAnimation Storyboard.TargetName="scaleTransform" Storyboard.TargetProperty="ScaleX" From="0.25" To="1" Duration="0:0:0.3" />
+                <DoubleAnimation Storyboard.TargetName="scaleTransform" Storyboard.TargetProperty="ScaleY" From="0.25" To="1" Duration="0:0:0.3" />
+            </Storyboard>
+            <Storyboard x:Name="disappearStoryboard">
+                <DoubleAnimation Storyboard.TargetName="pauseBorder" Storyboard.TargetProperty="Opacity" From="1" To="0" Duration="0:0:0.3" />
+                <DoubleAnimation Storyboard.TargetName="scaleTransform" Storyboard.TargetProperty="ScaleX" From="1" To="0.25" Duration="0:0:0.3" />
+                <DoubleAnimation Storyboard.TargetName="scaleTransform" Storyboard.TargetProperty="ScaleY" From="1" To="0.25" Duration="0:0:0.3" />
+            </Storyboard>
+        </Border.Resources>
+        <Border.RenderTransform>
+            <ScaleTransform ScaleX="1" ScaleY="1" CenterX="160" CenterY="70" x:Name="scaleTransform"/>
+        </Border.RenderTransform>
+        <TextBlock x:Name="textBlockMessage" Margin="8" Text="Welcome To SilverNibbles" TextWrapping="Wrap"/>
+        </Border>
+
+</UserControl>

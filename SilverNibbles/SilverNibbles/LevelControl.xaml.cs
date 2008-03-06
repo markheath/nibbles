@@ -10,12 +10,11 @@ using System.Windows.Shapes;
 
 namespace SilverNibbles
 {
-    public class LevelControl : Control
+    public partial class LevelControl : UserControl
     {
-        Canvas rootElement;
         Canvas wallCanvas;
-        Color wallColor = Color.FromRgb(40, 100, 160);
-        Color backgroundColor = Color.FromRgb(173, 216, 230); // light blue
+        Color wallColor = Color.FromArgb(255, 40, 100, 160);
+        Color backgroundColor = Color.FromArgb(255, 173, 216, 230); // light blue
         const int Columns = 80;
         const int Rows = 48;
         ScaleTransform scale;
@@ -23,8 +22,7 @@ namespace SilverNibbles
         
         public LevelControl()
         {
-            System.IO.Stream s = this.GetType().Assembly.GetManifestResourceStream("SilverNibbles.LevelControl.xaml");
-            rootElement = (Canvas)this.InitializeFromXaml(new System.IO.StreamReader(s).ReadToEnd());
+            InitializeComponent();
             wallCanvas = new Canvas();
 
             // outer border on all levels
@@ -115,7 +113,7 @@ namespace SilverNibbles
             else if (level == 11)
             {
                 // Reward the player with a new colour background (how exciting!)
-                backgroundRect.Fill = new SolidColorBrush(Color.FromRgb(238,221,130));
+                backgroundRect.Fill = new SolidColorBrush(Color.FromArgb(255,238,221,130));
             }
 
             switch (level % 10)

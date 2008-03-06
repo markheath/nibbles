@@ -1,6 +1,6 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 10.00
-# Visual Studio Codename Orcas
+# Visual Studio 2008
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SilverNibbles", "SilverNibbles\SilverNibbles.csproj", "{903F5505-E7CB-4444-9E89-AAFEABA32509}"
 EndProject
 Global

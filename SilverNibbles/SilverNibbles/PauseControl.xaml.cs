@@ -10,74 +10,29 @@ using System.Windows.Shapes;
 
 namespace SilverNibbles
 {
-    public class PauseControl : Control
+    public partial class PauseControl : UserControl
     {
-        TextBlock textBlockMessage;
-        Rectangle rectBorder;
-        Storyboard appear;
-        Storyboard disappear;
-        ScaleTransform scale;
-
         public PauseControl()
         {
-            System.IO.Stream s = this.GetType().Assembly.GetManifestResourceStream("SilverNibbles.PauseControl.xaml");
-            FrameworkElement rootElement = this.InitializeFromXaml(new System.IO.StreamReader(s).ReadToEnd());
-            textBlockMessage = (TextBlock) rootElement.FindName("textBlockMessage");
-            rectBorder = (Rectangle)rootElement.FindName("rectBorder");
-            appear = (Storyboard)rootElement.FindName("Appear");
-            disappear = (Storyboard)rootElement.FindName("Disappear");
-            scale = (ScaleTransform)rootElement.FindName("Scale");           
-            
+            InitializeComponent();     
         }
 
         public void Appear()
         {
             //this.Visibility = Visibility.Visible;
-            appear.Begin();
+            appearStoryboard.Begin();
         }
 
         public void Disappear()
         {
             //this.Visibility = Visibility.Collapsed;
-            disappear.Begin();
+            disappearStoryboard.Begin();
         }
 
         public string Text
         {
             get { return textBlockMessage.Text; }
             set { textBlockMessage.Text = value; }
-        }
-
-        // Sets/gets the Width of the actual control
-        public new double Width
-        {
-            get { return base.Width; }
-            set
-            {
-                base.Width = value;
-                UpdateLayout();
-            }
-        }
-
-        // Sets/gets the Height of the actual control
-        public virtual new double Height
-        {
-            get { return base.Height; }
-            set
-            {
-                base.Height = value;
-                UpdateLayout();
-            }
-        }
-
-        protected virtual void UpdateLayout()        
-        {
-            rectBorder.Width = Width;
-            rectBorder.Height = Height;
-            textBlockMessage.Width = Width - 8 * 2;
-            textBlockMessage.Height = Height - 8 * 2;
-            scale.CenterX = Width / 2;
-            scale.CenterY = Height / 2;
         }
 
     }
