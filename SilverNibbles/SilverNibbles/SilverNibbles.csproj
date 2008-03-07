@@ -54,6 +54,20 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="System.Xml" />
+    <SilverlightPage Include="Instructions.xaml">
+      <Generator>MSBuild:CompileXaml</Generator>
+      <SubType>Designer</SubType>
+    </SilverlightPage>
+    <SilverlightPage Include="Key.xaml">
+      <Generator>MSBuild:CompileXaml</Generator>
+      <SubType>Designer</SubType>
+    </SilverlightPage>
+    <Compile Include="Instructions.xaml.cs">
+      <DependentUpon>Instructions.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Key.xaml.cs">
+      <DependentUpon>Key.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App.xaml.cs">
