@@ -125,6 +125,8 @@ namespace SilverNibbles
         {
             arena = new SnakeArena();
             arena.SetValue(Canvas.TopProperty, 40);
+            arena.OnePlayerClick += new EventHandler<RoutedEventArgs>(arena_OnePlayerClick);
+            arena.TwoPlayerClick += new EventHandler<RoutedEventArgs>(arena_TwoPlayerClick);
             parentCanvas.Children.Add(arena);
 
             sammyScoreTextBlock = new TextBlock();
@@ -166,6 +168,16 @@ namespace SilverNibbles
 
             HtmlPage.RegisterScriptableObject("SilverNibbles", this);
 
+        }
+
+        void arena_TwoPlayerClick(object sender, RoutedEventArgs e)
+        {
+            NewGame(2);
+        }
+
+        void arena_OnePlayerClick(object sender, RoutedEventArgs e)
+        {
+            NewGame(1);
         }
 
         void Page_KeyUp(object sender, KeyEventArgs args)
@@ -353,7 +365,6 @@ namespace SilverNibbles
                     message += " - " + snake[1].Name + " wins!";
                 }
             }
-            message += "\r\n" + SnakeArena.Instructions;
             arena.Stop(message);
         }
 

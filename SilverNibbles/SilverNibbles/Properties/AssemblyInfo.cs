@@ -31,8 +31,8 @@ using System.Runtime.InteropServices;
 //
 // You can specify all the values or you can default the Revision and Build Numbers 
 // by using the '*' as shown below:
-[assembly: AssemblyVersion("1.11.0.0")]
-[assembly: AssemblyFileVersion("1.11.0.0")]
+[assembly: AssemblyVersion("1.12.0.0")]
+[assembly: AssemblyFileVersion("1.12.0.0")]
 
 // v1.02 17 May 2007
 // made snake arena 48 * 80 rather than 50 * 80 with two blank rows
@@ -69,6 +69,9 @@ using System.Runtime.InteropServices;
 // Updated to work with the new July Silverlight Alpha refresh
 // v1.11 6 Mar 2008
 // Updated to work with Silverlight 2.0 beta - major changes!
+// v1.12 7 Mar 2008
+// Improved the look of the instructions (slightly!)
+// Added some buttons to the PauseControl to solve FireFox keyboard focus issue
 
 // TODO:
 // experiment with gradients

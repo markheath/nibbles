@@ -1,8 +1,16 @@
 ﻿<UserControl x:Class="SilverNibbles.PauseControl"
     xmlns="http://schemas.microsoft.com/client/2007" 
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
-    Width="320" Height="140">
-    <Border Width="320" Height="140" BorderBrush="Black" BorderThickness="4" CornerRadius="5" Background="#FFC1C1C1" x:Name="pauseBorder">
+             xmlns:sn="clr-namespace:SilverNibbles"
+    Width="320" Height="180">
+    <Border Width="320" Height="180" BorderBrush="Black" BorderThickness="4" CornerRadius="5" x:Name="pauseBorder">
+        <Border.Background>
+            <LinearGradientBrush EndPoint="0,1">
+                <GradientStop Color="AliceBlue" Offset="-0.1" />
+                <GradientStop Color="Aqua" Offset="1.5" />
+
+            </LinearGradientBrush>
+        </Border.Background>
         <Border.Resources>
             <Storyboard x:Name="appearStoryboard">
                 <DoubleAnimation Storyboard.TargetName="pauseBorder" Storyboard.TargetProperty="Opacity" From="0" To="1" Duration="0:0:0.3" />
@@ -18,7 +26,16 @@
         <Border.RenderTransform>
             <ScaleTransform ScaleX="1" ScaleY="1" CenterX="160" CenterY="70" x:Name="scaleTransform"/>
         </Border.RenderTransform>
-        <TextBlock x:Name="textBlockMessage" Margin="8" Text="Welcome To SilverNibbles" TextWrapping="Wrap"/>
+        <StackPanel Orientation="Vertical">
+            <TextBlock x:Name="textBlockMessage" HorizontalAlignment="Center" Margin="8" Text="Welcome To SilverNibbles" TextWrapping="Wrap"/>
+            <sn:Instructions x:Name="instructions" Margin="50,0" Height="90" />
+            <StackPanel x:Name="buttonsPanel" Orientation="Horizontal" HorizontalAlignment="Center" >
+                <Button x:Name="button1Player"  Content="1 Player" Margin="10,0" Padding="5,0" Click="Button1_Click" />
+                <Button x:Name="button2Players" Content="2 Player" Margin="10,0" Padding="5,0" Click="Button2_Click"/>
+            </StackPanel>
+            
+        </StackPanel>
+        
         </Border>
 
 </UserControl>

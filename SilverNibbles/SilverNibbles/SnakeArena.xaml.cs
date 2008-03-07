@@ -14,7 +14,8 @@ namespace SilverNibbles
     public partial class SnakeArena : UserControl
     {
         //Canvas rootElement;
-
+        public event EventHandler<RoutedEventArgs> OnePlayerClick;
+        public event EventHandler<RoutedEventArgs> TwoPlayerClick;
         CellType[,] arena;
         const int DefaultBlockSize = 8;
         private bool noNumber;
@@ -31,16 +32,6 @@ namespace SilverNibbles
         GameStatus gameStatus;
         List<Snake> snakes;
 
-        public const string Instructions =
-    "Press 1 to start a new one player game\r\n" +
-    "Press 2 to start a new two player game\r\n" +
-    "Sammy Keys: J=Left, K=Down, L=Right, I=Up\r\n" +
-    "Jake Keys: A=Left, S=Down, D=Right, W=Up";
-
-        /*public Position NumberPosition
-        { 
-            get { return numberPosition; } 
-        }*/
 
         public SnakeArena()
         {
@@ -81,15 +72,15 @@ namespace SilverNibbles
             NoNumber = true;
 
             pauseControl = new PauseControl();
-            pauseControl.Width = 380;
-            pauseControl.Height = 140;
+            pauseControl.OnePlayerClick += OnOnePlayerClick;
+            pauseControl.TwoPlayerClick += OnTwoPlayerClick;
             pauseControl.SetValue(Canvas.LeftProperty, (this.Width - pauseControl.Width) / 2);
             pauseControl.SetValue(Canvas.TopProperty, (this.Height - pauseControl.Height) / 2);
             rootElement.Children.Add(pauseControl);            
-            pauseControl.Text =
-                String.Format("SilverNibbles 1.11 by Mark Heath\r\n{0}",                
-                Instructions);            
+            pauseControl.Text = "SilverNibbles 1.12 by Mark Heath";
         }
+
+
 
         public void SetSnakes(IEnumerable<Snake> newSnakes)
         {
@@ -110,14 +101,14 @@ namespace SilverNibbles
         public void Pause(string message)
         {
             gameStatus = GameStatus.Paused;
-            pauseControl.Appear(); // Visibility = Visibility.Visible;
+            pauseControl.Appear(true);
             pauseControl.Text = message;
         }
 
         public void Stop(string message)
         {
             gameStatus = GameStatus.Stopped;
-            pauseControl.Appear(); // Visibility = Visibility.Visible;
+            pauseControl.Appear(false);
             pauseControl.Text = message;
         }
 
@@ -125,7 +116,7 @@ namespace SilverNibbles
         public void Resume()
         {
             gameStatus = GameStatus.Running;
-            pauseControl.Disappear(); //.Visibility = Visibility.Collapsed;
+            pauseControl.Disappear();
         }
 
         public void FindNumberLocation()
@@ -195,10 +186,17 @@ namespace SilverNibbles
             levelControl.DrawLevel(level,arena);
 
         }
+        private void OnOnePlayerClick(object sender, RoutedEventArgs e)
+        {
+            if (OnePlayerClick != null)
+                OnePlayerClick(sender, e);
+        }
 
-        
+        private void OnTwoPlayerClick(object sender, RoutedEventArgs e)
+        {
+            if (TwoPlayerClick != null)
+                TwoPlayerClick(sender, e);
 
-
-
+        }
     }
 }

@@ -54,11 +54,16 @@ function bodyOnLoad() {
 		</object>
 		<iframe style='visibility:hidden;height:0;width:0;border:0px'></iframe>
     </div>
-    <p>n.b. If you are using FireFox, you may need to click on the game above for it to
-    accept keyboard input.</p>
+
+<!--
+Removed due to FireFox keyboard focus issues
+<p>n.b. If you are using FireFox, you may need to click on the game above for it to
+accept keyboard input.</p>
         
 <p>New game: <input type="button" onclick="onNewGameClick(1)" value="One Player" />
 <input type="button" onclick="onNewGameClick(2)" value="Two Players" /></p>
+-->
+
 <p>Initial speed: <select id="InitialSpeedCombo" onchange="onInitialSpeedChanged()">
 <option value="1">1 - Very Slow</option>
 <option value="2">2 - </option>
