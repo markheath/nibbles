@@ -1,0 +1,23 @@
+﻿<UserControl
+	xmlns="http://schemas.microsoft.com/client/2007"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+	mc:Ignorable="d"
+	x:Class="SilverNibbles.Key"
+	d:DesignWidth="48" d:DesignHeight="48">
+
+	<Grid x:Name="LayoutRoot">
+		<Rectangle HorizontalAlignment="Stretch" Margin="0,0,0,0" VerticalAlignment="Stretch" Stroke="#FF454545" RadiusX="9" RadiusY="9" StrokeThickness="2">
+			<Rectangle.Fill>
+				<LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+					<GradientStop Color="#FFA0A0A0" Offset="1"/>
+					<GradientStop Color="#FFFFFFFF" Offset="0"/>
+				</LinearGradientBrush>
+			</Rectangle.Fill>
+		</Rectangle>
+		<TextBlock x:Name="textBlockKey" HorizontalAlignment="Center" Margin="5" VerticalAlignment="Stretch" TextWrapping="Wrap" FontFamily="Verdana">
+			<Run x:Name="runKey" FontFamily="Verdana" FontSize="30" FontStretch="Normal" FontStyle="Normal" FontWeight="Bold" Foreground="#FF000000" Text="A"/>
+		</TextBlock>
+	</Grid>
+</UserControl>

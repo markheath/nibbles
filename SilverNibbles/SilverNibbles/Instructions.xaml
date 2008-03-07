@@ -1,0 +1,39 @@
+﻿<UserControl
+	xmlns="http://schemas.microsoft.com/client/2007"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+	mc:Ignorable="d"
+	x:Class="SilverNibbles.Instructions"
+	d:DesignWidth="640" d:DesignHeight="480" xmlns:SilverNibbles="clr-namespace:SilverNibbles" Width="442" Height="164">
+
+	<Grid x:Name="LayoutRoot" Background="White" >
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <TextBlock Grid.Column="0" Grid.Row="0" HorizontalAlignment="Center">
+			<Run FontFamily="Verdana" FontSize="14.666666984558106" FontStretch="Normal" FontStyle="Normal" FontWeight="Normal" Foreground="#FF000000" Text="Sammy"/>
+		</TextBlock>
+        <SilverNibbles:Key Grid.Row="1" Grid.Column="0" Height="48" Width="48" Text="I"/>
+        <StackPanel Grid.Row="2" Grid.Column="0" Orientation="Horizontal" >
+            <SilverNibbles:Key Height="48" Width="48" Text="J" Margin="2"/>
+            <SilverNibbles:Key Height="48" Width="48" Text="K" Margin="2"/>
+            <SilverNibbles:Key Height="48" Width="48" Text="L" Margin="2"/>
+        </StackPanel>
+        <TextBlock Grid.Column="1" Grid.Row="0" HorizontalAlignment="Center">
+			<Run FontFamily="Verdana" FontSize="14.666666984558106" FontStretch="Normal" FontStyle="Normal" FontWeight="Normal" Foreground="#FF000000" Text="Jake"/>
+		</TextBlock>
+        <SilverNibbles:Key Grid.Row="1" Grid.Column="1" Height="48" Width="48" Text="W"/>
+        <StackPanel Grid.Row="2" Grid.Column="1" Orientation="Horizontal" >
+            <SilverNibbles:Key Height="48" Width="48" Text="A" Margin="2"/>
+            <SilverNibbles:Key Height="48" Width="48" Text="S" Margin="2"/>
+            <SilverNibbles:Key Height="48" Width="48" Text="D" Margin="2"/>
+        </StackPanel>
+    </Grid>
+</UserControl>
