@@ -2,7 +2,22 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
              x:Class="SilverNibbles.App"
              >
-    <Application.Resources>
+    <Application.Resources>        
+       <!-- Can't put 
+        <SolidColorBrush x:Name="WallBrush" Color="#FF2864A0" />
+        <SolidColorBrush x:Name="BackgroundBrush" Color="#FFADD8E6" /> -->
+        <Style x:Key="LevelBackground" TargetType="Rectangle">
+            <Setter Property="Stroke" Value="#FF2864A0" />
+            <Setter Property="Fill">
+                <Setter.Value>
+                    <LinearGradientBrush EndPoint="0,1">
+                        <GradientStop Color="#FFADD8E6" Offset="0" />
+                        <GradientStop Color="White" Offset="1" />
+                    </LinearGradientBrush>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
 
     </Application.Resources>
 </Application>

@@ -36,8 +36,6 @@ namespace SilverNibbles
         public SnakeArena()
         {
             InitializeComponent();
-            //System.IO.Stream s = this.GetType().Assembly.GetManifestResourceStream("SilverNibbles.SnakeArena.xaml");
-            //rootElement = (Canvas)this.InitializeFromXaml(new System.IO.StreamReader(s).ReadToEnd());
             this.Width = Columns * DefaultBlockSize;
             this.Height = Rows * DefaultBlockSize;
             CurrentNumber = -1;
@@ -77,7 +75,7 @@ namespace SilverNibbles
             pauseControl.SetValue(Canvas.LeftProperty, (this.Width - pauseControl.Width) / 2);
             pauseControl.SetValue(Canvas.TopProperty, (this.Height - pauseControl.Height) / 2);
             rootElement.Children.Add(pauseControl);            
-            pauseControl.Text = "SilverNibbles 1.12 by Mark Heath";
+            pauseControl.Text = "SilverNibbles 1.13 by Mark Heath";
         }
 
 

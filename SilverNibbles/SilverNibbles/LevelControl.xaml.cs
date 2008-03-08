@@ -12,36 +12,14 @@ namespace SilverNibbles
 {
     public partial class LevelControl : UserControl
     {
-        Canvas wallCanvas;
         Color wallColor = Color.FromArgb(255, 40, 100, 160);
         Color backgroundColor = Color.FromArgb(255, 173, 216, 230); // light blue
         const int Columns = 80;
         const int Rows = 48;
-        ScaleTransform scale;
-        Rectangle backgroundRect;
         
         public LevelControl()
         {
             InitializeComponent();
-            wallCanvas = new Canvas();
-
-            // outer border on all levels
-            backgroundRect = new Rectangle();
-            backgroundRect.StrokeThickness = 1;
-            backgroundRect.Stroke = new SolidColorBrush(wallColor);
-            backgroundRect.StrokeLineJoin = PenLineJoin.Round;
-            backgroundRect.Height = Rows;
-            backgroundRect.Width = Columns;
-            backgroundRect.Fill = new SolidColorBrush(backgroundColor);
-            rootElement.Children.Add(backgroundRect);
-
-            scale = (ScaleTransform)rootElement.FindName("ScaleTransform");
-
-            TranslateTransform translate = new TranslateTransform();
-            translate.X = 0.5;
-            translate.Y = 0.5;
-            wallCanvas.RenderTransform = translate;
-            rootElement.Children.Add(wallCanvas);
         }
 
         public double Scale
@@ -106,6 +84,7 @@ namespace SilverNibbles
                     }
                 }
             }
+            /*
             if (level == 1)
             {
                 backgroundRect.Fill = new SolidColorBrush(backgroundColor);
@@ -114,7 +93,7 @@ namespace SilverNibbles
             {
                 // Reward the player with a new colour background (how exciting!)
                 backgroundRect.Fill = new SolidColorBrush(Color.FromArgb(255,238,221,130));
-            }
+            }*/
 
             switch (level % 10)
             {
@@ -134,19 +113,9 @@ namespace SilverNibbles
 
                 case 4:
                     // one line coming out of each wall
-                    /*for (int y = 1; y < 28; y++)
-                    {
-                        arena[19, y] = CellType.Wall;
-                        arena[59, 47 - y] = CellType.Wall;
-                    }*/
                     AddLine(19, 0, 19, 27, arena);
                     AddLine(59, 20, 59, 47, arena);
 
-                    /*for (int x = 1; x < 40; x++)
-                    {
-                        arena[x, 35] = CellType.Wall;
-                        arena[79 - x, 12] = CellType.Wall;
-                    }*/
                     AddLine(0, 35, 39, 35, arena);
                     AddLine(40, 12, 79, 12, arena);
 
@@ -154,19 +123,9 @@ namespace SilverNibbles
 
                 case 5:
                     // a square with gaps at the corners
-                    /*for (int y = 10; y < 37; y++)
-                    {
-                        arena[20, y] = CellType.Wall;
-                        arena[58, y] = CellType.Wall;
-                    }*/
                     AddLine(20, 10, 20, 36, arena);
                     AddLine(58, 10, 58, 36, arena);
 
-                    /*for (int x = 22; x < 57; x++)
-                    {
-                        arena[x, 8] = CellType.Wall;
-                        arena[x, 38] = CellType.Wall;
-                    }*/
                     AddLine(22, 8, 56, 8, arena);
                     AddLine(22, 38, 56, 38, arena);
                     break;
@@ -178,21 +137,6 @@ namespace SilverNibbles
                         AddLine(x, 0, x, 19, arena);
                         AddLine(x, 28, x, 47, arena);
                     }
-
-                    /*
-                    for (int y = 1; y < 47; y++)
-                    {
-                        if ((y > 27) || (y < 20))
-                        {
-                            arena[9, y] = CellType.Wall;
-                            arena[19, y] = CellType.Wall;
-                            arena[29, y] = CellType.Wall;
-                            arena[39, y] = CellType.Wall;
-                            arena[49, y] = CellType.Wall;
-                            arena[59, y] = CellType.Wall;
-                            arena[69, y] = CellType.Wall;
-                        }
-                    }*/
                     break;
 
                 case 7:
@@ -200,7 +144,6 @@ namespace SilverNibbles
                     for (int y = 1; y < 47; y += 2)
                     {
                         AddLine(39, y, 39, y, arena);
-                        //arena[39, i] = CellType.Wall;
                     }
                     break;
 
@@ -221,17 +164,6 @@ namespace SilverNibbles
                         }
                         down = !down;
                     }
-                    /*
-                    for (int y = 1; y < 38; y++)
-                    {
-                        arena[9, y] = CellType.Wall;
-                        arena[19, 47 - y] = CellType.Wall;
-                        arena[29, y] = CellType.Wall;
-                        arena[39, 47 - y] = CellType.Wall;
-                        arena[49, y] = CellType.Wall;
-                        arena[59, 47 - y] = CellType.Wall;
-                        arena[69, y] = CellType.Wall;
-                    }*/
                     break;
 
                 case 9:
@@ -240,8 +172,6 @@ namespace SilverNibbles
                     {
                         AddLine(i, i - 2, i, i - 2, arena);
                         AddLine(i + 28, i - 2, i + 28, i - 2, arena);
-                        //arena[i, i - 2] = CellType.Wall;
-                        //arena[i + 28, i - 2] = CellType.Wall;
                     }
                     break;
 
@@ -257,18 +187,6 @@ namespace SilverNibbles
                         }
                         odd = !odd;
                     }
-
-                    /*
-                    for (int i = 1; i < 47; i += 2)
-                    {
-                        arena[9, i] = CellType.Wall;
-                        arena[19, i + 1] = CellType.Wall;
-                        arena[29, i] = CellType.Wall;
-                        arena[39, i + 1] = CellType.Wall;
-                        arena[49, i] = CellType.Wall;
-                        arena[59, i + 1] = CellType.Wall;
-                        arena[69, i] = CellType.Wall;
-                    }*/
                     break;
             }
         }

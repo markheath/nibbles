@@ -10,6 +10,7 @@ using System.Windows.Media.Animation;
 using System.Windows.Shapes;
 using System.Windows.Browser;
 using System.Xml;
+using System.Windows.Threading;
 
 namespace SilverNibbles
 {
@@ -21,14 +22,10 @@ namespace SilverNibbles
         private DateTime recordDate;
         private int players;
         private Snake[] snake = new Snake[2];
-        TextBlock sammyScoreTextBlock;
-        TextBlock jakeScoreTextBlock;
-        TextBlock recordTextBlock;
-        TextBlock levelTextBlock;
-        SnakeArena arena;
         const int defaultSpeed = 5;
         private int startingSpeed = defaultSpeed;
         private int speed = defaultSpeed;
+        private DispatcherTimer timer;
 
         public Page()
         {
@@ -52,6 +49,9 @@ namespace SilverNibbles
             }
         }
 
+        // the timer intervals for each speed
+        private readonly int[] timerIntervals = new int[] { 250, 150, 120, 100, 80, 65, 50, 35, 20, 10 };
+
         public int Speed
         {
             get
@@ -65,41 +65,8 @@ namespace SilverNibbles
                 if (value > 10)
                     value = 10;
                 speed = value;
-                switch (speed)
-                {
-                    case 1:
-                        timer.Duration = new Duration(TimeSpan.FromMilliseconds(250));
-                        break;
-                    case 2:
-                        timer.Duration = new Duration(TimeSpan.FromMilliseconds(150));
-                        break;
-                    case 3:
-                        timer.Duration = new Duration(TimeSpan.FromMilliseconds(120));
-                        break;
-                    case 4:
-                        timer.Duration = new Duration(TimeSpan.FromMilliseconds(100));
-                        break;
-                    case 5:
-                        timer.Duration = new Duration(TimeSpan.FromMilliseconds(80));
-                        break;
-                    case 6:
-                        timer.Duration = new Duration(TimeSpan.FromMilliseconds(65));
-                        break;
-                    case 7:
-                        timer.Duration = new Duration(TimeSpan.FromMilliseconds(50));
-                        break;
-                    case 8:
-                        timer.Duration = new Duration(TimeSpan.FromMilliseconds(35));
-                        break;
-                    case 9:
-                        timer.Duration = new Duration(TimeSpan.FromMilliseconds(20));
-                        break;
-                    case 10:
-                        timer.Duration = new Duration(TimeSpan.FromMilliseconds(10));
-                        break;
-                }
+                timer.Interval = TimeSpan.FromMilliseconds(timerIntervals[speed-1]);
                 SetLevelTextBlock();
-
             }
         }
 
@@ -123,29 +90,9 @@ namespace SilverNibbles
 
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {
-            arena = new SnakeArena();
-            arena.SetValue(Canvas.TopProperty, 40);
             arena.OnePlayerClick += new EventHandler<RoutedEventArgs>(arena_OnePlayerClick);
             arena.TwoPlayerClick += new EventHandler<RoutedEventArgs>(arena_TwoPlayerClick);
-            parentCanvas.Children.Add(arena);
-
-            sammyScoreTextBlock = new TextBlock();
-            sammyScoreTextBlock.SetValue(Canvas.TopProperty, 20);
-            parentCanvas.Children.Add(sammyScoreTextBlock);
             
-            jakeScoreTextBlock = new TextBlock();
-            jakeScoreTextBlock.SetValue(Canvas.LeftProperty, 450);
-            jakeScoreTextBlock.SetValue(Canvas.TopProperty, 20);
-            parentCanvas.Children.Add(jakeScoreTextBlock);
-
-            recordTextBlock = new TextBlock();
-            parentCanvas.Children.Add(recordTextBlock);
-
-            levelTextBlock = new TextBlock();
-            levelTextBlock.SetValue(Canvas.LeftProperty, 450);
-            parentCanvas.Children.Add(levelTextBlock);
-
-
             LoadRecord();
             ShowRecord();
             // just to redraw screen
@@ -153,21 +100,11 @@ namespace SilverNibbles
 
             this.LostFocus += new RoutedEventHandler(Page_LostFocus);
             this.KeyDown += new System.Windows.Input.KeyEventHandler(rootElement_KeyDown);
-            this.KeyUp += new KeyEventHandler(Page_KeyUp);
-            timer.Completed += new EventHandler(timer_Completed);
-            try
-            {
-                // was causing a "catastrophic error" due to
-                // the animation not having a target
-                timer.Begin();
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex.ToString());
-            }
+            timer = new DispatcherTimer();
+            timer.Tick += timer_Completed;
+            timer.Start();
 
             HtmlPage.RegisterScriptableObject("SilverNibbles", this);
-
         }
 
         void arena_TwoPlayerClick(object sender, RoutedEventArgs e)
@@ -178,19 +115,6 @@ namespace SilverNibbles
         void arena_OnePlayerClick(object sender, RoutedEventArgs e)
         {
             NewGame(1);
-        }
-
-        void Page_KeyUp(object sender, KeyEventArgs args)
-        {
-            // for some reason, cursor keys are only available on key_up,
-            Keys key = (Keys)args.Key;
-            if (key == Keys.Up || key == Keys.Down ||
-                key == Keys.Left || key == Keys.Right)
-            {
-                HandleKey(key);
-            }
-            
-            System.Diagnostics.Debug.WriteLine(String.Format("KeyUp: {0}", args.Key));
         }
 
         void Page_LostFocus(object sender, RoutedEventArgs e)
@@ -208,8 +132,6 @@ namespace SilverNibbles
             {
                 OnTimerTick(sender,e);
             }
-            // restart the timer
-            timer.Begin();
         }
 
         // reset variables ready for the next level
