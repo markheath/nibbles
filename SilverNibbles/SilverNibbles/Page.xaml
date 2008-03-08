@@ -1,17 +1,17 @@
 ﻿<UserControl x:Class="SilverNibbles.Page"
     xmlns="http://schemas.microsoft.com/client/2007" 
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+             xmlns:sn="clr-namespace:SilverNibbles"
             Width="640"
         Height="460">
     <Canvas x:Name="parentCanvas"
         Loaded="Page_Loaded" 
         Background="LightYellow"
         >
-        <Canvas.Resources>
-            <Storyboard x:Name="timer">
-                <DoubleAnimation x:Name="animation" Duration="00:00:0.08" Storyboard.TargetName="InvisibleRect" Storyboard.TargetProperty="Width" />
-            </Storyboard>
-        </Canvas.Resources>
-        <Rectangle Visibility="Collapsed" x:Name="InvisibleRect" />
+        <TextBlock x:Name="recordTextBlock" Text="High Score"/>
+        <TextBlock Canvas.Left="450" x:Name="levelTextBlock" Text="Level"/>
+        <TextBlock Canvas.Top="20" x:Name="sammyScoreTextBlock" Text="Sammy Score"/>
+        <TextBlock Canvas.Left="450" Canvas.Top="20" x:Name="jakeScoreTextBlock" Text="Sammy Score"/>
+        <sn:SnakeArena x:Name="arena" Canvas.Top="40"></sn:SnakeArena>
     </Canvas>
 </UserControl>

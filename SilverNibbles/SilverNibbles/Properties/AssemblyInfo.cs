@@ -31,8 +31,8 @@ using System.Runtime.InteropServices;
 //
 // You can specify all the values or you can default the Revision and Build Numbers 
 // by using the '*' as shown below:
-[assembly: AssemblyVersion("1.12.0.0")]
-[assembly: AssemblyFileVersion("1.12.0.0")]
+[assembly: AssemblyVersion("1.13.0.0")]
+[assembly: AssemblyFileVersion("1.13.0.0")]
 
 // v1.02 17 May 2007
 // made snake arena 48 * 80 rather than 50 * 80 with two blank rows
@@ -72,6 +72,11 @@ using System.Runtime.InteropServices;
 // v1.12 7 Mar 2008
 // Improved the look of the instructions (slightly!)
 // Added some buttons to the PauseControl to solve FireFox keyboard focus issue
+// v1.13 8 Mar 2008
+// Using the new DispatcherTimer instead of the old animation method
+// Starting to use XAML to add custom controls
+// Attempted to use Application.Resources for the background with limited success
+// Cursor keys now work properly in 2.0 beta 1 !
 
 // TODO:
 // experiment with gradients

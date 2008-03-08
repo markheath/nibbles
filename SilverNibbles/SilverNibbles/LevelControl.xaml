@@ -4,7 +4,13 @@
     Width="80" Height="48">
     <Canvas x:Name="rootElement">
         <Canvas.RenderTransform>
-            <ScaleTransform ScaleX="1" ScaleY="1" x:Name="ScaleTransform" />
+            <ScaleTransform ScaleX="1" ScaleY="1" x:Name="scale" />
         </Canvas.RenderTransform>
+        <Rectangle x:Name="backgroundRect" StrokeThickness="1" Style="{StaticResource LevelBackground}" StrokeLineJoin="Round" Height="48" Width="80" />
+        <Canvas x:Name="wallCanvas">
+            <Canvas.RenderTransform>
+                <TranslateTransform X="0.5" Y="0.5" />
+            </Canvas.RenderTransform>
+        </Canvas>
     </Canvas>
 </UserControl>
