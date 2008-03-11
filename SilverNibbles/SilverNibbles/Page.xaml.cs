@@ -85,7 +85,7 @@ namespace SilverNibbles
 
         private void SetLevelTextBlock()
         {
-            levelTextBlock.Text = String.Format("Level: {0} Speed: {1}", CurrentLevel, Speed);
+            scoreboard.levelTextBlock.Text = String.Format("{0} Speed: {1}", CurrentLevel, Speed);
         }
 
         private void Page_Loaded(object sender, RoutedEventArgs e)
@@ -294,14 +294,16 @@ namespace SilverNibbles
 
         private void UpdateScores()
         {
-            sammyScoreTextBlock.Text = String.Format("Sammy: Lives {0}: Score {1}", snake[0].Lives, snake[0].Score);
+            scoreboard.sammyScoreTextBlock.Text = snake[0].Score.ToString();
+            scoreboard.sammyLives.Lives = snake[0].Lives;
             if (players == 2)
             {
-                jakeScoreTextBlock.Text = String.Format("Jake: Lives {0}: Score {1}", snake[1].Lives, snake[1].Score);
+                scoreboard.jakeScoreTextBlock.Text = snake[1].Score.ToString();
+                scoreboard.jakeLives.Lives = snake[1].Lives;
             }
             else
             {
-                jakeScoreTextBlock.Text = "";
+                scoreboard.jakeScoreTextBlock.Text = "";
             }
         }
 
@@ -448,11 +450,11 @@ namespace SilverNibbles
         {
             if (recordScore > 0)
             {
-                recordTextBlock.Text = String.Format("High Score: {0} on {1}", recordScore, recordDate.ToShortDateString());
+                scoreboard.recordTextBlock.Text = String.Format("{0} on {1}", recordScore, recordDate.ToShortDateString());
             }
             else
             {
-                recordTextBlock.Text = String.Format("High Score: 0");
+                scoreboard.recordTextBlock.Text = String.Format("0");
             }
         }
 

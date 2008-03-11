@@ -77,6 +77,10 @@ using System.Runtime.InteropServices;
 // Starting to use XAML to add custom controls
 // Attempted to use Application.Resources for the background with limited success
 // Cursor keys now work properly in 2.0 beta 1 !
+// v1.14 11 Mar 2008
+// Now makes use of a freeware font "DesignerBlock" from k-type.com
+// Scores area has been moved out into a separate ScoreBoard control
+// A new LivesControl shows lives left as a series of dots
 
 // TODO:
 // experiment with gradients

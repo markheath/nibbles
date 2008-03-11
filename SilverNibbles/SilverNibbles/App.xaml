@@ -3,9 +3,13 @@
              x:Class="SilverNibbles.App"
              >
     <Application.Resources>        
-       <!-- Can't put 
+       <!-- Sadly, these will result in compile errors in the generated
+        code
         <SolidColorBrush x:Name="WallBrush" Color="#FF2864A0" />
-        <SolidColorBrush x:Name="BackgroundBrush" Color="#FFADD8E6" /> -->
+        <SolidColorBrush x:Name="BackgroundBrush" Color="#FFADD8E6" /> 
+        <Color x:Name="WallColor" R="#28" G="#64" B="#A0" />
+        -->
+        
         <Style x:Key="LevelBackground" TargetType="Rectangle">
             <Setter Property="Stroke" Value="#FF2864A0" />
             <Setter Property="Fill">
