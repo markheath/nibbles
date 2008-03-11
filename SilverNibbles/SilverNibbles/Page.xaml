@@ -8,10 +8,7 @@
         Loaded="Page_Loaded" 
         Background="LightYellow"
         >
-        <TextBlock x:Name="recordTextBlock" Text="High Score"/>
-        <TextBlock Canvas.Left="450" x:Name="levelTextBlock" Text="Level"/>
-        <TextBlock Canvas.Top="20" x:Name="sammyScoreTextBlock" Text="Sammy Score"/>
-        <TextBlock Canvas.Left="450" Canvas.Top="20" x:Name="jakeScoreTextBlock" Text="Sammy Score"/>
+        <sn:Scoreboard x:Name="scoreboard"></sn:Scoreboard>
         <sn:SnakeArena x:Name="arena" Canvas.Top="40"></sn:SnakeArena>
     </Canvas>
 </UserControl>

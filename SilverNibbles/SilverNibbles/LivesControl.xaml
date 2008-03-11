@@ -1,0 +1,13 @@
+﻿<UserControl x:Class="SilverNibbles.LivesControl"
+    xmlns="http://schemas.microsoft.com/client/2007" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+    Height="Auto" Width="Auto"
+             >
+    <StackPanel Orientation="Horizontal" x:Name="LayoutRoot">
+        <Ellipse x:Name="L1" Height="12" Width="12" Fill="Orange" Margin="2"/>
+        <Ellipse x:Name="L2" Height="12" Width="12" Fill="Orange" Margin="2"/>
+        <Ellipse x:Name="L3" Height="12" Width="12" Fill="Orange" Margin="2"/>
+        <Ellipse x:Name="L4" Height="12" Width="12" Fill="Orange" Margin="2"/>
+        <Ellipse x:Name="L5" Height="12" Width="12" Fill="Orange" Margin="2"/>
+    </StackPanel>
+</UserControl>
