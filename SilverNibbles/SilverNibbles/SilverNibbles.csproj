@@ -106,12 +106,10 @@
     </SilverlightPage>
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="DesignerBlock.ttf" />
     <None Include="Properties\AppManifest.xml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Default.htm" />
-    <Content Include="Readme.txt" />
   </ItemGroup>
   <ItemGroup>
     <SilverlightPage Include="PauseControl.xaml">
