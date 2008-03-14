@@ -4,11 +4,13 @@
              xmlns:sn="clr-namespace:SilverNibbles"
             Width="640"
         Height="460">
-    <Canvas x:Name="parentCanvas"
+    <Grid x:Name="parentCanvas"
         Loaded="Page_Loaded" 
         Background="LightYellow"
         >
+        <StackPanel Orientation="Vertical">
         <sn:Scoreboard x:Name="scoreboard"></sn:Scoreboard>
-        <sn:SnakeArena x:Name="arena" Canvas.Top="40"></sn:SnakeArena>
-    </Canvas>
+        <sn:SnakeArena x:Name="arena" ></sn:SnakeArena>
+        </StackPanel>
+    </Grid>
 </UserControl>
