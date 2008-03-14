@@ -31,8 +31,8 @@ using System.Runtime.InteropServices;
 //
 // You can specify all the values or you can default the Revision and Build Numbers 
 // by using the '*' as shown below:
-[assembly: AssemblyVersion("1.13.0.0")]
-[assembly: AssemblyFileVersion("1.13.0.0")]
+[assembly: AssemblyVersion("1.15.0.0")]
+[assembly: AssemblyFileVersion("1.15.0.0")]
 
 // v1.02 17 May 2007
 // made snake arena 48 * 80 rather than 50 * 80 with two blank rows
@@ -81,6 +81,9 @@ using System.Runtime.InteropServices;
 // Now makes use of a freeware font "DesignerBlock" from k-type.com
 // Scores area has been moved out into a separate ScoreBoard control
 // A new LivesControl shows lives left as a series of dots
+// v1.15 14 Mar 2008
+// Backed out of using DesignerBlock font due to licensing issues
+// 
 
 // TODO:
 // experiment with gradients

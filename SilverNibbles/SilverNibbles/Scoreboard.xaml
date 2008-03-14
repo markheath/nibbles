@@ -2,9 +2,9 @@
     xmlns="http://schemas.microsoft.com/client/2007" 
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
     xmlns:sn="clr-namespace:SilverNibbles"
-    Width="400" >
+    Width="450" >
     <Border CornerRadius="2" BorderBrush="#FF2864A0" BorderThickness="5" Padding="5,0">
-    <Grid x:Name="LayoutRoot" ShowGridLines="True">
+    <Grid x:Name="LayoutRoot" ShowGridLines="False">
         <Grid.RowDefinitions>
             <RowDefinition Height="*" />
             <RowDefinition Height="*" />
@@ -20,14 +20,16 @@
             x:Name="recordLabel" 
             Grid.Row="0" 
             Text="High Score" 
-            FontFamily="DesignerBlock.ttf#Designer Block"/>
+            FontWeight="Bold"
+            FontFamily="Arial" />
         <TextBlock 
             x:Name="recordTextBlock" 
             Grid.Row="0" 
             Grid.Column="1"
             Margin="5,0,5,0"
             Text="0 on 3 Mar 2008" 
-            FontFamily="DesignerBlock.ttf#Designer Block"/>
+            FontWeight="Bold"
+            FontFamily="Arial" />
         
         <TextBlock 
             x:Name="levelLabel" 
@@ -35,22 +37,26 @@
             Text="Level" 
             HorizontalAlignment="Right" 
             Margin="5,0,5,0"
-            FontFamily="DesignerBlock.ttf#Designer Block" />
+            FontWeight="Bold"
+            FontFamily="Arial" />
         <TextBlock 
             x:Name="levelTextBlock" 
             Grid.Column="3" 
             Margin="5,0,5,0"
             Text="1" 
-            FontFamily="DesignerBlock.ttf#Designer Block" />
+            FontWeight="Bold"
+            FontFamily="Arial" />
         <TextBlock 
             x:Name="sammyScoreLabel" 
             Grid.Row="1"
             Text="Sammy" 
-            FontFamily="DesignerBlock.ttf#Designer Block" />
+            FontWeight="Bold"
+            FontFamily="Arial" />
        <sn:LivesControl
             x:Name="sammyLives" 
             Grid.Row="1"
             Grid.Column="1"
+           HorizontalAlignment="Right"
              />
         
        <TextBlock 
@@ -59,7 +65,8 @@
             Grid.Column="1"
             Margin="5,0,5,0"
             Text="0" 
-            FontFamily="DesignerBlock.ttf#Designer Block" />
+            FontWeight="Bold"
+            FontFamily="Arial" />
 
         <TextBlock 
             x:Name="jakeScoreLabel" 
@@ -68,7 +75,8 @@
             HorizontalAlignment="Right"
             Margin="5,0,5,0"
             Text="Jake" 
-            FontFamily="DesignerBlock.ttf#Designer Block" />
+            FontWeight="Bold"
+            FontFamily="Arial" />
                <sn:LivesControl
             x:Name="jakeLives" 
             Grid.Row="1"
@@ -81,7 +89,8 @@
             Grid.Column="4"
             Margin="5,0,5,0"
             Text="0" 
-            FontFamily="DesignerBlock.ttf#Designer Block" />
+            FontWeight="Bold"
+            FontFamily="Arial" />
     </Grid>
         </Border>
 </UserControl>

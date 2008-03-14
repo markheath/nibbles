@@ -27,7 +27,14 @@
             <ScaleTransform ScaleX="1" ScaleY="1" CenterX="160" CenterY="70" x:Name="scaleTransform"/>
         </Border.RenderTransform>
         <StackPanel Orientation="Vertical">
-            <TextBlock x:Name="textBlockMessage" HorizontalAlignment="Center" Margin="8" Text="Welcome To SilverNibbles" TextWrapping="Wrap" FontSize="18" FontFamily="DesignerBlock.ttf#Designer Block" />
+            <TextBlock x:Name="textBlockMessage" 
+                       HorizontalAlignment="Center" 
+                       Margin="8" 
+                       Text="Welcome To SilverNibbles" 
+                       TextWrapping="Wrap" 
+                       FontWeight="Bold"
+                       FontSize="16" 
+                       FontFamily="Arial" />
             <sn:Instructions x:Name="instructions" Margin="50,0" Height="90" />
             <StackPanel x:Name="buttonsPanel" Orientation="Horizontal" HorizontalAlignment="Center" >
                 <Button x:Name="button1Player"  Content="1 Player" Margin="10,0" Padding="5,0" Click="Button1_Click" />
