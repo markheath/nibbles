@@ -85,7 +85,8 @@ namespace SilverNibbles
 
         private void SetLevelTextBlock()
         {
-            scoreboard.levelTextBlock.Text = String.Format("{0} Speed: {1}", CurrentLevel, Speed);
+            scoreboard.Level = CurrentLevel;
+            scoreboard.Speed = Speed;
         }
 
         private void Page_Loaded(object sender, RoutedEventArgs e)
@@ -270,6 +271,7 @@ namespace SilverNibbles
             NewLevel(1);
             UpdateScores();
             arena.Resume();
+            scoreboard.Players = players;
             //snakeArenaControl.Focus();
         }
 
@@ -294,17 +296,14 @@ namespace SilverNibbles
 
         private void UpdateScores()
         {
-            scoreboard.sammyScoreTextBlock.Text = snake[0].Score.ToString();
-            scoreboard.sammyLives.Lives = snake[0].Lives;
+            scoreboard.SammyScore = snake[0].Score;
+            scoreboard.SammyLives = snake[0].Lives;
             if (players == 2)
             {
-                scoreboard.jakeScoreTextBlock.Text = snake[1].Score.ToString();
-                scoreboard.jakeLives.Lives = snake[1].Lives;
+                scoreboard.JakeScore = snake[1].Score;
+                scoreboard.JakeLives = snake[1].Lives;
             }
-            else
-            {
-                scoreboard.jakeScoreTextBlock.Text = "";
-            }
+
         }
 
 

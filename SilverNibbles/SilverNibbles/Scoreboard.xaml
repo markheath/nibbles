@@ -2,23 +2,26 @@
     xmlns="http://schemas.microsoft.com/client/2007" 
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
     xmlns:sn="clr-namespace:SilverNibbles"
-    Width="450" >
+    Width="400" >
     <Border CornerRadius="2" BorderBrush="#FF2864A0" BorderThickness="5" Padding="5,0">
     <Grid x:Name="LayoutRoot" ShowGridLines="False">
         <Grid.RowDefinitions>
-            <RowDefinition Height="*" />
-            <RowDefinition Height="*" />
-        </Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="20*" />
-            <ColumnDefinition Width="30*" />
-            <ColumnDefinition Width="30*" />
+            <ColumnDefinition Width="35*" />
+            <ColumnDefinition Width="25*" />
             <ColumnDefinition Width="10*" />
         </Grid.ColumnDefinitions>
         
+        <!-- row 0 -->
         <TextBlock 
             x:Name="recordLabel" 
             Grid.Row="0" 
+            Grid.Column="0"
             Text="High Score" 
             FontWeight="Bold"
             FontFamily="Arial" />
@@ -46,6 +49,10 @@
             Text="1" 
             FontWeight="Bold"
             FontFamily="Arial" />
+        
+        
+        <!-- row 1 -->
+        
         <TextBlock 
             x:Name="sammyScoreLabel" 
             Grid.Row="1"
@@ -57,8 +64,7 @@
             Grid.Row="1"
             Grid.Column="1"
            HorizontalAlignment="Right"
-             />
-        
+             />        
        <TextBlock 
             x:Name="sammyScoreTextBlock" 
             Grid.Row="1"
@@ -67,30 +73,49 @@
             Text="0" 
             FontWeight="Bold"
             FontFamily="Arial" />
+        
+       <TextBlock 
+            x:Name="speedLabel" 
+           Grid.Row="1" 
+           Grid.Column="2" 
+            Text="Speed" 
+            HorizontalAlignment="Right" 
+            Margin="5,0,5,0"
+            FontWeight="Bold"
+            FontFamily="Arial" />
+        <TextBlock 
+            x:Name="speedTextBlock" 
+            Grid.Row="1"
+            Grid.Column="3" 
+            Margin="5,0,5,0"
+            Text="1" 
+            FontWeight="Bold"
+            FontFamily="Arial" />
+        
+        <!-- row 2 -->
 
         <TextBlock 
             x:Name="jakeScoreLabel" 
-            Grid.Row="1"
-            Grid.Column="2"
-            HorizontalAlignment="Right"
-            Margin="5,0,5,0"
+            Grid.Row="2"
+            Grid.Column="0"
             Text="Jake" 
             FontWeight="Bold"
             FontFamily="Arial" />
-               <sn:LivesControl
+        <sn:LivesControl
             x:Name="jakeLives" 
-            Grid.Row="1"
-            Grid.Column="2"
-                   Fill="Purple"
+            Grid.Row="2"
+            Grid.Column="1"
+            HorizontalAlignment="Right"
+            Fill="Purple"
              />
        <TextBlock 
             x:Name="jakeScoreTextBlock" 
-            Grid.Row="1"
-            Grid.Column="4"
+            Grid.Row="2"
+            Grid.Column="1"
             Margin="5,0,5,0"
             Text="0" 
             FontWeight="Bold"
             FontFamily="Arial" />
     </Grid>
-        </Border>
+    </Border>
 </UserControl>
