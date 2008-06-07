@@ -19,6 +19,8 @@
     <SilverlightAppEntry>SilverNibbles.App</SilverlightAppEntry>
     <TestPageFileName>TestPage.html</TestPageFileName>
     <CreateTestPage>true</CreateTestPage>
+    <ValidateXaml>true</ValidateXaml>
+    <ThrowErrorsInValidation>false</ThrowErrorsInValidation>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -47,21 +49,18 @@
     <Reference Include="System.Core" />
     <Reference Include="System.Windows" />
     <Reference Include="System.Windows.Browser" />
-    <Reference Include="System.Windows.Controls">
-      <Private>True</Private>
-    </Reference>
     <Reference Include="System.Windows.Controls.Extended">
       <Private>True</Private>
     </Reference>
     <Reference Include="System.Xml" />
-    <SilverlightPage Include="Instructions.xaml">
-      <Generator>MSBuild:CompileXaml</Generator>
+    <Page Include="Instructions.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
       <SubType>Designer</SubType>
-    </SilverlightPage>
-    <SilverlightPage Include="Key.xaml">
-      <Generator>MSBuild:CompileXaml</Generator>
+    </Page>
+    <Page Include="Key.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
       <SubType>Designer</SubType>
-    </SilverlightPage>
+    </Page>
     <Compile Include="Instructions.xaml.cs">
       <DependentUpon>Instructions.xaml</DependentUpon>
     </Compile>
@@ -98,12 +97,12 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <SilverlightPage Include="App.xaml">
-      <Generator>MSBuild:CompileXaml</Generator>
-    </SilverlightPage>
-    <SilverlightPage Include="Page.xaml">
-      <Generator>MSBuild:CompileXaml</Generator>
-    </SilverlightPage>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+    </ApplicationDefinition>
+    <Page Include="Page.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <None Include="Properties\AppManifest.xml" />
@@ -112,29 +111,29 @@
     <Content Include="Default.htm" />
   </ItemGroup>
   <ItemGroup>
-    <SilverlightPage Include="PauseControl.xaml">
-      <Generator>MSBuild:CompileXaml</Generator>
-    </SilverlightPage>
+    <Page Include="PauseControl.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
-    <SilverlightPage Include="SnakeArena.xaml">
-      <Generator>MSBuild:CompileXaml</Generator>
-    </SilverlightPage>
+    <Page Include="SnakeArena.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
-    <SilverlightPage Include="LevelControl.xaml">
-      <Generator>MSBuild:CompileXaml</Generator>
-    </SilverlightPage>
+    <Page Include="LevelControl.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
-    <SilverlightPage Include="Scoreboard.xaml">
-      <Generator>MSBuild:CompileXaml</Generator>
-    </SilverlightPage>
+    <Page Include="Scoreboard.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
-    <SilverlightPage Include="LivesControl.xaml">
-      <Generator>MSBuild:CompileXaml</Generator>
-    </SilverlightPage>
+    <Page Include="LivesControl.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+    </Page>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\Silverlight\v2.0\Microsoft.Silverlight.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

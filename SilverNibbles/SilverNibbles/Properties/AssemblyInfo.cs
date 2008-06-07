@@ -31,8 +31,8 @@ using System.Runtime.InteropServices;
 //
 // You can specify all the values or you can default the Revision and Build Numbers 
 // by using the '*' as shown below:
-[assembly: AssemblyVersion("1.15.0.0")]
-[assembly: AssemblyFileVersion("1.15.0.0")]
+[assembly: AssemblyVersion("1.17.0.0")]
+[assembly: AssemblyFileVersion("1.17.0.0")]
 
 // v1.02 17 May 2007
 // made snake arena 48 * 80 rather than 50 * 80 with two blank rows
@@ -83,8 +83,13 @@ using System.Runtime.InteropServices;
 // A new LivesControl shows lives left as a series of dots
 // v1.15 14 Mar 2008
 // Backed out of using DesignerBlock font due to licensing issues
-// 
+// v1.16 15 Mar 2008
+// Fixed an issue with PauseControl able to start new games while invisible
+// v1.17 7 Jun 2008
+// Updated to Silverlight 2.0 beta 2
 
 // TODO:
 // experiment with gradients
 // fair outcome of head-on collisions
+// sound effects
+// music

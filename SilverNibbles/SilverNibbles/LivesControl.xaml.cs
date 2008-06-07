@@ -15,7 +15,7 @@ namespace SilverNibbles
     {
         public static readonly DependencyProperty FillProperty =
             DependencyProperty.Register("Fill", typeof(Brush), typeof(LivesControl),
-                        new PropertyChangedCallback(FillChangedCallback));
+                        new PropertyMetadata(new PropertyChangedCallback(FillChangedCallback)));
 
         private static void FillChangedCallback(DependencyObject obj,
                                 DependencyPropertyChangedEventArgs args)

@@ -75,7 +75,7 @@ namespace SilverNibbles
             pauseControl.SetValue(Canvas.LeftProperty, (this.Width - pauseControl.Width) / 2);
             pauseControl.SetValue(Canvas.TopProperty, (this.Height - pauseControl.Height) / 2);
             rootElement.Children.Add(pauseControl);            
-            pauseControl.Text = "SilverNibbles 1.15 by Mark Heath";
+            pauseControl.Text = "SilverNibbles 1.17 by Mark Heath";
         }
 
 
@@ -130,9 +130,9 @@ namespace SilverNibbles
             arena[numberPosition.X, numberPosition.Y] = CellType.TargetNumber;
             arena[numberPosition.X, numberPosition.Y + 1] = CellType.TargetNumber;
 
-            numberTextBlock.SetValue(Canvas.LeftProperty, numberPosition.X * DefaultBlockSize);
+            numberTextBlock.SetValue(Canvas.LeftProperty, (double) (numberPosition.X * DefaultBlockSize));
             // slightly adjust y value to make number sit nicely over the two squares
-            numberTextBlock.SetValue(Canvas.TopProperty, (numberPosition.Y * DefaultBlockSize) - 3);
+            numberTextBlock.SetValue(Canvas.TopProperty, (double) ((numberPosition.Y * DefaultBlockSize) - 3));
             numberTextBlock.Text = CurrentNumber.ToString();
             NoNumber = false;
         }
