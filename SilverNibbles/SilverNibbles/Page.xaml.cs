@@ -359,14 +359,14 @@ namespace SilverNibbles
                 // see if we collided with the number
                 if (arena.GetCell(snake[n].CurrentPosition) == CellType.TargetNumber)
                 {
-                    //numberTextBlock.Visibility = Visibility.Collapsed;
+                    /* Put the play sound in when we have got a good enough sound
+                     * NumberSound.Stop();
+                    NumberSound.Play();*/
                     snake[n].Length += (arena.CurrentNumber * ((CurrentLevel > 10) ? 8 : 4));
                     snake[n].Score += GetScore(arena.CurrentNumber);
                     UpdateScores();
 
                     arena.NoNumber = true;
-                    //arena[numberPosition.X, numberPosition.Y].CellType = CellType.Blank;
-                    //arena[numberPosition.X, numberPosition.Y + 1].CellType = CellType.Blank;
                     arena.CurrentNumber++;
                     if (arena.CurrentNumber == 10)
                     {
@@ -592,6 +592,11 @@ namespace SilverNibbles
                     }
                     break;
             }
+
+        }
+
+        private void NumberSound_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        {
 
         }
 

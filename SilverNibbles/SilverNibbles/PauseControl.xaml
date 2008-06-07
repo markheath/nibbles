@@ -2,13 +2,12 @@
     xmlns="http://schemas.microsoft.com/client/2007" 
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
              xmlns:sn="clr-namespace:SilverNibbles"
-    Width="320" Height="180">
-    <Border Width="320" Height="180" BorderBrush="Black" BorderThickness="4" CornerRadius="5" x:Name="pauseBorder">
+    Width="400" Height="200">
+    <Border Width="400" Height="200" BorderBrush="Black" BorderThickness="4" CornerRadius="5" x:Name="pauseBorder">
         <Border.Background>
             <LinearGradientBrush EndPoint="0,1">
                 <GradientStop Color="AliceBlue" Offset="-0.1" />
                 <GradientStop Color="Aqua" Offset="1.5" />
-
             </LinearGradientBrush>
         </Border.Background>
         <Border.Resources>
@@ -24,23 +23,36 @@
             </Storyboard>
         </Border.Resources>
         <Border.RenderTransform>
-            <ScaleTransform ScaleX="1" ScaleY="1" CenterX="160" CenterY="70" x:Name="scaleTransform"/>
+            <ScaleTransform 
+                ScaleX="1" 
+                ScaleY="1" 
+                CenterX="200" 
+                CenterY="100" 
+                x:Name="scaleTransform"/>
         </Border.RenderTransform>
         <StackPanel Orientation="Vertical">
+            <TextBlock HorizontalAlignment="Center" 
+                       Text="SilverNibbles v1.18" 
+                       Foreground="CadetBlue"
+                       TextWrapping="Wrap" 
+                       FontWeight="Normal"
+                       FontSize="36" 
+                       FontFamily="teen bold.ttf#Teen" />
+
             <TextBlock x:Name="textBlockMessage" 
                        HorizontalAlignment="Center" 
-                       Margin="8" 
-                       Text="Welcome To SilverNibbles" 
+                       Margin="8,0,8,0" 
+                       Text="by Mark Heath, www.codeplex.com/nibbles" 
                        TextWrapping="Wrap" 
-                       FontWeight="Bold"
-                       FontSize="16" 
-                       FontFamily="Arial" />
-            <sn:Instructions x:Name="instructions" Margin="50,0" Height="90" />
-            <StackPanel x:Name="buttonsPanel" Orientation="Horizontal" HorizontalAlignment="Center" >
-                <Button x:Name="button1Player"  Content="1 Player" Margin="10,0" Padding="5,0" Click="Button1_Click" />
-                <Button x:Name="button2Players" Content="2 Player" Margin="10,0" Padding="5,0" Click="Button2_Click"/>
-            </StackPanel>
-            
+                       TextAlignment="Center"
+                       FontWeight="Normal"
+                       FontSize="18" 
+                       FontFamily="teen bold.ttf#Teen"
+                       MouseLeftButtonUp="textBlockMessage_MouseLeftButtonUp"/>
+            <sn:Instructions 
+                x:Name="instructions" 
+                OnePlayerButtonClicked="Button1_Click" 
+                TwoPlayerButtonClicked="Button2_Click" />
         </StackPanel>
         
         </Border>

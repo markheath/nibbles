@@ -10,7 +10,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Mark Heath")]
 [assembly: AssemblyProduct("SilverNibbles")]
-[assembly: AssemblyCopyright("Copyright © Mark Heath 2007")]
+[assembly: AssemblyCopyright("Copyright © Mark Heath 2007-2008")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
@@ -31,8 +31,8 @@ using System.Runtime.InteropServices;
 //
 // You can specify all the values or you can default the Revision and Build Numbers 
 // by using the '*' as shown below:
-[assembly: AssemblyVersion("1.17.0.0")]
-[assembly: AssemblyFileVersion("1.17.0.0")]
+[assembly: AssemblyVersion("1.18.0.0")]
+[assembly: AssemblyFileVersion("1.18.0.0")]
 
 // v1.02 17 May 2007
 // made snake arena 48 * 80 rather than 50 * 80 with two blank rows
@@ -87,8 +87,15 @@ using System.Runtime.InteropServices;
 // Fixed an issue with PauseControl able to start new games while invisible
 // v1.17 7 Jun 2008
 // Updated to Silverlight 2.0 beta 2
+// v1.18 8 Jun 2008
+// Added a ding sound played when getting a number (turned off in this release)
+// Found a new font with a more generous licensing terms - "teen bold" from larabiefonts.com
+// New style using VisualStateManager for one and two player buttons
+// Instructions made to look nicer
+
 
 // TODO:
+// Logo
 // experiment with gradients
 // fair outcome of head-on collisions
 // sound effects

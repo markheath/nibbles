@@ -75,7 +75,7 @@ namespace SilverNibbles
             pauseControl.SetValue(Canvas.LeftProperty, (this.Width - pauseControl.Width) / 2);
             pauseControl.SetValue(Canvas.TopProperty, (this.Height - pauseControl.Height) / 2);
             rootElement.Children.Add(pauseControl);            
-            pauseControl.Text = "SilverNibbles 1.17 by Mark Heath";
+            pauseControl.Text = "by Mark Heath\r\nhttp://www.codeplex.com/nibbles";
         }
 
 
