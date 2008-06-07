@@ -29,6 +29,7 @@ namespace SilverNibbles
         public void Disappear()
         {
             disappearStoryboard.Begin();
+            InstructionsVisible = false;
         }
 
         bool InstructionsVisible
