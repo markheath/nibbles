@@ -7,6 +7,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Animation;
 using System.Windows.Shapes;
+using System.Windows.Browser;
 
 namespace SilverNibbles
 {
@@ -41,15 +42,16 @@ namespace SilverNibbles
             set 
             { 
                 instructions.Visibility = value ? Visibility.Visible : Visibility.Collapsed;
-                buttonsPanel.Visibility = value ? Visibility.Visible : Visibility.Collapsed;
                 // despite not being visible, the buttons still seem to pick up
                 // the space bar, so we will disable them.
-                button1Player.IsEnabled = value;
-                button2Players.IsEnabled = value;
+                instructions.IsEnabled = value;
             }
 
         }
 
+        /// <summary>
+        /// Pause control text
+        /// </summary>
         public string Text
         {
             get { return textBlockMessage.Text; }
@@ -67,6 +69,14 @@ namespace SilverNibbles
             if (TwoPlayerClick != null)
                 TwoPlayerClick(sender, e);
 
+        }
+
+        private void textBlockMessage_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        {
+            if(textBlockMessage.Text.Contains("http://"))
+            {
+                HtmlPage.Window.Navigate(new Uri("http://www.codeplex.com/nibbles"),"nibbles");
+            }
         }
 
     }

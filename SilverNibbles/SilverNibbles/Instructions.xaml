@@ -7,25 +7,79 @@
 	x:Class="SilverNibbles.Instructions"
 	 xmlns:SilverNibbles="clr-namespace:SilverNibbles" >
 
-	<Canvas Width="360" Height="140" x:Name="LayoutRoot">
-        <Canvas.RenderTransform>
-            <ScaleTransform ScaleX="0.6" ScaleY="0.6" />
-        </Canvas.RenderTransform>
-        <TextBlock Canvas.Left="13" Canvas.Top="3" >
-			<Run FontFamily="Verdana" FontSize="20" FontStretch="Normal" FontStyle="Normal" FontWeight="Bold" Foreground="#FFFF8000" Text="Sammy Keys"/>
-		</TextBlock>
-        <SilverNibbles:Key Canvas.Left="60" Canvas.Top="30" Height="48" Width="48" Text="I" />
-        <SilverNibbles:Key Canvas.Left="5" Canvas.Top="82" Height="48" Width="48" Text="J" />
-        <SilverNibbles:Key Canvas.Left="60" Canvas.Top="82" Height="48" Width="48" Text="K" />
-        <SilverNibbles:Key Canvas.Left="115" Canvas.Top="82" Height="48" Width="48" Text="L" />
-        <Canvas Canvas.Left="180">
-        <TextBlock Canvas.Left="24" Canvas.Top="3">
-			<Run FontFamily="Verdana" FontSize="20" FontStretch="Normal" FontStyle="Normal" FontWeight="Bold" Foreground="#FFFF00FF" Text="Jake Keys"/>
-		</TextBlock>
-            <SilverNibbles:Key Canvas.Left="60" Canvas.Top="30" Height="48" Width="48" Text="W" />
-            <SilverNibbles:Key Canvas.Left="5" Canvas.Top="82" Height="48" Width="48" Text="A" />
-            <SilverNibbles:Key Canvas.Left="60" Canvas.Top="82" Height="48" Width="48" Text="S" />
-            <SilverNibbles:Key Canvas.Left="115" Canvas.Top="82" Height="48" Width="48" Text="D" />
-        </Canvas>
-    </Canvas>
+    <Grid ShowGridLines="False">
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+        <Button 
+            Grid.Row="0"
+            Grid.Column="0"
+            x:Name="button1Player" 
+            Content="1 Player" 
+            Margin="3" 
+            VerticalAlignment="Center"
+            Click="Button1_Click" 
+            Style="{StaticResource NewGameButtonStyle}"/>
+        <Button 
+            Grid.Row="1"
+            Grid.Column="0"
+            VerticalAlignment="Center"
+            x:Name="button2Players" 
+            Content="2 Players" 
+            Margin="3" 
+            Click="Button2_Click" 
+            Style="{StaticResource NewGameButtonStyle}"/>
+
+        <TextBlock 
+            Grid.Row="0"
+            Grid.Column="1"
+            FontFamily="Teen bold.ttf#Teen" 
+            FontSize="18" 
+            Text="Sammy Keys" 
+            Foreground="{StaticResource SammyBrush}" 
+            Margin="3"
+            VerticalAlignment="Center"
+            />
+        <TextBlock 
+            Grid.Row="0"
+            Grid.Column="2"
+            FontFamily="Teen bold.ttf#Teen" 
+            FontSize="18" 
+            Margin="3"
+            VerticalAlignment="Center"
+            Text="Cursor Keys" 
+            Foreground="Black" />
+        <TextBlock 
+            Grid.Row="1"
+            Grid.Column="1"
+            FontFamily="Teen bold.ttf#Teen" 
+            FontSize="18" 
+            Text="Jake Keys" 
+            Margin="3"
+            VerticalAlignment="Center"
+            Foreground="{StaticResource JakeBrush}" />
+        <StackPanel 
+            Grid.Row="1"
+            Grid.Column="2"
+            Orientation="Vertical"
+            Margin="3">
+        <TextBlock 
+            FontFamily="Teen bold.ttf#Teen" 
+            FontSize="18" 
+            Text="Up: W, Left: A" 
+            Foreground="Black" />            
+        <TextBlock 
+            FontFamily="Teen bold.ttf#Teen" 
+            FontSize="18" 
+            Text="Down: S, Right: D" 
+            Foreground="Black" />            
+        </StackPanel>
+
+    </Grid>
 </UserControl>

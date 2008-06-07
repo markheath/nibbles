@@ -17,5 +17,35 @@ namespace SilverNibbles
 			// Required to initialize variables
 			InitializeComponent();
 		}
+
+        void Button1_Click(object sender, RoutedEventArgs args)
+        {
+            if (OnePlayerButtonClicked != null)
+            {
+                OnePlayerButtonClicked(this, args);
+            }
+        }
+
+        void Button2_Click(object sender, RoutedEventArgs args)
+        {
+            if (TwoPlayerButtonClicked != null)
+            {
+                TwoPlayerButtonClicked(this, args);
+            }
+        }
+
+        public event RoutedEventHandler OnePlayerButtonClicked;
+        public event RoutedEventHandler TwoPlayerButtonClicked;
+
+        public bool IsEnabled
+        {
+
+            get { return button1Player.IsEnabled; }
+            set
+            {
+                button1Player.IsEnabled = value;
+                button2Players.IsEnabled = value;
+            }
+        }
 	}
 }

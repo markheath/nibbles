@@ -2,9 +2,8 @@
     xmlns="http://schemas.microsoft.com/client/2007" 
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
     xmlns:sn="clr-namespace:SilverNibbles"
-    Width="400" >
-    <Border CornerRadius="2" BorderBrush="#FF2864A0" BorderThickness="5" Padding="5,0">
-    <Grid x:Name="LayoutRoot" ShowGridLines="False">
+     >
+    <Grid x:Name="LayoutRoot" Background="LightYellow" ShowGridLines="False">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
             <RowDefinition Height="Auto" />
@@ -23,16 +22,16 @@
             Grid.Row="0" 
             Grid.Column="0"
             Text="High Score" 
-            FontWeight="Bold"
-            FontFamily="Arial" />
+            FontSize="18"
+            FontFamily="Teen Bold.ttf#Teen" />
         <TextBlock 
             x:Name="recordTextBlock" 
             Grid.Row="0" 
             Grid.Column="1"
             Margin="5,0,5,0"
             Text="0 on 3 Mar 2008" 
-            FontWeight="Bold"
-            FontFamily="Arial" />
+            FontSize="18"
+            FontFamily="Teen Bold.ttf#Teen" />
         
         <TextBlock 
             x:Name="levelLabel" 
@@ -40,15 +39,15 @@
             Text="Level" 
             HorizontalAlignment="Right" 
             Margin="5,0,5,0"
-            FontWeight="Bold"
-            FontFamily="Arial" />
+            FontSize="18"
+            FontFamily="Teen Bold.ttf#Teen" />
         <TextBlock 
             x:Name="levelTextBlock" 
             Grid.Column="3" 
             Margin="5,0,5,0"
             Text="1" 
-            FontWeight="Bold"
-            FontFamily="Arial" />
+            FontSize="18"
+            FontFamily="Teen Bold.ttf#Teen" />
         
         
         <!-- row 1 -->
@@ -57,13 +56,14 @@
             x:Name="sammyScoreLabel" 
             Grid.Row="1"
             Text="Sammy" 
-            FontWeight="Bold"
-            FontFamily="Arial" />
+            FontSize="18"
+            FontFamily="Teen Bold.ttf#Teen" />
        <sn:LivesControl
             x:Name="sammyLives" 
             Grid.Row="1"
             Grid.Column="1"
-           HorizontalAlignment="Right"
+            HorizontalAlignment="Right"
+           Fill="{StaticResource SammyBrush}"
              />        
        <TextBlock 
             x:Name="sammyScoreTextBlock" 
@@ -71,8 +71,9 @@
             Grid.Column="1"
             Margin="5,0,5,0"
             Text="0" 
-            FontWeight="Bold"
-            FontFamily="Arial" />
+            FontSize="18"
+            FontFamily="Teen Bold.ttf#Teen"
+            />
         
        <TextBlock 
             x:Name="speedLabel" 
@@ -81,16 +82,18 @@
             Text="Speed" 
             HorizontalAlignment="Right" 
             Margin="5,0,5,0"
-            FontWeight="Bold"
-            FontFamily="Arial" />
+            FontSize="18"
+            FontFamily="Teen Bold.ttf#Teen"
+           />
         <TextBlock 
             x:Name="speedTextBlock" 
             Grid.Row="1"
             Grid.Column="3" 
             Margin="5,0,5,0"
             Text="1" 
-            FontWeight="Bold"
-            FontFamily="Arial" />
+            FontSize="18"
+            FontFamily="Teen Bold.ttf#Teen"
+            />
         
         <!-- row 2 -->
 
@@ -99,23 +102,24 @@
             Grid.Row="2"
             Grid.Column="0"
             Text="Jake" 
-            FontWeight="Bold"
-            FontFamily="Arial" />
+            FontSize="18"
+            FontFamily="Teen Bold.ttf#Teen"
+            />
         <sn:LivesControl
             x:Name="jakeLives" 
             Grid.Row="2"
             Grid.Column="1"
             HorizontalAlignment="Right"
-            Fill="Purple"
+            Fill="{StaticResource JakeBrush}"
              />
        <TextBlock 
             x:Name="jakeScoreTextBlock" 
             Grid.Row="2"
             Grid.Column="1"
+            FontSize="18"
             Margin="5,0,5,0"
             Text="0" 
-            FontWeight="Bold"
-            FontFamily="Arial" />
+            FontFamily="Teen Bold.ttf#Teen"
+           />
     </Grid>
-    </Border>
 </UserControl>

@@ -3,15 +3,13 @@
              x:Class="SilverNibbles.App"
              >
     <Application.Resources>        
-       <!-- Sadly, these will result in compile errors in the generated
-        code
+        <!-- Beta 2 allows us to put SolidColorBrush and Color in here -->
         <SolidColorBrush x:Name="WallBrush" Color="#FF2864A0" />
-        <SolidColorBrush x:Name="BackgroundBrush" Color="#FFADD8E6" /> 
-        <Color x:Name="WallColor" R="#28" G="#64" B="#A0" />
-        -->
+        <SolidColorBrush x:Name="SammyBrush" Color="Orange" />
+        <SolidColorBrush x:Name="JakeBrush" Color="Purple" />
         
         <Style x:Key="LevelBackground" TargetType="Rectangle">
-            <Setter Property="Stroke" Value="#FF2864A0" />
+            <Setter Property="Stroke" Value="{StaticResource WallBrush}" />
             <Setter Property="Fill">
                 <Setter.Value>
                     <LinearGradientBrush EndPoint="0,1">
@@ -21,6 +19,64 @@
                 </Setter.Value>
             </Setter>
         </Style>
-        
+
+        <Style 
+            xmlns:vsm="clr-namespace:System.Windows;assembly=System.Windows"
+            TargetType="Button"
+            x:Key="NewGameButtonStyle">
+            <Setter Property="FontFamily" Value="teen bold.ttf#Teen" />
+            <Setter Property="FontSize" Value="18" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Grid>
+                            <vsm:VisualStateManager.VisualStateGroups>
+                                <vsm:VisualStateGroup x:Name="CommonStates">
+
+                                    <vsm:VisualStateGroup.Transitions>
+                                        <vsm:VisualTransition To="MouseOver" Duration="0:0:0.2" />
+                                    </vsm:VisualStateGroup.Transitions>
+
+                                    <vsm:VisualState x:Name="Normal" />
+                                    <vsm:VisualState x:Name="MouseOver">
+                                        <Storyboard>
+                                            <ColorAnimation 
+                                            Storyboard.TargetName="ButtonBackgroundBrush"
+                                            Storyboard.TargetProperty="Color"
+                                            To="#C0C0C0"
+                                            Duration="0" />
+                                        </Storyboard>
+                                    </vsm:VisualState>
+                                </vsm:VisualStateGroup>
+                            </vsm:VisualStateManager.VisualStateGroups>
+
+                            <Border BorderThickness="2" 
+                                    CornerRadius="4"
+                                    Padding="3"                                    
+                                    >
+                                <Border.Background>
+                                    <SolidColorBrush x:Name="ButtonBackgroundBrush" Color="AliceBlue"/>
+                                </Border.Background>
+                                <Border.BorderBrush>
+                                    <SolidColorBrush x:Name="ButtonBorderBrush" Color="Black"/>
+                                </Border.BorderBrush>
+                                <ContentPresenter
+                                  Content="{TemplateBinding Content}"
+                                  ContentTemplate="{TemplateBinding ContentTemplate}"
+                                  HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                  Padding="{TemplateBinding Padding}"
+                                  TextAlignment="{TemplateBinding TextAlignment}"
+                                  TextDecorations="{TemplateBinding TextDecorations}"
+                                  TextWrapping="{TemplateBinding TextWrapping}"
+                                  VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
+                                  Margin="4,2" />
+                            </Border>
+                        </Grid>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+
     </Application.Resources>
 </Application>
