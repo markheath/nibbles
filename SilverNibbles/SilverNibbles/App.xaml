@@ -6,7 +6,7 @@
         <!-- Beta 2 allows us to put SolidColorBrush and Color in here -->
         <SolidColorBrush x:Name="WallBrush" Color="#FF2864A0" />
         <SolidColorBrush x:Name="SammyBrush" Color="Orange" />
-        <SolidColorBrush x:Name="JakeBrush" Color="Purple" />
+        <SolidColorBrush x:Name="JakeBrush" Color="Purple" />        
         
         <Style x:Key="LevelBackground" TargetType="Rectangle">
             <Setter Property="Stroke" Value="{StaticResource WallBrush}" />
@@ -24,7 +24,7 @@
             xmlns:vsm="clr-namespace:System.Windows;assembly=System.Windows"
             TargetType="Button"
             x:Key="NewGameButtonStyle">
-            <Setter Property="FontFamily" Value="teen bold.ttf#Teen" />
+            <Setter Property="FontFamily" Value="SilverNibbles.xap#Teen" />
             <Setter Property="FontSize" Value="18" />
             <Setter Property="Template">
                 <Setter.Value>
