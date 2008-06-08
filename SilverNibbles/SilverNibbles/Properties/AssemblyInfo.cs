@@ -87,11 +87,13 @@ using System.Runtime.InteropServices;
 // Fixed an issue with PauseControl able to start new games while invisible
 // v1.17 7 Jun 2008
 // Updated to Silverlight 2.0 beta 2
-// v1.18 8 Jun 2008
+// v1.18 7 Jun 2008
 // Added a ding sound played when getting a number (turned off in this release)
 // Found a new font with a more generous licensing terms - "teen bold" from larabiefonts.com
 // New style using VisualStateManager for one and two player buttons
 // Instructions made to look nicer
+// v1.19 8 Jun 2008
+// Font is now embedded in the XAP file although that means that visual studio doesn't show the right thing
 
 
 // TODO:
