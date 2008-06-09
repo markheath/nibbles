@@ -106,8 +106,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Properties\AppManifest.xml" />
-    <Content Include="teen bold.ttf">
-    </Content>
+    <Resource Include="teen bold.ttf" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Default.htm">

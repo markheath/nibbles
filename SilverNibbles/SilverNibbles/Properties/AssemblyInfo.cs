@@ -94,7 +94,8 @@ using System.Runtime.InteropServices;
 // Instructions made to look nicer
 // v1.19 8 Jun 2008
 // Font is now embedded in the XAP file although that means that visual studio doesn't show the right thing
-
+// v1.20 9 Jun 2008
+// Font is now a resource, as embedding in the XAP will not be supported after beta 2
 
 // TODO:
 // Logo

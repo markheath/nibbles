@@ -39,7 +39,7 @@
         <TextBlock 
             Grid.Row="0"
             Grid.Column="1"
-            FontFamily="SilverNibbles.xap#Teen" 
+            FontFamily="teen bold.ttf#Teen" 
             FontSize="18" 
             Text="Sammy Keys" 
             Foreground="{StaticResource SammyBrush}" 
@@ -49,7 +49,7 @@
         <TextBlock 
             Grid.Row="0"
             Grid.Column="2"
-            FontFamily="SilverNibbles.xap#Teen" 
+            FontFamily="teen bold.ttf#Teen" 
             FontSize="18" 
             Margin="3"
             VerticalAlignment="Center"
@@ -58,7 +58,7 @@
         <TextBlock 
             Grid.Row="1"
             Grid.Column="1"
-            FontFamily="SilverNibbles.xap#Teen" 
+            FontFamily="teen bold.ttf#Teen" 
             FontSize="18" 
             Text="Jake Keys" 
             Margin="3"
@@ -70,12 +70,12 @@
             Orientation="Vertical"
             Margin="3">
         <TextBlock 
-            FontFamily="SilverNibbles.xap#Teen" 
+            FontFamily="teen bold.ttf#Teen" 
             FontSize="18" 
             Text="Up: W, Left: A" 
             Foreground="Black" />            
         <TextBlock 
-            FontFamily="SilverNibbles.xap#Teen" 
+            FontFamily="teen bold.ttf#Teen" 
             FontSize="18" 
             Text="Down: S, Right: D" 
             Foreground="Black" />            
