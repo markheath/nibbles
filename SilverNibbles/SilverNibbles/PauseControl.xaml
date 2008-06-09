@@ -32,12 +32,12 @@
         </Border.RenderTransform>
         <StackPanel Orientation="Vertical">
             <TextBlock HorizontalAlignment="Center" 
-                       Text="SilverNibbles v1.19" 
+                       Text="SilverNibbles v1.20" 
                        Foreground="CadetBlue"
                        TextWrapping="Wrap" 
                        FontWeight="Normal"
                        FontSize="36" 
-                       FontFamily="SilverNibbles.xap#Teen" />
+                       FontFamily="teen bold.ttf#Teen" />
 
             <TextBlock x:Name="textBlockMessage" 
                        HorizontalAlignment="Center" 
@@ -47,7 +47,7 @@
                        TextAlignment="Center"
                        FontWeight="Normal"
                        FontSize="18" 
-                       FontFamily="SilverNibbles.xap#Teen"
+                       FontFamily="teen bold.ttf#Teen"
                        MouseLeftButtonUp="textBlockMessage_MouseLeftButtonUp"/>
             <sn:Instructions 
                 x:Name="instructions" 

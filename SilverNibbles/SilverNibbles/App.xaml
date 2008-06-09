@@ -24,7 +24,7 @@
             xmlns:vsm="clr-namespace:System.Windows;assembly=System.Windows"
             TargetType="Button"
             x:Key="NewGameButtonStyle">
-            <Setter Property="FontFamily" Value="SilverNibbles.xap#Teen" />
+            <Setter Property="FontFamily" Value="teen bold.ttf#Teen" />
             <Setter Property="FontSize" Value="18" />
             <Setter Property="Template">
                 <Setter.Value>
@@ -35,6 +35,7 @@
 
                                     <vsm:VisualStateGroup.Transitions>
                                         <vsm:VisualTransition To="MouseOver" Duration="0:0:0.2" />
+                                        <vsm:VisualTransition To="Normal" Duration="0:0:0.2" />
                                     </vsm:VisualStateGroup.Transitions>
 
                                     <vsm:VisualState x:Name="Normal" />

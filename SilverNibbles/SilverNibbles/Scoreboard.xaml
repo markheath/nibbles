@@ -23,7 +23,7 @@
             Grid.Column="0"
             Text="High Score" 
             FontSize="18"
-            FontFamily="SilverNibbles.xap#Teen" />
+            FontFamily="teen bold.ttf#Teen" />
         <TextBlock 
             x:Name="recordTextBlock" 
             Grid.Row="0" 
@@ -31,7 +31,7 @@
             Margin="5,0,5,0"
             Text="0 on 3 Mar 2008" 
             FontSize="18"
-            FontFamily="SilverNibbles.xap#Teen" />
+            FontFamily="teen bold.ttf#Teen" />
         
         <TextBlock 
             x:Name="levelLabel" 
@@ -40,14 +40,14 @@
             HorizontalAlignment="Right" 
             Margin="5,0,5,0"
             FontSize="18"
-            FontFamily="SilverNibbles.xap#Teen" />
+            FontFamily="teen bold.ttf#Teen" />
         <TextBlock 
             x:Name="levelTextBlock" 
             Grid.Column="3" 
             Margin="5,0,5,0"
             Text="1" 
             FontSize="18"
-            FontFamily="SilverNibbles.xap#Teen" />
+            FontFamily="teen bold.ttf#Teen" />
         
         
         <!-- row 1 -->
@@ -57,7 +57,7 @@
             Grid.Row="1"
             Text="Sammy" 
             FontSize="18"
-            FontFamily="SilverNibbles.xap#Teen" />
+            FontFamily="teen bold.ttf#Teen" />
        <sn:LivesControl
             x:Name="sammyLives" 
             Grid.Row="1"
@@ -72,7 +72,7 @@
             Margin="5,0,5,0"
             Text="0" 
             FontSize="18"
-            FontFamily="SilverNibbles.xap#Teen"
+            FontFamily="teen bold.ttf#Teen"
             />
         
        <TextBlock 
@@ -83,7 +83,7 @@
             HorizontalAlignment="Right" 
             Margin="5,0,5,0"
             FontSize="18"
-            FontFamily="SilverNibbles.xap#Teen"
+            FontFamily="teen bold.ttf#Teen"
            />
         <TextBlock 
             x:Name="speedTextBlock" 
@@ -92,7 +92,7 @@
             Margin="5,0,5,0"
             Text="1" 
             FontSize="18"
-            FontFamily="SilverNibbles.xap#Teen"
+            FontFamily="teen bold.ttf#Teen"
             />
         
         <!-- row 2 -->
@@ -103,7 +103,7 @@
             Grid.Column="0"
             Text="Jake" 
             FontSize="18"
-            FontFamily="SilverNibbles.xap#Teen"
+            FontFamily="teen bold.ttf#Teen"
             />
         <sn:LivesControl
             x:Name="jakeLives" 
@@ -119,7 +119,7 @@
             FontSize="18"
             Margin="5,0,5,0"
             Text="0" 
-            FontFamily="SilverNibbles.xap#Teen"
+            FontFamily="teen bold.ttf#Teen"
            />
     </Grid>
 </UserControl>
