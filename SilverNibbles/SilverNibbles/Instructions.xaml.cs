@@ -37,7 +37,7 @@ namespace SilverNibbles
         public event RoutedEventHandler OnePlayerButtonClicked;
         public event RoutedEventHandler TwoPlayerButtonClicked;
 
-        public bool IsEnabled
+        public bool ButtonsEnabled
         {
 
             get { return button1Player.IsEnabled; }

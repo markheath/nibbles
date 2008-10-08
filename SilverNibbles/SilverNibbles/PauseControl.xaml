@@ -32,7 +32,7 @@
         </Border.RenderTransform>
         <StackPanel Orientation="Vertical">
             <TextBlock HorizontalAlignment="Center" 
-                       Text="SilverNibbles v1.20" 
+                       Text="SilverNibbles v1.21" 
                        Foreground="CadetBlue"
                        TextWrapping="Wrap" 
                        FontWeight="Normal"

@@ -44,7 +44,7 @@ namespace SilverNibbles
                 instructions.Visibility = value ? Visibility.Visible : Visibility.Collapsed;
                 // despite not being visible, the buttons still seem to pick up
                 // the space bar, so we will disable them.
-                instructions.IsEnabled = value;
+                instructions.ButtonsEnabled = value;
             }
 
         }

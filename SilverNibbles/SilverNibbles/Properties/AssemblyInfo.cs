@@ -31,8 +31,8 @@ using System.Runtime.InteropServices;
 //
 // You can specify all the values or you can default the Revision and Build Numbers 
 // by using the '*' as shown below:
-[assembly: AssemblyVersion("1.18.0.0")]
-[assembly: AssemblyFileVersion("1.18.0.0")]
+[assembly: AssemblyVersion("1.21.0.0")]
+[assembly: AssemblyFileVersion("1.21.0.0")]
 
 // v1.02 17 May 2007
 // made snake arena 48 * 80 rather than 50 * 80 with two blank rows
@@ -96,6 +96,8 @@ using System.Runtime.InteropServices;
 // Font is now embedded in the XAP file although that means that visual studio doesn't show the right thing
 // v1.20 9 Jun 2008
 // Font is now a resource, as embedding in the XAP will not be supported after beta 2
+// v1.21 8 Oct 2008
+// Updating to work with Silverlight 2.0 RC0
 
 // TODO:
 // Logo

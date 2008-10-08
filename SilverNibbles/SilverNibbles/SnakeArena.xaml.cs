@@ -13,7 +13,6 @@ namespace SilverNibbles
 {
     public partial class SnakeArena : UserControl
     {
-        //Canvas rootElement;
         public event EventHandler<RoutedEventArgs> OnePlayerClick;
         public event EventHandler<RoutedEventArgs> TwoPlayerClick;
         CellType[,] arena;
@@ -47,14 +46,11 @@ namespace SilverNibbles
 
             levelControl = new LevelControl();
             levelControl.Scale = DefaultBlockSize;
-            /*ScaleTransform levelTransform = new ScaleTransform();
-            levelTransform.ScaleX = DefaultBlockSize;
-            levelTransform.ScaleY = DefaultBlockSize;
 
-            levelControl.RenderTransform = levelTransform;*/
             rootElement.Children.Add(levelControl);
 
             numberTextBlock = new TextBlock();
+            numberTextBlock.FontSize = 14;
             rootElement.Children.Add(numberTextBlock);
 
             snakeCanvas = new Canvas();

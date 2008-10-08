@@ -34,8 +34,8 @@
                                 <vsm:VisualStateGroup x:Name="CommonStates">
 
                                     <vsm:VisualStateGroup.Transitions>
-                                        <vsm:VisualTransition To="MouseOver" Duration="0:0:0.2" />
-                                        <vsm:VisualTransition To="Normal" Duration="0:0:0.2" />
+                                        <vsm:VisualTransition To="MouseOver" GeneratedDuration="0:0:0.2" />
+                                        <vsm:VisualTransition To="Normal" GeneratedDuration="0:0:0.2" />
                                     </vsm:VisualStateGroup.Transitions>
 
                                     <vsm:VisualState x:Name="Normal" />
@@ -64,12 +64,7 @@
                                 <ContentPresenter
                                   Content="{TemplateBinding Content}"
                                   ContentTemplate="{TemplateBinding ContentTemplate}"
-                                  HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
-                                  Padding="{TemplateBinding Padding}"
-                                  TextAlignment="{TemplateBinding TextAlignment}"
-                                  TextDecorations="{TemplateBinding TextDecorations}"
-                                  TextWrapping="{TemplateBinding TextWrapping}"
-                                  VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
+                                    HorizontalAlignment="Center"
                                   Margin="4,2" />
                             </Border>
                         </Grid>
