@@ -121,7 +121,7 @@ namespace SilverNibbles
         void Page_LostFocus(object sender, RoutedEventArgs e)
         {
             if (arena.GameStatus == GameStatus.Running)
-            {
+            {                
                 arena.Pause("Paused - Press Space to continue");
             }
         }
@@ -253,11 +253,7 @@ namespace SilverNibbles
 
             snake[0].DesiredDirection.Clear();
             snake[1].DesiredDirection.Clear();
-
-
         }
-
-
 
         // start a new game
         [ScriptableMember]
