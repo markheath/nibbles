@@ -18,7 +18,7 @@ namespace SilverNibbles
 
         public PauseControl()
         {
-            InitializeComponent();     
+            InitializeComponent();
         }
 
         public void Appear(bool paused)

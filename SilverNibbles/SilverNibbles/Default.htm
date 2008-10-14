@@ -10,54 +10,56 @@
     
     <script type="text/javascript">
     function onNewGameClick(players) {
-   var silverlightControl = document.getElementById('SilverlightControl');
-   if(silverlightControl)
-   {
-       silverlightControl.Content.SilverNibbles.NewGame(players);
-       silverlightControl.focus();
-   }
-}
+        var silverlightControl = document.getElementById('SilverlightControl');
+        if(silverlightControl)
+        {
+           silverlightControl.Content.SilverNibbles.NewGame(players);
+           silverlightControl.focus();
+        }
+    }
 
-function onInitialSpeedChanged() {
-   var silverlightControl = document.getElementById('SilverlightControl');
-   var speedCombo = document.getElementById('InitialSpeedCombo');
-   var index = speedCombo.selectedIndex;
-   silverlightControl.Content.SilverNibbles.StartingSpeed = parseInt(speedCombo.options[index].value,10);
-   silverlightControl.focus();
-}
+    function onInitialSpeedChanged() {
+       var silverlightControl = document.getElementById('SilverlightControl');
+       var speedCombo = document.getElementById('InitialSpeedCombo');
+       var index = speedCombo.selectedIndex;
+       silverlightControl.Content.SilverNibbles.StartingSpeed = parseInt(speedCombo.options[index].value,10);
+       silverlightControl.focus();
+    }
 
 	// Give the keyboard focus to the Silverlight control by default
-function bodyOnLoad() {
+    function bodyOnLoad() {
       var silverlightControl = document.getElementById('SilverlightControl');
       if (silverlightControl)
       silverlightControl.focus();
     }
     
-    </script>
-    
-    
+    </script>       
 </head>
 
 <body onload="bodyOnLoad()">
-	<h3>SilverNibbles - A Silverlight Snake Game</h3>
+
+<h3>SilverNibbles - A Silverlight Snake Game</h3>
+
 <p>By <a href="http://mark-dot-net.blogspot.com/">Mark Heath</a>. 
 Source code available at <a href="http://www.codeplex.com/nibbles">http://www.codeplex.com/nibbles</a>.
 Font used is "Teen bold" from <a href="http://www.larabiefonts.com/index.html">Larabie Fonts</a></p>
 
-    <div id="SilverlightControlHost">
-		<object data="data:application/x-silverlight," 
-		type="application/x-silverlight-2" 
-		id="SilverlightControl" Name="SilverlightControl" width="100%" height="100%">
-			<param name="source" value="SilverNibbles.xap"/>
-			<param name="background" value="white" />
-			
-			<a href="http://go.microsoft.com/fwlink/?LinkID=124807" style="text-decoration: none;">
+<div id="SilverlightControlHost">
+	<object data="data:application/x-silverlight," 
+	type="application/x-silverlight-2" 
+	id="SilverlightControl" name="SilverlightControl" width="100%" height="100%">
+		<param name="source" value="SilverNibbles.xap"/>
+		<param name="background" value="white" />
+		<param name="minRuntimeVersion" value="2.0.31005.0" />
+		<param name="autoUpgrade" value="true" />
+		
+		<a href="http://go.microsoft.com/fwlink/?LinkID=124807" style="text-decoration: none;">
 
-     			<img src="http://go.microsoft.com/fwlink/?LinkId=108181" alt="Get Microsoft Silverlight" style="border-style: none"/>
-			</a>
-		</object>
-		<iframe style='visibility:hidden;height:0;width:0;border:0px'></iframe>
-    </div>
+ 			<img src="http://go.microsoft.com/fwlink/?LinkId=108181" alt="Get Microsoft Silverlight" style="border-style: none"/>
+		</a>
+	</object>
+	<iframe style='visibility:hidden;height:0;width:0;border:0px'></iframe>
+</div>
 
 <!--
 Removed due to FireFox keyboard focus issues
