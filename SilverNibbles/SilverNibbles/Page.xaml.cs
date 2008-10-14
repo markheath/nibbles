@@ -1,16 +1,12 @@
 ﻿using System;
 using System.IO.IsolatedStorage;
 using System.Windows;
+using System.Windows.Browser;
 using System.Windows.Controls;
-using System.Windows.Documents;
-using System.Windows.Ink;
 using System.Windows.Input;
 using System.Windows.Media;
-using System.Windows.Media.Animation;
-using System.Windows.Shapes;
-using System.Windows.Browser;
-using System.Xml;
 using System.Windows.Threading;
+using System.Xml;
 
 namespace SilverNibbles
 {
@@ -30,6 +26,7 @@ namespace SilverNibbles
         public Page()
         {
             InitializeComponent();
+            this.LostFocus += new RoutedEventHandler(Page_LostFocus);
         }
 
         [ScriptableMember]
@@ -99,7 +96,6 @@ namespace SilverNibbles
             // just to redraw screen
             arena.DrawLevel(1);
 
-            this.LostFocus += new RoutedEventHandler(Page_LostFocus);
             this.KeyDown += new System.Windows.Input.KeyEventHandler(rootElement_KeyDown);
             timer = new DispatcherTimer();
             timer.Tick += timer_Completed;
@@ -288,8 +284,6 @@ namespace SilverNibbles
             arena.Stop(message);
         }
 
-
-
         private void UpdateScores()
         {
             scoreboard.SammyScore = snake[0].Score;
@@ -299,10 +293,7 @@ namespace SilverNibbles
                 scoreboard.JakeScore = snake[1].Score;
                 scoreboard.JakeLives = snake[1].Lives;
             }
-
         }
-
-
 
         // move the position on one
         private void OnTimerTick(object sender, EventArgs e)
@@ -422,15 +413,12 @@ namespace SilverNibbles
                     recordDate = DateTime.Today;
                     SaveRecord();
                     ShowRecord();
-
                 }
             }
             else if (playerDied)
             {
                 NewLevel(CurrentLevel);
-
             }
-
         }
 
         private int GetScore(int number)
@@ -476,7 +464,6 @@ namespace SilverNibbles
                             recordDate = DateTime.Parse(reader.GetAttribute("Date"));
                         }
                     }
-
                 }
             }
             catch (System.IO.FileNotFoundException)
@@ -489,7 +476,6 @@ namespace SilverNibbles
                 // that doesn't result in a FileNotFoundException
                 // - need to work out what this is
             }
-
         }
 
         private void SaveRecord()
@@ -588,19 +574,9 @@ namespace SilverNibbles
                     }
                     break;
             }
-
         }
-
-        private void NumberSound_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
-        {
-
-        }
-
     }
 
-
-
-    
     public enum CellType
     {
         Blank,

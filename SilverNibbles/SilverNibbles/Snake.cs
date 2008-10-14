@@ -14,10 +14,8 @@ namespace SilverNibbles
     public class Snake
     {
         string name;
-        SnakeDirection direction;
         SnakeDirection lastQueuedDirection = (SnakeDirection) (-1);
         Queue<SnakeDirection> desiredDirection;
-        int length;
         bool alive;
         int lives;
         int score;
@@ -28,7 +26,7 @@ namespace SilverNibbles
         public Snake(string name, Color color)
         {
             desiredDirection = new Queue<SnakeDirection>();
-            length = 2;
+            Length = 2;
             score = 0;
             lives = 5;
             this.color = color;
@@ -39,11 +37,6 @@ namespace SilverNibbles
             polyline.StrokeLineJoin = PenLineJoin.Round;
             polyline.StrokeEndLineCap = PenLineCap.Round;
             polyline.StrokeStartLineCap = PenLineCap.Round;
-            //ScaleTransform transform = new ScaleTransform();
-            //transform.ScaleX = 8;
-            //transform.ScaleY = 8;
-            //polyline.RenderTransform = transform;
-            
         }
 
         public FrameworkElement Graphics
@@ -75,16 +68,8 @@ namespace SilverNibbles
 
         public int Count
         {
-            get 
-            {
-                return polyline.Points.Count; 
-            }
+            get { return polyline.Points.Count; }
         }
-
-        /*public Queue<Position> Body
-        {
-            get { return body; }
-        }*/
 
         public Queue<SnakeDirection> DesiredDirection
         {
@@ -110,11 +95,7 @@ namespace SilverNibbles
             get { return name; }
         }
 
-        public SnakeDirection Direction
-        {
-            get { return direction; }
-            set { direction = value; }
-        }
+        public SnakeDirection Direction { get; set; }
 
         public Position CurrentPosition
         {
@@ -122,11 +103,7 @@ namespace SilverNibbles
             set { currentPos = value; }
         }
 
-        public int Length
-        {
-            get { return length; }
-            set { length = value; }
-        }
+        public int Length { get; set; }
 
         public int Lives
         {
@@ -153,7 +130,7 @@ namespace SilverNibbles
 
         public void Move()
         {
-            switch (direction)
+            switch (Direction)
             {
                 case SnakeDirection.Up:
                     currentPos.Y--;
