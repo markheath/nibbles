@@ -22,11 +22,14 @@ namespace SilverNibbles
         private int startingSpeed = defaultSpeed;
         private int speed = defaultSpeed;
         private DispatcherTimer timer;
+        private ScoreboardViewModel scoreData;
 
         public Page()
         {
             InitializeComponent();
             this.LostFocus += new RoutedEventHandler(Page_LostFocus);
+            scoreData = new ScoreboardViewModel();
+            scoreboard.DataContext = scoreData;
         }
 
         [ScriptableMember]
@@ -82,8 +85,8 @@ namespace SilverNibbles
 
         private void SetLevelTextBlock()
         {
-            scoreboard.Level = CurrentLevel;
-            scoreboard.Speed = Speed;
+            scoreData.Level = CurrentLevel;
+            scoreData.Speed = Speed;
         }
 
         private void Page_Loaded(object sender, RoutedEventArgs e)
@@ -269,7 +272,7 @@ namespace SilverNibbles
             NewLevel(1);
             UpdateScores();
             arena.Resume();
-            scoreboard.Players = players;
+            scoreData.Players = players;
             //snakeArenaControl.Focus();
         }
 
@@ -292,12 +295,12 @@ namespace SilverNibbles
 
         private void UpdateScores()
         {
-            scoreboard.SammyScore = snake[0].Score;
-            scoreboard.SammyLives = snake[0].Lives;
+            scoreData.SammyScore = snake[0].Score;
+            scoreData.SammyLives = snake[0].Lives;
             if (players == 2)
             {
-                scoreboard.JakeScore = snake[1].Score;
-                scoreboard.JakeLives = snake[1].Lives;
+                scoreData.JakeScore = snake[1].Score;
+                scoreData.JakeLives = snake[1].Lives;
             }
         }
 
@@ -439,11 +442,11 @@ namespace SilverNibbles
         {
             if (recordScore > 0)
             {
-                scoreboard.recordTextBlock.Text = String.Format("{0} on {1}", recordScore, recordDate.ToShortDateString());
+                scoreData.Record = String.Format("{0} on {1}", recordScore, recordDate.ToShortDateString());
             }
             else
             {
-                scoreboard.recordTextBlock.Text = String.Format("0");
+                scoreData.Record = String.Format("0");
             }
         }
 

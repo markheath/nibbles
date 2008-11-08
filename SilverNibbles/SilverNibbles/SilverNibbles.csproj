@@ -89,6 +89,7 @@
     <Compile Include="Scoreboard.xaml.cs">
       <DependentUpon>Scoreboard.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ScoreboardViewModel.cs" />
     <Compile Include="Snake.cs" />
     <Compile Include="SnakeArena.xaml.cs">
       <DependentUpon>SnakeArena.xaml</DependentUpon>
