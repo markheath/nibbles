@@ -13,8 +13,17 @@ namespace SilverNibbles
 {
     public partial class SnakeArena : UserControl
     {
-        public event EventHandler<RoutedEventArgs> OnePlayerClick;
-        public event EventHandler<RoutedEventArgs> TwoPlayerClick;
+        public event RoutedEventHandler OnePlayerClick
+        {
+            add { pauseControl.OnePlayerClick += value; }
+            remove { pauseControl.OnePlayerClick -= value; }
+        }
+
+        public event RoutedEventHandler TwoPlayerClick
+        {
+            add { pauseControl.TwoPlayerClick += value; }
+            remove { pauseControl.TwoPlayerClick -= value; }
+        }
         CellType[,] arena;
         const int DefaultBlockSize = 8;
         private bool noNumber;
@@ -66,8 +75,6 @@ namespace SilverNibbles
             NoNumber = true;
 
             pauseControl = new PauseControl();
-            pauseControl.OnePlayerClick += OnOnePlayerClick;
-            pauseControl.TwoPlayerClick += OnTwoPlayerClick;
             pauseControl.SetValue(Canvas.LeftProperty, (this.Width - pauseControl.Width) / 2);
             pauseControl.SetValue(Canvas.TopProperty, (this.Height - pauseControl.Height) / 2);
             rootElement.Children.Add(pauseControl);            
@@ -115,8 +122,6 @@ namespace SilverNibbles
 
         public void FindNumberLocation()
         {
-
-
             do
             {
                 numberPosition.X = rand.Next(1, Columns - 1);
@@ -178,18 +183,6 @@ namespace SilverNibbles
         public void DrawLevel(int level)
         {
             levelControl.DrawLevel(level,arena);
-
-        }
-        private void OnOnePlayerClick(object sender, RoutedEventArgs e)
-        {
-            if (OnePlayerClick != null)
-                OnePlayerClick(sender, e);
-        }
-
-        private void OnTwoPlayerClick(object sender, RoutedEventArgs e)
-        {
-            if (TwoPlayerClick != null)
-                TwoPlayerClick(sender, e);
 
         }
     }

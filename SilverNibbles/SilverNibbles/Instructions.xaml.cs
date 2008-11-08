@@ -18,24 +18,17 @@ namespace SilverNibbles
 			InitializeComponent();
 		}
 
-        void Button1_Click(object sender, RoutedEventArgs args)
+        public event RoutedEventHandler OnePlayerButtonClicked
         {
-            if (OnePlayerButtonClicked != null)
-            {
-                OnePlayerButtonClicked(this, args);
-            }
+            add { button1Player.Click += value; }
+            remove { button1Player.Click -= value; }
         }
 
-        void Button2_Click(object sender, RoutedEventArgs args)
+        public event RoutedEventHandler TwoPlayerButtonClicked
         {
-            if (TwoPlayerButtonClicked != null)
-            {
-                TwoPlayerButtonClicked(this, args);
-            }
+            add { button2Players.Click += value; }
+            remove { button2Players.Click -= value; }
         }
-
-        public event RoutedEventHandler OnePlayerButtonClicked;
-        public event RoutedEventHandler TwoPlayerButtonClicked;
 
         public bool ButtonsEnabled
         {

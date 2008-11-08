@@ -16,7 +16,8 @@
             <ColumnDefinition Width="Auto"/>
             <ColumnDefinition Width="Auto"/>
             <ColumnDefinition />
-        </Grid.ColumnDefinitions>
+        </Grid.ColumnDefinitions>      
+
         <Button 
             Grid.Row="0"
             Grid.Column="0"
@@ -24,16 +25,15 @@
             Content="1 Player" 
             Margin="3" 
             VerticalAlignment="Center"
-            Click="Button1_Click" 
             Style="{StaticResource NewGameButtonStyle}"/>
+
         <Button 
             Grid.Row="1"
             Grid.Column="0"
             x:Name="button2Players" 
             Content="2 Players" 
-            VerticalAlignment="Center"
             Margin="3" 
-            Click="Button2_Click" 
+            VerticalAlignment="Center"
             Style="{StaticResource NewGameButtonStyle}"/>
 
         <TextBlock 

@@ -13,8 +13,17 @@ namespace SilverNibbles
 {
     public partial class PauseControl : UserControl
     {
-        public event EventHandler<RoutedEventArgs> OnePlayerClick;
-        public event EventHandler<RoutedEventArgs> TwoPlayerClick;
+        public event RoutedEventHandler OnePlayerClick
+        {
+            add { instructions.OnePlayerButtonClicked += value; }
+            remove { instructions.OnePlayerButtonClicked -= value; }
+        }
+
+        public event RoutedEventHandler TwoPlayerClick
+        {
+            add { instructions.TwoPlayerButtonClicked += value; }
+            remove { instructions.TwoPlayerButtonClicked -= value; }
+        }
 
         public PauseControl()
         {
@@ -56,19 +65,6 @@ namespace SilverNibbles
         {
             get { return textBlockMessage.Text; }
             set { textBlockMessage.Text = value; }
-        }
-
-        private void Button1_Click(object sender, RoutedEventArgs e)
-        {
-            if (OnePlayerClick != null)
-                OnePlayerClick(sender, e);
-        }
-
-        private void Button2_Click(object sender, RoutedEventArgs e)
-        {
-            if (TwoPlayerClick != null)
-                TwoPlayerClick(sender, e);
-
         }
 
         private void textBlockMessage_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)

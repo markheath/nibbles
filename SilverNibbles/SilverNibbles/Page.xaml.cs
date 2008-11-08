@@ -88,8 +88,8 @@ namespace SilverNibbles
 
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {
-            arena.OnePlayerClick += new EventHandler<RoutedEventArgs>(arena_OnePlayerClick);
-            arena.TwoPlayerClick += new EventHandler<RoutedEventArgs>(arena_TwoPlayerClick);
+            arena.OnePlayerClick += arena_OnePlayerClick;
+            arena.TwoPlayerClick += arena_TwoPlayerClick;
             
             LoadRecord();
             ShowRecord();
@@ -109,17 +109,23 @@ namespace SilverNibbles
             NewGame(2);
         }
 
+        // I have no idea why we get a lost-focus event when the One player button is
+        // clicked but not the two player button. For now, we fix it a hacky way.
+        bool lostFocusHack;
+
         void arena_OnePlayerClick(object sender, RoutedEventArgs e)
         {
+            lostFocusHack = true;
             NewGame(1);
         }
 
         void Page_LostFocus(object sender, RoutedEventArgs e)
         {
-            if (arena.GameStatus == GameStatus.Running)
+            if (arena.GameStatus == GameStatus.Running && !lostFocusHack)
             {                
                 arena.Pause("Paused - Press Space to continue");
             }
+            lostFocusHack = false;
         }
 
         void timer_Completed(object sender, EventArgs e)
