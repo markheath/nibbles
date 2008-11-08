@@ -49,10 +49,7 @@
                        FontSize="18" 
                        FontFamily="teen bold.ttf#Teen"
                        MouseLeftButtonUp="textBlockMessage_MouseLeftButtonUp"/>
-            <sn:Instructions 
-                x:Name="instructions" 
-                OnePlayerButtonClicked="Button1_Click" 
-                TwoPlayerButtonClicked="Button2_Click" />
+            <sn:Instructions x:Name="instructions" />
         </StackPanel>
         
         </Border>
