@@ -81,8 +81,6 @@ namespace SilverNibbles
             pauseControl.Text = "by Mark Heath\r\nhttp://www.codeplex.com/nibbles";
         }
 
-
-
         public void SetSnakes(IEnumerable<Snake> newSnakes)
         {
             snakeCanvas.Children.Clear();
@@ -112,7 +110,6 @@ namespace SilverNibbles
             pauseControl.Appear(false);
             pauseControl.Text = message;
         }
-
 
         public void Resume()
         {
@@ -183,7 +180,6 @@ namespace SilverNibbles
         public void DrawLevel(int level)
         {
             levelControl.DrawLevel(level,arena);
-
         }
     }
 }

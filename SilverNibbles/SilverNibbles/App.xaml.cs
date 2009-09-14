@@ -11,8 +11,7 @@ namespace SilverNibbles
         {
             this.Startup += this.Application_Startup;
             this.Exit += this.Application_Exit;
-            this.UnhandledException += this.Application_UnhandledException;
-
+            this.UnhandledException += this.Application_UnhandledException;            
             InitializeComponent();
         }
 

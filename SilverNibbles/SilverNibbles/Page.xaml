@@ -4,18 +4,13 @@
              xmlns:sn="clr-namespace:SilverNibbles"
             Width="640"
         Height="460">
-    <Grid x:Name="parentCanvas"
-        Loaded="Page_Loaded" >
-        <StackPanel Orientation="Vertical">
+    <Grid x:Name="parentCanvas">
+        <StackPanel Orientation="Vertical" >
             <Grid Background="{StaticResource WallBrush}">
-                <sn:Scoreboard 
-                    x:Name="scoreboard" 
-                    Margin="8,8,8,0" 
-                    />
-            </Grid>
-        
-        <sn:SnakeArena x:Name="arena" ></sn:SnakeArena>
+            <sn:Scoreboard  x:Name="scoreboard" Margin="8,8,8,0" />
+            </Grid>        
+            <sn:SnakeArena x:Name="arena" ></sn:SnakeArena>
         </StackPanel>
-        <MediaElement x:Name="NumberSound" AutoPlay="False" Source="TriangleDing.mp3" />
+        <!--<MediaElement x:Name="NumberSound" AutoPlay="False" Source="TriangleDing.mp3" />-->
     </Grid>
 </UserControl>

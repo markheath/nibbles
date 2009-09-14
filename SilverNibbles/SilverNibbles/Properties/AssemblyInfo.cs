@@ -31,8 +31,8 @@ using System.Runtime.InteropServices;
 //
 // You can specify all the values or you can default the Revision and Build Numbers 
 // by using the '*' as shown below:
-[assembly: AssemblyVersion("1.23.0.0")]
-[assembly: AssemblyFileVersion("1.23.0.0")]
+[assembly: AssemblyVersion("1.24.0.0")]
+[assembly: AssemblyFileVersion("1.24.0.0")]
 
 // v1.02 17 May 2007
 // made snake arena 48 * 80 rather than 50 * 80 with two blank rows
@@ -103,6 +103,9 @@ using System.Runtime.InteropServices;
 // v1.23 8 Nov 2008
 // Fixing the wierd lost-focus issue on the one-player button click with a rather hacky solution. 
 // No idea why this happens.
+// v1.24 14 Sep 2009
+// Updating to work with Silverlight 3.0
+// Fixed the strange lost-focus issue by using the event.OriginalSource property
 
 // TODO:
 // Logo

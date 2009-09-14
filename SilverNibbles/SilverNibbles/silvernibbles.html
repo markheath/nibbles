@@ -29,8 +29,9 @@
 	// Give the keyboard focus to the Silverlight control by default
     function bodyOnLoad() {
       var silverlightControl = document.getElementById('SilverlightControl');
-      if (silverlightControl)
-      silverlightControl.focus();
+      if (silverlightControl) {
+          silverlightControl.focus();          
+      }
     }
     
     </script>       
@@ -44,11 +45,11 @@
 Source code available at <a href="http://www.codeplex.com/nibbles">http://www.codeplex.com/nibbles</a>.
 Font used is "Teen bold" from <a href="http://www.larabiefonts.com/index.html">Larabie Fonts</a></p>
 
-<div id="SilverlightControlHost">
+<div id="SilverlightControlHost"">
 	<object data="data:application/x-silverlight," 
-	type="application/x-silverlight-2" 
+	type="application/x-silverlight-2"
 	id="SilverlightControl" name="SilverlightControl" width="100%" height="100%">
-		<param name="source" value="SilverNibbles.xap"/>
+		<param name="source" value="ClientBin/SilverNibbles.xap"/>
 		<param name="background" value="white" />
 		<param name="minRuntimeVersion" value="2.0.31005.0" />
 		<param name="autoUpgrade" value="true" />
@@ -62,13 +63,12 @@ Font used is "Teen bold" from <a href="http://www.larabiefonts.com/index.html">L
 </div>
 
 <!--
-Removed due to FireFox keyboard focus issues
+Removed due to FireFox keyboard focus issues -->
 <p>n.b. If you are using FireFox, you may need to click on the game above for it to
 accept keyboard input.</p>
         
 <p>New game: <input type="button" onclick="onNewGameClick(1)" value="One Player" />
 <input type="button" onclick="onNewGameClick(2)" value="Two Players" /></p>
--->
 
 <p>Initial speed: <select id="InitialSpeedCombo" onchange="onInitialSpeedChanged()">
 <option value="1">1 - Very Slow</option>
