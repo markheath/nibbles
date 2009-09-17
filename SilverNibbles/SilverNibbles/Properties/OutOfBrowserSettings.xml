@@ -1,0 +1,7 @@
+<OutOfBrowserSettings ShortName="SilverNibbles" EnableGPUAcceleration="False" ShowInstallMenuItem="True">
+  <OutOfBrowserSettings.Blurb>Snake game based on Microsoft QBasic Nibbles, converted to Silverlight by Mark Heath</OutOfBrowserSettings.Blurb>
+  <OutOfBrowserSettings.WindowSettings>
+    <WindowSettings Title="SilverNibbles" Height="460" Width="640" />
+  </OutOfBrowserSettings.WindowSettings>
+  <OutOfBrowserSettings.Icons />
+</OutOfBrowserSettings>
