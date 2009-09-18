@@ -31,8 +31,8 @@ using System.Runtime.InteropServices;
 //
 // You can specify all the values or you can default the Revision and Build Numbers 
 // by using the '*' as shown below:
-[assembly: AssemblyVersion("1.24.0.0")]
-[assembly: AssemblyFileVersion("1.24.0.0")]
+[assembly: AssemblyVersion("1.25.0.0")]
+[assembly: AssemblyFileVersion("1.25.0.0")]
 
 // v1.02 17 May 2007
 // made snake arena 48 * 80 rather than 50 * 80 with two blank rows
@@ -106,10 +106,11 @@ using System.Runtime.InteropServices;
 // v1.24 14 Sep 2009
 // Updating to work with Silverlight 3.0
 // Fixed the strange lost-focus issue by using the event.OriginalSource property
+// v1.25 18 Sep 2009
+// Out of browser support
 
 // TODO:
 // Logo
-// experiment with gradients
 // fair outcome of head-on collisions
 // sound effects
 // music
