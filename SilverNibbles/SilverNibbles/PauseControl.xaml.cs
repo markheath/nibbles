@@ -71,7 +71,7 @@ namespace SilverNibbles
         {
             if(textBlockMessage.Text.Contains("http://"))
             {
-                HtmlPage.Window.Navigate(new Uri("http://www.codeplex.com/nibbles"),"nibbles");
+                HtmlPage.Window.Navigate(new Uri("http://nibbles.codeplex.com"),"nibbles");
             }
         }
 
