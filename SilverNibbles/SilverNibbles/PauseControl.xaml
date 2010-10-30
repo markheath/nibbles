@@ -42,7 +42,7 @@
             <TextBlock x:Name="textBlockMessage" 
                        HorizontalAlignment="Center" 
                        Margin="8,0,8,0" 
-                       Text="by Mark Heath, www.codeplex.com/nibbles" 
+                       Text="by Mark Heath, http://nibbles.codeplex.com" 
                        TextWrapping="Wrap" 
                        TextAlignment="Center"
                        FontWeight="Normal"

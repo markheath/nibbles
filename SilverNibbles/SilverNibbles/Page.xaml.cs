@@ -419,7 +419,6 @@ namespace SilverNibbles
             {
                 GameOver();
                 int bestScore = Math.Max(snake[0].Score, snake[1].Score);
-
                 if (bestScore > record.Score)
                 {
                     record.Score = bestScore;
