@@ -14,8 +14,7 @@ namespace SilverNibbles
     public partial class Page : UserControl
     {
         private int currentLevel;
-        private int recordScore;
-        private DateTime recordDate;
+        private HighScore record = new HighScore();
         private int players;
         private Snake[] snake = new Snake[2];
         const int defaultSpeed = 5;
@@ -94,8 +93,9 @@ namespace SilverNibbles
         {
             arena.OnePlayerClick += arena_OnePlayerClick;
             arena.TwoPlayerClick += arena_TwoPlayerClick;
-            
-            LoadRecord();
+
+            var persister = new HighScorePersister();
+            this.record = persister.Load();
             ShowRecord();
             // just to redraw screen
             arena.DrawLevel(1);
@@ -420,11 +420,12 @@ namespace SilverNibbles
                 GameOver();
                 int bestScore = Math.Max(snake[0].Score, snake[1].Score);
 
-                if (bestScore > recordScore)
+                if (bestScore > record.Score)
                 {
-                    recordScore = bestScore;
-                    recordDate = DateTime.Today;
-                    SaveRecord();
+                    record.Score = bestScore;
+                    record.Date = DateTime.Today;
+                    HighScorePersister persister = new HighScorePersister();
+                    persister.Save(record);
                     ShowRecord();
                 }
             }
@@ -444,68 +445,13 @@ namespace SilverNibbles
         /// </summary>
         private void ShowRecord()
         {
-            if (recordScore > 0)
+            if (record.Score > 0)
             {
-                scoreData.Record = String.Format("{0} on {1}", recordScore, recordDate.ToShortDateString());
+                scoreData.Record = String.Format("{0} on {1}", record.Score, record.Date.ToShortDateString());
             }
             else
             {
                 scoreData.Record = String.Format("0");
-            }
-        }
-
-        private void LoadRecord()
-        {
-            IsolatedStorageFile file = IsolatedStorageFile.GetUserStoreForApplication();
-            
-            // TEST file.DeleteFile("record.xml");
-            IsolatedStorageFileStream stream = null;
-            try
-            {
-                stream = new IsolatedStorageFileStream(
-                             "record.xml",
-                             System.IO.FileMode.Open,
-                             System.IO.FileAccess.Read,
-                             file);
-                if (stream != null)
-                {
-                    using (XmlReader reader = XmlReader.Create(stream))
-                    {
-                        if (reader.ReadToFollowing("HighScore"))
-                        {
-                            recordScore = Int32.Parse(reader.GetAttribute("Score"));
-                            recordDate = DateTime.Parse(reader.GetAttribute("Date"));
-                        }
-                    }
-                }
-            }
-            catch (System.IO.FileNotFoundException)
-            {
-                // this is OK - will be not found first time in
-            }
-            catch (Exception)
-            {
-                // first run on Vista seems to have a problem,
-                // that doesn't result in a FileNotFoundException
-                // - need to work out what this is
-            }
-        }
-
-        private void SaveRecord()
-        {
-            IsolatedStorageFile file = IsolatedStorageFile.GetUserStoreForApplication();
-            IsolatedStorageFileStream stream = new IsolatedStorageFileStream(
-                                                   "record.xml",
-                                                   System.IO.FileMode.Create,
-                                                   file);
-            using (XmlWriter writer = XmlWriter.Create(stream))
-            {
-                writer.WriteStartElement("HighScores");
-                writer.WriteStartElement("HighScore");
-                writer.WriteAttributeString("Score", recordScore.ToString());
-                writer.WriteAttributeString("Date", recordDate.ToLongDateString());
-                writer.WriteEndElement();
-                writer.WriteEndElement();
             }
         }
 

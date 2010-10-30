@@ -10,7 +10,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Mark Heath")]
 [assembly: AssemblyProduct("SilverNibbles")]
-[assembly: AssemblyCopyright("Copyright © Mark Heath 2007-2009")]
+[assembly: AssemblyCopyright("Copyright © Mark Heath 2007-2010")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
@@ -31,8 +31,8 @@ using System.Runtime.InteropServices;
 //
 // You can specify all the values or you can default the Revision and Build Numbers 
 // by using the '*' as shown below:
-[assembly: AssemblyVersion("1.25.0.0")]
-[assembly: AssemblyFileVersion("1.25.0.0")]
+[assembly: AssemblyVersion("1.26.0")]
+[assembly: AssemblyFileVersion("1.26.0")]
 
 // v1.02 17 May 2007
 // made snake arena 48 * 80 rather than 50 * 80 with two blank rows
@@ -108,6 +108,8 @@ using System.Runtime.InteropServices;
 // Fixed the strange lost-focus issue by using the event.OriginalSource property
 // v1.25 18 Sep 2009
 // Out of browser support
+// v1.26 30 Oct 2010
+// Converted to Visual Studio 2010
 
 // TODO:
 // Logo
