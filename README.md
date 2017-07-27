@@ -6,6 +6,8 @@ This is a simple Windows Forms game, developed in C#, based on Microsoft QBasic 
 
 SilverNibbles is a port of Nibbles .NET to Silverlight 3.0. We have also taken advantage of the graphics capabilities of Silverlight to enhance the appearance slightly (while retaining a strong visual resemblance to the original). A recent version can be played below. You can also read some [development notes](developmentnotes.md).
 
+![screenshot](Home_silvernibbles2.png)
+
 # Help
 
 The original [Nibbles](http://en.wikipedia.org/wiki/Nibbles_%28computer_game%29) game ran on [QBasic](http://en.wikipedia.org/wiki/Qbasic), which was supplied with early versions of Windows. Nibbles .NET is a port of the original QBasic code to run on any version of Windows with the .NET 2.0 framework or higher installed.
